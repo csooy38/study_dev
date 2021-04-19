@@ -15,11 +15,6 @@
 </html>
 ```
 
-실행하면 다음과 같은 크롬창이 열린다.
-
-![image](./images/1.PNG)
-
-
 
 ### HTML(HyperText Markup Language)
 HTML은 웹 페이지를 만드는데 사용되는 언어이며, 매우 쉽게 배울 수 있는 장점이 있다.
