@@ -19,8 +19,8 @@
 
 6) 한글 설정 : Window - Preference - enc 검색 - Workspace/CSS Files/HTML Files/JSP Files/XML Files 모두 UTF-8로 설정
 
-<p align="center"><img src="./images/06.PNG" width="80%"></p>
+<p align="center"><img src="./images/06.png" width="80%"></p>
 
 7) Window - Web Browser - Chrome 으로 설정
 
-<p align="center"><img src="./images/07.PNG" width="80%"></p>
+<p align="center"><img src="./images/07.png" width="80%"></p>
