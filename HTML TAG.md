@@ -185,7 +185,7 @@
 <p align="center"><img src="./images/210419/19.png" width="50%"></p>
 
 - 두 번째 '구글' 클릭 시 새 창에서 google.com 으로 이동한다.
-<p align="center"><img src="./images210419/20.png" width="50%"></p>
+<p align="center"><img src="./images/210419/20.png" width="50%"></p>
 
 - '남대문의 어원' 클릭 시 위에서 작성한 내용이 적힌 페이지로 이동한다.
 <p align="center"><img src="./images/210419/21.png" width="50%"></p>
