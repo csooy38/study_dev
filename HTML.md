@@ -27,7 +27,7 @@ HTML은 웹 페이지를 만드는데 사용되는 언어이며, 매우 쉽게 �
   * 예) <시작태그>텍스트</끝태그>
   
 	
-```
+```html
 <!-- HTML에서의 주석 - 주석문 단축키 : ctrl+shift+/(슬래시) -->
 
 <!-- 문서의 형식 : HTML 버전 1, 2, 3, 4, 5-->
@@ -61,21 +61,21 @@ HTML은 웹 페이지를 만드는데 사용되는 언어이며, 매우 쉽게 �
 #### 페이지 소스 보기
 실행창에서 마우스 오른클릭 후 **페이지 소스보기**를 하면 다음과 같이 입력된 전체 소스코드를 볼 수 있다.
 
-<p align="center"><img src="./images/01.PNG" width="80%"></p>
-<p align="center"><img src="./images/02.PNG" width="80%"></p>
+<p align="center"><img src="./images/210419/01.PNG" width="80%"></p>
+<p align="center"><img src="./images/210419/02.PNG" width="80%"></p>
 
 
 #### 개발자 모드 
 - 실행창에서 F12를 누르면 실행된다.
 
 - 코드를 마우스로 선택하면 해당 코드에 해당되는 영역이 표시된다.
-<p align="center"><img src="./images/03.PNG" width="80%"></p>
+<p align="center"><img src="./images/210419/03.PNG" width="80%"></p>
 
 - 제목태그는 상하로 일정영역이 잡혀있다.
-<p align="center"><img src="./images/04.PNG" width="80%"></p>
+<p align="center"><img src="./images/210419/04.PNG" width="80%"></p>
 
 - 일반텍스트는 상하로 별다른 영역이 잡혀있지 않다.
-<p align="center"><img src="./images/05.PNG" width="80%"></p>
+<p align="center"><img src="./images/210419/05.PNG" width="80%"></p>
 
 
 
