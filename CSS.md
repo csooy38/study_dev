@@ -21,17 +21,9 @@ HTML이 웹 페이지의 "뼈대"라고 한다면 CSS는 "살"이라고 할 수 
 * 외부에 스타일시트 파일로 선언하고 사용할 때의 장점은 모든 HTML 파일에 동일하게 적용이 가능하다는 점이다.
 
 #### 예제 1 CSS 사용 방법 : 외부 파일(*.css) 링크 방식
-```html
-<head>
-<link rel="stylesheet" href="css/main.css"> // 헤더 안에서 선언
-</head>
-
-<body>
-<p>link 방식으로 스타일 지정하기</p>
-</body>
-```
 
 ```css
+// main.css 파일
 // html 파일에서 선언한 링크 "css/main.css" 주소에 파일을 만들고 아래의 코드를 작성하였다.
 
 // 링크된 html의 <p>태그에 적용되는 css
@@ -58,6 +50,18 @@ body {
 }
 
 ```
+```html
+// html 파일
+<head>
+<link rel="stylesheet" href="css/main.css"> // 헤더 안에서 선언
+</head>
+
+<body>
+<p>link 방식으로 스타일 지정하기</p>
+</body>
+```
+    
+    
 엄청난 게 만들어졌다. 정말 beauty한 화면이다.    
 헤더 밑에서 선언한 링크(css/main.css)의 코드에 따라 p태그와 body태그의 디자인이 결정되었다.    
 <img src="./images/210420/34.png">  
