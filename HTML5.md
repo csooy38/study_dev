@@ -17,9 +17,9 @@
  
 #### HTML5의 태그
 ------------------
-* "<b>" : 볼드체.
-* <strong> : 볼드와 같은 역할.
-* <mark> : 글자 배경색을 노란색 처리. style="background-color:yellow; 와 동일.
+* ```<b>``` : 볼드체.
+* ```<strong>``` : 볼드와 같은 역할.
+* ```<mark>``` : 글자 배경색을 노란색 처리. style="background-color:yellow; 와 동일.
 
 ```
 <b>볼드체</b>
@@ -27,6 +27,7 @@
 <mark>mark 적용</mark>
 
 ```
+
 <b>볼드체</b><br>
 <strong>스트롱</strong><br>
 <mark>mark 적용</mark><br>
