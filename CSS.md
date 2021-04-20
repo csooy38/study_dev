@@ -199,11 +199,11 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 	<span>인라인 레벨 요소 : span</span>
 ```
 겉보기엔 별다를 게 없어보이는 p태그와 span 태그로 작성한 문장이지만    
-<img src="./images/210420/37.png">  
+<img src="./images/210420/37.png">     
 개발자모드(F12)로 보면 p태그는 작성하지 않은 가로 넓이 끝까지 블록이 지정되어 있으며,    
-<img src="./images/210420/38.png">
+<img src="./images/210420/38.png">    
 반면에 span 태그는 작성한 영역만 소숫점 단위로 너비가 지정되어 있음을 알 수 있다.
-<img src="./images/210420/39.png">    
+<img src="./images/210420/39.png">     
 	
 
 	
