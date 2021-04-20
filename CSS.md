@@ -52,8 +52,8 @@ body {
 ```
 ```html
 // html 파일
-<head>
-<link rel="stylesheet" href="css/main.css"> // 헤더 안에서 선언
+<head>  // 헤더 안에서 선언
+<link rel="stylesheet" href="css/main.css"> // 링크한 파일의 스타일을 적용한다.
 </head>
 
 <body>
@@ -63,7 +63,7 @@ body {
     
     
 엄청난 게 만들어졌다. 정말 beauty한 화면이다.    
-헤더 밑에서 선언한 링크(css/main.css)의 코드에 따라 p태그와 body태그의 디자인이 결정되었다.    
+링크한 css파일의 코드에 따라 p태그와 body태그의 디자인이 결정되었다.    
 <img src="./images/210420/34.png">  
 
 
