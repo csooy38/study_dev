@@ -230,7 +230,7 @@ display는 웹 페이지 상에서 요소들이 어떻게 보여지고 다른 �
 ```
 아래와 같이 가로로 3개의 이미지가 연달아 출력된다.     
 <p align="center"><img src="./images/210421/05.png"></p>   
-```<img>```는 기본적으로 인라인 레벨 요소로 각각 필요한 만큼만 너비로 사용하기 때문이다.    
+기본적으로 ```<img>```는 인라인 레벨 요소로 각각 필요한 만큼만 너비로 사용하기 때문이다.    
 <p align="center"><img src="./images/210421/06.png"></p>   
 
 여기에 위에서 선언한 class 선택자에 ```display: block;```라는 값을 주면
@@ -267,7 +267,7 @@ display 속성이 block이 되면서 각각의 이미지 전후에 줄바꿈이 
 
 위와 같이 코드를 작성하고 실행하면 아래와 같은 창이 열린다.    
 <p align="center"><img src="./images/210421/09.png"></p>
-```<li>```태그는 기본적으로 블록 레벨 요소이기 때문에, 각각 한줄씩 차지하여 세로로 출력이 된다. 
+기본적으로 ```<li>``` 태그는 블록 레벨 요소이기 때문에, 각각 한줄씩 차지하여 세로로 출력이 된다. 
 <p align="center"><img src="./images/210421/12.png"></p> 
 
 가로로 길게 보고 싶으므로, 아래와 같이 ```<head>```영역에 하위태그 선택자를 입력하고 ```display: inline;``` 속성을 입력한다.
@@ -305,9 +305,11 @@ display 속성이 inline이 되어 전후 줄바꿈 없이 한 줄에 다른 요
 ```
 
 아래와 같이 출력된다.    
-<p align="center"><img src="./images/210421/00.png"></p>    
-개발자모드로 보면 ```<h1>```의 기본 폰트 사이즈는 32px,    
+<p align="center"><img src="./images/210421/00.png"></p>     
+
+개발자모드로 보면 ```<h1>``` 의 기본 폰트 사이즈는 32px,    
 <p align="center"><img src="./images/210421/02.png"></p>    
+
 ```<p>```태그의 기본 폰트사이즈는 16px이다.    
 <p align="center"><img src="./images/210421/03.png"></p>      
 
@@ -320,7 +322,8 @@ h1 {
 ```
 아래와 같이 ```<h1>```의 크기가 변경된 것을 볼 수 있다.    
 <p align="center"><img src="./images/210421/01.png"></p>      
-개발자모드로 보면 폰트사이즈가 48px로 변경되었음을 알 수 있다.    
+개발자모드로 보면 폰트사이즈가 48px로 변경되었음을 알 수 있다.   
+
 즉, ```<body>``` 태그의 기본 글자 크기인 16px을 기준으로 3em(=3배)인 48px로 폰트사이즈가 변경되었다.    
 <p align="center"><img src="./images/210421/04.png"></p>
 
@@ -387,9 +390,9 @@ h1 {
 
 <p align="center"><img src="./images/210421/14.png"></p>
 
-class 선택자에 ```margin``` 속성을 추가하여 ```box1```의 ``` 바깥 여백 값을 변경한다.
+class 선택자에 ```margin``` 속성을 추가하여 ```box1```의 바깥 여백 값을 변경한다.
 
-```html
+```css
 .box1 {
 	margin: 10px 10px 10px 10px; /* 바깥쪽 여백 - 상단, 오른쪽, 하단, 왼쪽 */
 }
@@ -422,19 +425,20 @@ class 선택자에 ```margin``` 속성을 추가하여 ```box1```의 ``` 바깥 
 현재 ```box2```의 사이즈는 300*200 이다.
 <p align="center"><img src="./images/210421/23.png"></p>
 
-class 선택자에 ```padding``` 속성을 추가하여 ```box2```의 ``` 안쪽 여백을 늘린다.
+class 선택자에 ```padding``` 속성을 추가하여 ```box2```의 안쪽 여백을 늘린다.
 
-```html
+```css
 .box2 {
 	padding: 20px;	/* 안쪽 여백 - 상단, 오른쪽, 하단, 왼쪽 */
 }
 ```
 
 ```padding``` 값 지정 후 ```box2```의 사이즈가 커졌다.
-<p align="center"><img src="./images/210421/24.png"></p>
+<p align="center"><img src="./images/210421/24.png"></p>    
+
 개발자 모드로 보면 사이즈가 340*240으로 상하좌우로 20px씩 내부여백이 늘어났음을 알 수 있다.    
 즉, 내부 여백이 늘어났으므로 늘어난 크기만큼 요소의 크기가 커진다.
-src="./images/210421/25.png"></p>
+<p align="center"><img src="./images/210421/25.png"></p>
 
 그렇다면 내부 여백이 커져도 최초의 크기를 유지하기 위해선 어떻게 해야 할까?    
 바로 ```box-sizing```을 활용하면 된다.
@@ -499,7 +503,7 @@ border는 요소의 테두리 선을 지정할 때 사용하는 속성이다.
 
 ```border: 15px solid red;``` 대신 아래와 같이 입력해도 동일한 결과가 나온다.    
 
-```html
+```css
 border-width: 15px; 
 border-style: solid; 
 border-color: red;		
