@@ -463,11 +463,14 @@ class 선택자에 ```padding``` 속성을 추가하여 ```box2```의 안쪽 여
 <p align="center"><img src="./images/210421/17.png"></p>
 
 border는 요소의 테두리 선을 지정할 때 사용하는 속성이다.
-* 형식) border: 두께 종류 색상;
+* 형식) border: (두께) (종류) (색상);
 * 개별적으로 사용하는 속성.
 	* border-width : 테두리 선의 두께
 	* border-style : 테두리 선의 종류
 	* border-color : 테두리 선의 색상	
+	* border-radius: 모서리가 둥근 사각형 (CSS3에 추가된 기능)
+		* 상단 오른쪽 하단 왼쪽순으로 둥글기를 지정한다. 
+		* 예) ```border-radius: 0 20px 0 20px```
 * 사용법
 	* border-style(테두리 선의 종류)
 		* none : 테두리 선 없음
@@ -480,6 +483,7 @@ border는 요소의 테두리 선을 지정할 때 사용하는 속성이다.
 		* ridge : 솟은 모양의 선(groove의 반대)
 		* inset : 요소 전체가 들어간 선
 		* outset : 요소 전체가 나온 선
+
 
 #### [예] border
 
@@ -518,7 +522,7 @@ border-color: red;
 
 ### text-shadow 
 text-shadow는 텍스트에 그림자를 지정하는 속성이다.
-* 형식) text-shadow: 가로거리 세로거리 번짐정도 색상;
+* 형식) text-shadow: (가로거리) (세로거리) (번짐정도) (색상);
 	* 가로거리 : 텍스트로부터 그림자까지의 가로 거리.
 		* 양수 값은 글자 오른쪽으로, 음수 값은 왼쪽으로 그림자를 만든다.
 		* 필수적으로 들어가야 하는 속성.
@@ -550,12 +554,57 @@ text-shadow는 텍스트에 그림자를 지정하는 속성이다.
 ```
 
 <p align="center"><img src="./images/210421/29.png"></p>
+
+
+### box-shadow 
+box-shadow는 요소에 그림자를 만드는 속성이다.
+* 형식) box-shadow: (수평거리) (수직거리) (흐림정도) (번짐정도) (색상)
+	* 수평거리 : 그림자의 수평 거리(얼마나 떨어져 있는지)
+		* 양수 값은 오른쪽, 음수 값은 왼쪽에 그림자를 만든다.
+	* 수직거리 : 그림자의 수직 거리(얼마나 떨어져 있는지)
+		* 양수 값은 아래쪽, 음수 값은 위쪽에 그림자를 만든다. 	
+		* 흐림정도 : 그림자의 흐림 정도를 표현. 기본 값은 해가 진 그림자를 표시.
+		* 값이 커질수록 부드러운 그림자를 표시한다.
+		* 음수값은 사용불가.
+	* 번짐정도 : 그림자가 번지는 정도를 표현.
+		* 양수 값은 그림자가 모든 방향으로 퍼진다.
+		* 음수 값은 그림자가 모든 방향으로 축소되어 보인다.
+
+#### [예] box-shadow
+튤립 이미지를 절대 위치로 설정한 후, 그림자를 만들어 보자.
+
+```html
+<head>
+<style type="text/css">
+
+	.shadow{
+		position: absolute;	/* 절대 위치 */
+		left: 450px;
+		top: 20px;
+		
+		border-radius: 50px;
+		box-shadow: 50px 50px 10px orange;
+	}
+	
+</style>
+</head>
+<body>
+	
+	<img class="shadow" src="images/img.jpg" alt="튤립">
+
+</body>
+```
+
+<p align="center"><img src="./images/210421/34.png"></p>
 		
 
-### line-height	속성
-line-height은 줄과 줄 사이의 간격(행간)을 조절하는 속성이다.
+### line-height
+line-height은 줄과 줄 사이의 간격, 즉 행간을 설정하는 속성이다.
 
-#### [예] line-height
+### word-spacing
+word-spacing은 글자와 글자 사이의 간격, 즉 자간을 설정하는 속성이다.
+
+#### [예] line-height & word-spacing
 
 ```html
 <body>
@@ -572,19 +621,21 @@ line-height은 줄과 줄 사이의 간격(행간)을 조절하는 속성이다.
 
 <p align="center"><img src="./images/210421/30.png"></p>
 
-선택자에 ```line-height``` 속성을 넣어 행간을 조절한다.
+선택자에 속성을 넣어 행간과 자간을 조절한다.
+
 ```html
 <head>
 <style type="text/css">
 
 	p {
 		line-height: 30px; 
+		word-spacing: 10px;
 	}
 
 </style>
 </head>
 ```
-
+행간과 자간 모두 지정한 픽셀만큼 넓어졌다.    
 <p align="center"><img src="./images/210421/31.png"></p>
 
 
@@ -680,5 +731,103 @@ float 웹 문서의 요소를 떠 있게 하는 방법을 의미한다.
 ```
 
 <p align="center"><img src="./images/210421/33.png"></p>
+
+
+## 접두사(prefix) ```-ms-``` ```-webkit``` ```-moz-``` ```-o-```
+CSS는 모듈이 많고 표준 규약이 아직 완성되지 않은 부분도 많이 있다. 따라서 현재 계속적으로 개발이 되고 있는 상황이다. 하지만 아직 표준 규약이 아닌 속성들은 브라우저에 따라 다른 방식으로 지원이 되기 때문에 속성 이름 앞에 접두사(prefix)를 붙여서 브라우저별로 구분을 해 주어야 한다.
+* ```-ms-``` : 인터넷 익스플로어
+* ```-webkit``` : 크롬, 사파리 브라우저
+* ```-moz-``` : 모질라, 파이어폭스 브라우저
+* ```-o-``` : 오페라 브라우저
+
+#### [예] 접두사(prefix)
+
+```transform``` 은  아직 표준 규약이 제대로 완성되지 않은 속성이다.   
+따라서 적용시키기 위해서는 아래와 같이 브라우저 별로 구분하여 접두사를 붙여야 한다.   
+
+```html
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	.photo {
+		position: absolute;
+		left: 50px;
+		top: 100px;
+		
+		transform: rotate(15deg);	/* 회전을 시키는 명령어 */
+		
+		-ms-transform: rotate(15deg);
+		-webkit-transform: rotate(15deg);
+		-moz-transform: rotate(15deg);
+		-o-transform: rotate(15deg);
+	}
+
+</style>
+</head>
+<body>
+
+	<img class="photo" src="images/img.jpg" alt="튤립">
+	
+
+</body>
+
+```
+
+<p align="center"><img src="./images/210421/35.png"></p>
+
+
+### opacity
+opacity 속성은 투명도를 조절한다. 
+* 0 ~ 1 사이로 조절할 수 있다.
+	* 0 : 투명한 상태. 보이지 않는다.
+	* 0.5 : 반투명한 상태.
+	* 1 : 불투명한 상태. 원 상태 그대로 보인다.
+
+#### [예] opacity
+```html
+<head>
+<style type="text/css">
+
+	.photo {
+		opacity: 0.5; 
+	}
+
+</style>
+</head>
+<body>
+
+	<img class="photo" src="images/img.jpg" alt="튤립">
+
+</body>
+```
+
+위의 **[예] 접두사** 와 비교했을 때 확실히 투명해졌다.
+<p align="center"><img src="./images/210421/36.png"></p>
+
+
+### hover
+호버 효과를 준다. 이미지 태그에 마우스가 올라갔을 때 디자인이 적용된다.    
+
+* 형식) 선택자:hover { 속성: 값; }
+	* 기존의 상태에서 ```:hover```로 지정된 선택자 안의 디자인으로 바뀐다.
+	* 따라서 별도로 설정해주어야 한다.
+
+#### [예] hover
+
+위의 **[예] opacity**에 호버효과를 적용해 보자.    
+선택자에 다음 코드를 입력하면
+
+```html
+.photo:hover {
+	opacity: 1;
+}
+```
+
+반투명했던 이미지가 마우스를 올릴 때마다 선명하게 전환된다.
+<img src="./images/210421/36.png"><img src="./images/210421/37.png">
+
+
 
 
