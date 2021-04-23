@@ -27,7 +27,7 @@
 	- 자바스크립트의 대표적인 라이브러리 언어는 제이쿼리(JQuery). 자바스크립트를 이용하여 다양한 기능들을 쉽게 구현할 수 있도록 만들어 놓은 함수들의 집합을 이용하면 쉽게 구현이 가능하다.
 
 
-# 자바 스크립트의 기초
+# 자바 스크립트의 기본
 `<head>` 태그 안에 `<script>` 태그를 열고 그 안에 내용을 입력하여 사용한다.  
 ```javascript
 <script type="text/javascript">
@@ -163,7 +163,7 @@ alert("alert()를 이용하는 방법");
 개발 시 문법적으로 전혀 문제가 없어도 어떤 경우에는 정상적으로 동작하고, 어떤 경우에는 동작이 제대로 안 되는 경우가 발생한다. 프로그램에서는 이런 것을 논리적인 오류인 버그라고 부르고, 버그를 찾아 없애는 작업을 디버깅이라고 한다.
 
 
-## 외부에 있는 자바스크립트 파일을 불러와서 실행하는 방법 
+### * 외부에 있는 자바스크립트 파일을 불러와서 실행하는 방법 
 ```javascript
 <script type="text/javascript" src="../js/console.js"></script>
 ```
@@ -250,8 +250,8 @@ document.write("당신의 적정 몸무게는 " + standWeight + "kg입니다.<br
 
 
 
-## 자바 스크립트의 변수	 
-### 1. 변수
+# 자바 스크립트의 변수	 
+## 1. 변수
 데이터를 저장하는 공간. 데이터가 변할 수 있다.
 	* 물건을 보관했다가 필요할 때 다시 꺼내 사용하는 일종의 창고라고 생각하면 된다. 보관하는 내용이 물건 대신 데이터라는 점.
 	* 특히 자바스크립트는 변수에 숫자와 문자 뿐만 아니라 함수와 클래스까지 저장이 가능하다.
@@ -286,7 +286,7 @@ console.log(name);
 <p align="center"><img src="./images/210422/08.png"></p> 
 
 		
-### 2. 상수
+## 2. 상수
 데이터를 저장하는 공간으로, 한 번 초기화된 상수의 데이터는 변할 수 없다.
 * 형식) `const 상수명 = 값;`
 
@@ -314,7 +314,7 @@ document.write(num + "<br>");
 		
 				
 		
-### * 자바스크립트에서의 자료형
+## * 자바스크립트에서의 자료형
 - 숫자형`number` : 숫자를 표현하는 자료형. 숫자 안에서도 정수, 실수로 구분이 되는데 자바스크립트에서의 숫자 자료형은 그 종류들을 하나로 총괄한다. 십진수와 실수형은 일반적으로 사용하는 숫자. 하지만 16진수는 글자색이나 배경색을 나타낼 때 주로 사용한다.
 	* 예) `var age = 30;` (정수 10진수)
 	*	`var color = 0xF00;` (빨간색)
@@ -332,7 +332,7 @@ document.write(num + "<br>");
 let data;
 document.write("data >>> " + data + "<br>");
 ```
-<p align="center"><img src="./images/210422/11.png"></p> 
+<p align="center"><img src="./images/210423/11.png"></p> 
 
 - `null` : 아무것도 참조하고 있지 않다는 의미. 주로 객체를 담을 변수를 초기화할 때 많이 사용된다.
 - `NaN` : Not A Number. 즉, 숫자가 아닌 데이터를 숫자처럼 사용할 때 나타난다.
@@ -342,10 +342,10 @@ let a = Number("$1000");
 document.write("a >>> " + a + "<br>");
 document.write("0/0 >>> " + 0/0);
 ```
-<p align="center"><img src="./images/210422/12.png"></p> 
+<p align="center"><img src="./images/210423/12.png"></p> 
 	
 
-### * 변수명 작성 규칙
+## * 변수명 작성 규칙
 1. 영문 대/소문자, 숫자, _ 또는 $ 만을 사용할 수 있다.
 2. 변수명의 첫 글자로는 숫자가 오면 안 된다.
 3. 변수명은 대소문자를 구분함. 예) `SUM`과 `sum`은 다른 변수명으로 인식.
@@ -357,11 +357,11 @@ document.write("0/0 >>> " + 0/0);
 
 
 
-## 자바 스크립트의 연산자
+# 자바 스크립트의 연산자
 기본적으로 java의 연산자와 비슷하다.
 
 
-### * 기본 연산자 `+` `-` `*` `/` `%`
+## 1. 기본 연산자 `+` `-` `*` `/` `%`
 기본적으로 java의 연산자와 동일하다.
 - `+` : 덧셈.
 - `-` : 뺄셈.
@@ -372,11 +372,11 @@ document.write("0/0 >>> " + 0/0);
 	- 배수 판별시에도 사용. 
 
 
-### * 대입 연산자 `=`
+## 2. 대입 연산자 `=`
 좌항에 우항의 데이터를 대입하는 연산자.
 
 
-### * 관계(비교) 연산자 `>=` `>` `<=` `<` `==` `!=` `===`
+## 3. 관계(비교) 연산자 `>=` `>` `<=` `<` `==` `!=` `===`
 결과는 boolean형(`true` `false`)으로 반환된다.  
 java의 연산자와 동일하나 자바 스크립트에서는 `==`의 사용법이 달라졌으며, `===`가 새롭게 등장하였다.
 - `>=` : 크거나 같다 
@@ -416,7 +416,7 @@ document.write(su1 + " === " + su2 + " >>> " + (su1 === su2) + "<br>");
 <p align="center"><img src="./images/210422/19.png"></p>
 
    
-### * 논리 연산자 `&&` `||` `!`
+## 4. 논리 연산자 `&&` `||` `!`
 논리연산자는 우선적으로 관계연산자를 실행한 후에 그 결과값을 가지고 수행한다.
 * `&&` : 좌항과 우항이 모두 참이면 `true` 값을, 하나라도 거짓이면 `false`값을 반환한다.
 * `||` : 좌항과 우항 중 하나라도 참이면 `true`값을, 이외에는 모두 `false`값을 반환한다.
@@ -444,7 +444,7 @@ document.write(c+"<br>");
 
 
 
-### * 단항 연산자(증감 연산자) `++` `--`
+## 5. 단항 연산자(증감 연산자) `++` `--`
 - 전위연산자: 단항연산자가 변수명 앞에 온다. 예) `++i` `--i`
 	- 변수의 값을 하나 증가 또는 감소 후에 처리한다.
 - 후위연산자: 단항연산자가 변수명 뒤에 온다. 예) `i++` `i--`
@@ -477,7 +477,7 @@ document.write("++a + ++b = " + ++a + ++b + "<br>"); // 14 + 22 = 36
 
 
 
-### * 삼항 연산자
+## 6. 삼항 연산자
 * 형식) (조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;
 * java와는 달리, 참인 경우 실행문과 거짓인 경우 실행문의 자료형이 달라도 된다.
 
@@ -492,7 +492,7 @@ document.write("(num > 20) ? "참" : false >>>" + result);
 <p align="center"><img src="./images/210423/01.png"></p> 
 
 
-### * 복합대입연산자  `+=` `-=` `*=` `/=` `%=`
+## 7. 복합대입연산자  `+=` `-=` `*=` `/=` `%=`
 복합대입연산자는 대입연산자`=`와 다른 연산자를 하나로 묶어 간단하게 표현할 때 주로 사용한다.  
 
 ```javascript
@@ -509,11 +509,32 @@ document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 
 
 
-## 제어문
-1. 조건문 : if문, if~else문, 다중 if~else문, switch~case문   
-2. 반복문 : while문, do~while문, for문
+# 제어문
+1. 조건문 : 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장.
+	- if문 
+	- if~else문 
+	- 다중 if~else문
+	- switch~case문  
+	 
+2. 반복문 : 조건식을 비교하여 참인 경우 계속해서 반복 실행문을 실행하고,
+조건식이 거짓인 경우에는 반복문을 빠져나가는 문장.
+	- while문 
+	- for문
+	- do~while문 (거의 사용하지 않는다)
 
-### 1. 조건문 - 1) if문
+제어문 블록 안에서 선언된 변수(지역변수)는 블록 밖에서 사용불가능하다.  
+
+
+## 1. 조건문
+조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장.
+* 조건문의 종류
+	- if문 
+	- if~else문 
+	- 다중 if~else문
+	- switch~case문   
+	
+
+### 1. 조건문 - if문
 if문은 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장이다.
 * 형식)    if(조건식) { 조건식이 참일 경우 실행문 };
 
@@ -550,7 +571,7 @@ if(userId == "test"){
 <p align="center"><img src="./images/210423/10.png"></p> 
 
 
-### 1. 조건문 - 2) if~else문
+### 1. 조건문 - if~else문
 조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
 조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
 * 형식)
@@ -581,7 +602,7 @@ if(result) {
 <p align="center"><img src="./images/210423/15.png"></p> 
 
 
-### 1. 조건문 - 3) 다중 if~else문
+### 1. 조건문 - 다중 if~else문
 여러 개의 조건문 중에 맞는 조건에 해당하는 문장을 실행하는 구조.
 * 형식) 
 
@@ -646,7 +667,7 @@ document.write("학  점 : " + grade + "<br>");
 
 
 
-### 1. 조건문 - 3) 다중 switch~case문
+### 1. 조건문 - 다중 switch~case문
 식을 사용해서 다중분기하는 명령문.  
 * 형식
    
@@ -743,5 +764,264 @@ switch~case문에 따라 발생한 난수가 3, 5, 8이면 경품에 당첨되�
 실행하면 난수값이 변하면서 당첨과 꽝을 오간다. 30% 확률이라 당첨률은 그다지 나쁘지 않다.  
 <p align="center"><img src="./images/210423/25.png"></p>
 <p align="center"><img src="./images/210423/26.png"></p>
+
+
+
+## 2. 반복문
+특정 구문을 여러 번 반복해서 실행하고자 할 때 사용하는 제어문.  
+조건식을 비교하여 참인 경우 계속해서 반복 실행문을 실행하고, 조건식이 거짓인 경우에는 반복문을 빠져나가는 문장이다.
+
+* 반복문의 종류
+	- while문
+	- for문
+	
+
+### 2. 반복문 - while문
+주로 무한 반복하거나 반복 횟수가 정해지지 않은 경우에 사용한다.
+* 형식
+
+```
+while(조건식-관계연산자) {
+	조건식이 참인 동안 반복 실행되는 문장;
+}
+```
+
+#### [예] while문 : 1부터 100까지의 수를 홀수는 빨간색, 짝수는 파란색으로 출력해 보자.
+
+```javascsript
+let num = 1;
+
+while (num <= 100) {	// num이 100보다 작은 동안 반복된다.
+	if (num % 2 == 1) {	// 2로 나눈 값이 1 즉, 홀수이면
+		document.write("<font color='red'>" + num
+				+ "</font>&nbsp;&nbsp;&nbsp;");
+	} else {	// // 2로 나눈 값이 1 즉, 홀수가 아니라면
+		document.write("<font color='blue'>" + num
+				+ "</font>&nbsp;&nbsp;&nbsp;");
+	}
+	num++;		// 후위연산자로 num 값 1증가
+}
+```
+* `&nbsp;` : html에서 띄어쓰기 한 번만큼 출력되도록 하는 코드. 
+
+
+`num++`에 의해 1에서 100까지 숫자가 커지는 동안   
+while문 안에서 if문이 수행되어 홀수는 빨간색, 짝수는 파란색으로 출력된다.   
+<p align="center"><img src="./images/210423/27.png"></p>
+
+
+### 2. 반복문 - for문
+변수의 값을 이용하여 반복 실행하는 명령문. 반복 횟수가 정해진 경우에 사용한다.  
+*형식
+
+```
+for(초기식; 조건식; 증감식) {
+	반복 실행문;
+}
+```
+
+* for문 실행 순서
+	1. 초기식 : 처음에 한 번만 실행됨(변수 선언)
+	2. 조건식 : 조건이 참이면 반복되고, 거짓이면 탈출(exit)
+	3. 실행문 : 반복 대상인 반복 실행문이 실행됨.
+	4. 증감식 : 변수를 대상으로 증가(++) 또는 감소(--) 
+
+
+#### [예] for문 : 1에서 30까지의 수를 5의 배수는 빨간색, 6의 배수는 파란색, 7의 배수는 초록색으로 출력해 보자.
+
+```javascript
+for(let i=1; i<=30; i++) {
+	if(i % 5 == 0) {
+		document.write("<font color='red'>" + i + "</font>&nbsp;");
+	}else if(i % 6 == 0) {
+		document.write("<font color='blue'>" + i + "</font>&nbsp;");
+	}else if(i % 7 == 0) {
+		document.write("<font color='green'>" + i + "</font>&nbsp;");
+	}else {
+		document.write(i+"&nbsp;");
+	}
+}
+```
+
+출력문에 html언어를 사용하여 출력문의 글자 색상을 변경할 수 있다.  
+<p align="center"><img src="./images/210423/28.png"></p>
+
+
+
+#### [예] 다중 for문 : 테이블을 만들어 보자.
+
+```javascript
+document.write("<table border ='1'; cellspacing = '0'; width='150';");
+
+for(let i=1; i<=5; i++) {
+	document.write("<tr>");
+	
+	for(let j=0; j<5; j++) {
+		document.write("<td align='right'>" + (j*5+i) + "</td>");
+	}
+	document.write("</tr>");	
+}
+
+document.write("</table>");
+```
+
+<p align="center"><img src="./images/210423/29.png"></p>
+
+
+
+
+# 배열
+자바 스크립트에서 배열은 모든 데이터 타입(자료형)을 다 담을 수 있다.  
+java에서의 Object 배열과 같다고 보면 된다.  
+
+
+## 1. 자바스크립트에서 배열 객체 생성 방법 3가지
+1. let 배열명 = new Array(원소1, 원소2, ... , 원소n);
+2. let 배열명 = [원소1, 원소2, ... , 원소n];
+3. let 배열명 = new Array();
+
+
+### 1. let 배열명 = new Array(원소1, 원소2, ... , 원소n);
+
+```javascript
+let arr1 = new Array("가나다", "ABC", 123, true);
+let arr1 = new Array('가나다', 'ABC', 123, true);	
+// "" 나 '' 모두 동일하다.
+
+document.write(arr1 + "<br>"); 	// 전체요소 출력
+
+document.write(arr1[2]);		// 특정 요소 출력
+```
+
+<p align="center"><img src="./images/210423/30.png"></p>
+
+
+
+### 2. let 배열명 = [원소1, 원소2, ... , 원소n];
+```javascript
+let arr2 = ["가나다", "ABC", 123, true];
+let arr2 = ['가나다', 'ABC', 123, true];
+// "" 나 '' 모두 동일하다.
+```
+
+<p align="center"><img src="./images/210423/32.png"></p>
+
+
+### 3. let 배열명 = new Array();
+```javascript
+let arr3 = new Array();
+arr3[0] = "가나다";
+arr3[1] = "ABC";	//또는 'ABC'도 가능.
+arr3[2] = 123;
+arr3[3] = true;
+```
+
+<p align="center"><img src="./images/210423/32.png"></p>
+
+
+
+이때 값이 없는 인데스를 호출하면 `undefined`가 출력된다.
+
+```javascript
+document.write(arr3[5]);
+```
+
+<p align="center"><img src="./images/210423/31.png"></p>
+
+
+
+### * `length`
+`length`를 사용하여 for문으로 출력도 사용가능하다. 
+
+```javascript
+for(let i=0; i<arr3.length; i++) {
+	document.write("arr3[" + "] >>> " + arr3[i] + "<br>");
+}
+```
+
+<p align="center"><img src="./images/210423/33.png"></p>
+
+
+### 배열에 요소를 다루는 방법
+
+* `push(요소)` : 배열에 데이터를 추가하는 방법. 맨 뒤에 요소를 추가한다.
+
+```javasript
+let arr = [10, 20, 30];
+document.write(arr+"<br>");
+
+arr.push(40);
+document.write(arr);
+```
+
+<p align="center"><img src="./images/210423/34.png"></p>
+
+
+* `concat` : 배열에 복수 개의 데이터를 추가하는 방법.
+	- 형식: `concat([추가할 원소1, 추가할 원소2, ... , 추가할 원소n]);`
+
+```javascript
+arr = arr.concat([50, 60, 70]);
+document.write(arr);
+```
+
+<p align="center"><img src="./images/210423/35.png"></p>
+
+
+* `unshift(추가할 요소)` : 배열의 맨 앞(0번째 index)에 추가한다.
+	- 기존에 있던 요소들은 인덱스가 하나씩 뒤로 밀린다.
+
+```javascript
+arr.unshift('0');
+document.write(arr);
+```
+
+<p align="center"><img src="./images/210423/36.png"></p>
+
+
+
+* `shift()` : 배열의 맨 처음 요소를 제거하는 방법.
+
+```javascript
+arr.shift();
+document.write(arr);
+```
+
+<p align="center"><img src="./images/210423/37.png"></p>
+
+
+
+* `pop()` : 배열의 맨 마지막 요소를 제거하는 방법.
+
+```javascript
+arr.pop();
+document.write(arr);
+```
+
+<p align="center"><img src="./images/210423/38.png"></p>
+
+
+* `sort()` : 배열의 요소를 정렬하는 방법.
+
+```javascript
+let arr = ['c', 'd', 'b', 'a', 'e'];
+document.write(arr + "<br>");
+
+arr.sort();
+document.write(arr + "<br>");
+```
+
+<p align="center"><img src="./images/210423/39.png"></p>
+
+
+* `reverse()` : 배열의 요소를 역순(내림차순)으로 정렬하는 방법.
+
+```javascript
+arr.reverse();
+document.write(arr + "<br>");
+```
+
+<p align="center"><img src="./images/210423/40.png"></p>
+
 
 
