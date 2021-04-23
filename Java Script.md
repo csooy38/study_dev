@@ -29,7 +29,7 @@
 
 # 자바 스크립트의 기초
 `<head>` 태그 안에 `<script>` 태그를 열고 그 안에 내용을 입력하여 사용한다.  
-```
+```javascript
 <script type="text/javascript">
 	// 스크립트 내용 입력
 </script>
@@ -39,7 +39,7 @@
 ### * 주석 처리
 기본적으로 java와 비슷하다.
 
-```html
+```javascript
 // 한 줄 주석
 
 /*
@@ -116,7 +116,7 @@ console.log("Hello, JavaScript");
 `<script>`태그에서 선언하면 자동으로 HTML 문서의 body 영역에 괄호 안의 내용을 출력하는 함수.  
 자동 줄바꿈이 안 되므로 html 태그인 `<br>`를 괄호 안에 넣어 활용한다.  
 
-```html
+```javascript
 document.write("document.write()를 이용하는 방법<br>");
 document.write("자바 스크립트");
 ```
@@ -126,7 +126,7 @@ document.write("자바 스크립트");
 
 이외에도 html 문법을 괄호 안에 넣어 다양하게 활용 가능하다.
 
-```html
+```javascript
 document.write("<h4 style='color: red;'>document.write()와 html문법</h4><br>");
 ```
 
@@ -135,7 +135,7 @@ document.write("<h4 style='color: red;'>document.write()와 html문법</h4><br>"
 
 
 테이블도 만들 수 있다.
-```html
+```javascript
 let tab = "<table border='1' cellsapcing='0'>";
 tab += "<tr>";
 tab += "<td>"+(num1+num2)+"</td><td>"+(num1-num2)+"</td>"+
@@ -152,7 +152,7 @@ document.write(tab);
 ### 3. alert()를 이용하는 방법.
 `alert()`는 알림창(경고창)의 형식으로 데이터를 출력한다.
 
-```html
+```javascript
 alert("alert()를 이용하는 방법");
 ```
 실행하면 아래와 같이 새 창에 바로 알림창이 열린다.  
@@ -181,7 +181,7 @@ alert("alert()를 이용하는 방법");
 ### 1. 알림창(경고창) `alert`
 특정 정보를 사용자에게 메시지 창으로 알려주기 위해 주로 사용한다.
 
-```html
+```javascript
 alert("alert()를 이용하는 방법");
 ```
 실행하면 아래와 같이 새 창에 바로 알림창이 열린다.  
@@ -193,7 +193,7 @@ alert("alert()를 이용하는 방법");
 * `확인` : `true` 반환.
 * `취소` : `false` 반환.
 
-```html
+```javascript
 let type = confirm("현재는 오전인가요?");
 	
 console.log(type);
@@ -218,7 +218,7 @@ console.log(typeof type);
 문자열 이외의 자료형으로 활용하기 위해서는 변환이 필요하다.  
 * `parseInt()` : 문자열을 정수로 바꿔주는 코드
 
-```html
+```javascript
 let height = prompt("키를 입력하세요.");
 	
 console.log(typeof height);	
@@ -259,7 +259,7 @@ document.write("당신의 적정 몸무게는 " + standWeight + "kg입니다.<br
 * 형식2) `let 변수명 = 값;` 
 	* ES6 버전 이후부터 권장하는 변수 선언 방식.
 	
-```html
+```javascript
 var name = "가가가";
 console.log(name);
 	
@@ -273,7 +273,7 @@ console.log(name);
 
 
 
-```html
+```javascript
 let name = "다다다";
 onsole.log(name);
 	
@@ -288,7 +288,7 @@ console.log(name);
 데이터를 저장하는 공간으로, 한 번 초기화된 상수의 데이터는 변할 수 없다.
 * 형식) `const 상수명 = 값;`
 
-```html
+```javascript
 const num = 47;
 document.write(num);
 ```
@@ -297,7 +297,7 @@ document.write(num);
 	
 
 이때 상수의 값을 변경해보면 어떻게 될까?
-```
+```javascript
 num = 150; 
 document.write(num + "<br>");
 ```
@@ -355,7 +355,7 @@ java의 연산자와 동일하나 자바 스크립트에서는 `==`의 사용법
 * `==` : 동등연산자로 비교 대상 값의 자료형이 다른 경우 강제로 형을 바꾼 뒤에 비교한다. 따라서 좌항과 우항의 자료형은 상관없이 **내용만 같으면** `true`값을 반환하고, 내용이 틀리면 `false` 값을 반환한다.
 * `===` : 일치연산자로 좌항과 우항의 내용과 자료형이 정확하게 같을 때 true, 다르면 false 반환한다. 즉, 내용뿐만 아니라 자료형까지 비교하여 결과를 반환한다.
 
-```html
+```javascript
 let su1 = "1000";	// 문자열
 let su2 = 1000;		// 숫자
 	
@@ -368,10 +368,12 @@ document.write(su1 + " == " + su2 + " >>> " + (su1 == su2) + "<br>");
 참고로 java에서는 `false`값을 반환한다.  
 
 
-그렇다면 자료형까지 함께 비교하기 위해서는 어떻게 해야 할까?
+
+
+그렇다면 자료형까지 함께 비교하기 위해서는 어떻게 해야 할까?    
 이 때는 `===` 연산자를 사용해야 한다.  
 
-```html
+```javascript
 let su1 = "1000";	// 문자열
 let su2 = 1000;		// 숫자
 
