@@ -930,7 +930,7 @@ document.write(arr3[5]);
 
 
 
-### * `length`
+### * length
 `length`를 사용하여 for문으로 출력도 사용가능하다. 
 
 ```javascript
@@ -942,7 +942,7 @@ for(let i=0; i<arr3.length; i++) {
 <p align="center"><img src="./images/210423/33.png"></p>
 
 
-### 배열에 요소를 다루는 방법
+### * 배열에 요소를 다루는 방법
 
 * `push(요소)` : 배열에 데이터를 추가하는 방법. 맨 뒤에 요소를 추가한다.
 
