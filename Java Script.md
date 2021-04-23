@@ -477,13 +477,8 @@ document.write("++a + ++b = " + ++a + ++b + "<br>"); // 14 + 22 = 36
 
 
 
-<<<<<<< HEAD
-## 6. 삼항 연산자
-* 형식) (조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;
-=======
 ### * 삼항 연산자
 * 형식) `(조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;`
->>>>>>> branch 'main' of https://github.com/csooy38/github
 * java와는 달리, 참인 경우 실행문과 거짓인 경우 실행문의 자료형이 달라도 된다.
 
 ```javascript
@@ -514,7 +509,6 @@ document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 
 
 
-<<<<<<< HEAD
 # 제어문
 1. 조건문 : 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장.
 	- if문 
@@ -527,11 +521,6 @@ document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 	- while문 
 	- for문
 	- do~while문 (거의 사용하지 않는다)
-=======
-## 제어문
-1. 조건문 : if문, if-else문, 다중 if-else문, switch-case문   
-2. 반복문 : while문, do-while문, for문
->>>>>>> branch 'main' of https://github.com/csooy38/github
 
 제어문 블록 안에서 선언된 변수(지역변수)는 블록 밖에서 사용불가능하다.  
 
@@ -582,15 +571,9 @@ if(userId == "test"){
 <p align="center"><img src="./images/210423/10.png"></p> 
 
 
-<<<<<<< HEAD
-### 1. 조건문 - if~else문
-조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
-조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
-=======
 ### 1. 조건문 - 2) if~else문
 조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if-else문을 빠져 나온다.  
 조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if-else문을 빠져 나온다.  
->>>>>>> branch 'main' of https://github.com/csooy38/github
 * 형식)
  
 ```
@@ -692,13 +675,13 @@ avg의 자료형은 실수형이므로 아래와 같이 소숫점 아래 숫자�
 switch(식 또는 값) {
 	case 값1 :
 		값1일 때 실행문;
-		break;	 // switch~case 블록 탈출. 생략가능.
+		break;	 // switch~case 블록 탈출. 생략시 다음 break를 만날때까지 이어서 실행.
 	case 값2 :
 		값2일 때 실행문;
-		break;	 // switch~case 블록 탈출. 생략가능.
+		break;	 
 	case 값3 :
 		값3일 때 실행문;
-		break;	 // switch~case 블록 탈출. 생략가능.
+		break;	 
 	default :
 		값1, 2, 3 외에 다른 값이 들어온 경우 실행문;
 )
