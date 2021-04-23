@@ -29,7 +29,7 @@
 
 # 자바 스크립트의 기초
 `<head>` 태그 안에 `<script>` 태그를 열고 그 안에 내용을 입력하여 사용한다.  
-```
+```javascript
 <script type="text/javascript">
 	// 스크립트 내용 입력
 </script>
@@ -116,7 +116,7 @@ console.log("Hello, JavaScript");
 `<script>`태그에서 선언하면 자동으로 HTML 문서의 body 영역에 괄호 안의 내용을 출력하는 함수.  
 자동 줄바꿈이 안 되므로 html 태그인 `<br>`를 괄호 안에 넣어 활용한다.  
 
-```html
+```javascript
 document.write("document.write()를 이용하는 방법<br>");
 document.write("자바 스크립트");
 ```
