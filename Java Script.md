@@ -920,7 +920,7 @@ arr3[3] = true;
 
 
 
-이때 값이 없는 인데스를 호출하면 `undefined`가 출력된다.
+이때 값이 없는 인덱스를 호출하면 `undefined`가 출력된다.
 
 ```javascript
 document.write(arr3[5]);
