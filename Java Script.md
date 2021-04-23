@@ -164,7 +164,7 @@ alert("alert()를 이용하는 방법");
 
 
 ## 외부에 있는 자바스크립트 파일을 불러와서 실행하는 방법 
-```html
+```javascript
 <script type="text/javascript" src="../js/console.js"></script>
 ```
 
@@ -216,7 +216,8 @@ console.log(typeof type);
 입력창은 키보드로부터 데이터를 입력받는 방법이다.  
 입력값은 모두 `string`타입, 즉 문자열로 저장된다.  
 문자열 이외의 자료형으로 활용하기 위해서는 변환이 필요하다.  
-* `parseInt()` : 문자열을 정수로 바꿔주는 코드
+* `parseInt()` : 문자열을 정수로 바꿔주는 코드.
+* `Number()` : wrapper클래스 자료형. number로 형변환. 
 
 ```javascript
 let height = prompt("키를 입력하세요.");
@@ -230,7 +231,8 @@ let standWeight = (parseInt(height) - 100) * 0.9;
 document.write("당신의 적정 몸무게는 " + standWeight + "kg입니다.<br>");
 ```
 `prompt`는 입력값을 모두 문자열로 받으므로,  
-연산작성시 `parseInt()` 코드를 활용해 정수형으로 바꾸었다.
+연산작성시 `parseInt()` 코드를 활용해 정수형으로 바꾸었다.  
+대신 `Number()` 클래스도 쓸 수 있다. 예) `Number(height)`  
 
 
 실행하면 입력이 가능한 입력창이 자동으로 실행된다.  
@@ -325,9 +327,22 @@ document.write(num + "<br>");
 - 클래스 인스턴스`class instance`
 - `undefined` : 일반적으로 변수를 만든 후 초기화하지 않은 상태를 말한다.
 	* 예) `var data;`
-	* `alert("data >>> " + data);`
+	
+```javascript
+let data;
+document.write("data >>> " + data + "<br>");
+```
+<p align="center"><img src="./images/210422/11.png"></p> 
+
 - `null` : 아무것도 참조하고 있지 않다는 의미. 주로 객체를 담을 변수를 초기화할 때 많이 사용된다.
 - `NaN` : Not A Number. 즉, 숫자가 아닌 데이터를 숫자처럼 사용할 때 나타난다.
+
+```javascript
+let a = Number("$1000");
+document.write("a >>> " + a + "<br>");
+document.write("0/0 >>> " + 0/0);
+```
+<p align="center"><img src="./images/210422/12.png"></p> 
 	
 
 ### * 변수명 작성 규칙
@@ -343,15 +358,34 @@ document.write(num + "<br>");
 
 
 ## 자바 스크립트의 연산자
-### * 기본 연산자 `+` `-` `*` `/`
+기본적으로 java의 연산자와 비슷하다.
+
+
+### * 기본 연산자 `+` `-` `*` `/` `%`
 기본적으로 java의 연산자와 동일하다.
+- `+` : 덧셈.
+- `-` : 뺄셈.
+- `*` : 곱셈.
+- `/` : 나눗셈.
+- `%` : 나머지.
+	- 홀수, 짝수 판별할 때 많이 사용.
+	- 배수 판별시에도 사용. 
 
 
 ### * 대입 연산자 `=`
+좌항에 우항의 데이터를 대입하는 연산자.
 
 
 ### * 관계(비교) 연산자 `>=` `>` `<=` `<` `==` `!=` `===`
+결과는 boolean형(`true` `false`)으로 반환된다.  
 java의 연산자와 동일하나 자바 스크립트에서는 `==`의 사용법이 달라졌으며, `===`가 새롭게 등장하였다.
+- `>=` : 크거나 같다 
+- `>` : 크다 
+- `<=` : 작거나 같다 
+- `<` : 작다
+- `!=` : 같지 않다
+
+
 * `==` : 동등연산자로 비교 대상 값의 자료형이 다른 경우 강제로 형을 바꾼 뒤에 비교한다. 따라서 좌항과 우항의 자료형은 상관없이 **내용만 같으면** `true`값을 반환하고, 내용이 틀리면 `false` 값을 반환한다.
 * `===` : 일치연산자로 좌항과 우항의 내용과 자료형이 정확하게 같을 때 true, 다르면 false 반환한다. 즉, 내용뿐만 아니라 자료형까지 비교하여 결과를 반환한다.
 
@@ -368,8 +402,6 @@ document.write(su1 + " == " + su2 + " >>> " + (su1 == su2) + "<br>");
 참고로 java에서는 `false`값을 반환한다.  
 
 
-
-
 그렇다면 자료형까지 함께 비교하기 위해서는 어떻게 해야 할까?    
 이 때는 `===` 연산자를 사용해야 한다.  
 
@@ -384,3 +416,332 @@ document.write(su1 + " === " + su2 + " >>> " + (su1 === su2) + "<br>");
 <p align="center"><img src="./images/210422/19.png"></p>
 
    
+### * 논리 연산자 `&&` `||` `!`
+논리연산자는 우선적으로 관계연산자를 실행한 후에 그 결과값을 가지고 수행한다.
+* `&&` : 좌항과 우항이 모두 참이면 `true` 값을, 하나라도 거짓이면 `false`값을 반환한다.
+* `||` : 좌항과 우항 중 하나라도 참이면 `true`값을, 이외에는 모두 `false`값을 반환한다.
+* `!` : `true`이면 `false`, `false`이면 `true`가 된다.
+
+```javascript
+let a = "A";
+let b = "B";
+	
+let c = !2 || 3 && !0; 	// false || true && true ==> true
+document.write(c+"<br>");
+	
+c = a < b && a == b;	// (65 < 66) true && false ==> false
+document.write(c+"<br>");
+	
+c = a < b || a == b;	// true || false ==> true
+document.write(c+"<br>");
+```
+
+
+`!2`는 2가 아닌 값으로, 무조건 0이 된다.  
+0은 `false`, 0을 제외한 나머지는 모두 `true`이므로, `!2`는 `false`가 된다.  
+<p align="center"><img src="./images/210423/04.png"></p>  
+
+
+
+
+### * 단항 연산자(증감 연산자) `++` `--`
+- 전위연산자: 단항연산자가 변수명 앞에 온다. 예) `++i` `--i`
+	- 변수의 값을 하나 증가 또는 감소 후에 처리한다.
+- 후위연산자: 단항연산자가 변수명 뒤에 온다. 예) `i++` `i--`
+	- 변수를 처리한 후에 값을 하나 증가 또는 감소한다.
+
+```javascript
+let num1 = 10;
+let num2 = 20;
+
+document.write("++num1 = " + ++num1 + "<br>"); 
+document.write("num1++ = " + num1++ + "<br>");
+```
+
+<p align="center"><img src="./images/210423/02.png"></p>
+
+
+```javascript
+let a = 10;
+let b = 20;
+let c = 3;
+
+document.write("++a = " + ++a + "<br>"); // 11
+document.write("a++ = " + a++ + "<br>"); // 11
+document.write("c++ = " + c++ + "<br>"); // 3
+document.write("++a + b++ = " + ++a + b++ + "<br>"); // 13 + 20 = 33
+document.write("++a + ++b = " + ++a + ++b + "<br>"); // 14 + 22 = 36
+```
+
+<p align="center"><img src="./images/210423/03.png"></p>
+
+
+
+### * 삼항 연산자
+* 형식) (조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;
+* java와는 달리, 참인 경우 실행문과 거짓인 경우 실행문의 자료형이 달라도 된다.
+
+```javascript
+let num = 27;
+	
+let result = (num > 20) ? "참" : false;
+	
+document.write("(num > 20) ? "참" : false >>>" + result);
+```
+
+<p align="center"><img src="./images/210423/01.png"></p> 
+
+
+### * 복합대입연산자  `+=` `-=` `*=` `/=` `%=`
+복합대입연산자는 대입연산자`=`와 다른 연산자를 하나로 묶어 간단하게 표현할 때 주로 사용한다.  
+
+```javascript
+let a = 10;
+	
+document.write("a = a + 10 >>> " + (a += 10) + "<br>");
+document.write("a = a - 10 >>> " + (a -= 10) + "<br>");
+document.write("a = a * 10 >>> " + (a *= 10) + "<br>");
+document.write("a = a / 10 >>> " + (a /= 10) + "<br>");
+document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
+```
+
+<p align="center"><img src="./images/210423/00.png"></p> 
+
+
+
+## 제어문
+1. 조건문 : if문, if~else문, 다중 if~else문, switch~case문   
+2. 반복문 : while문, do~while문, for문
+
+### 1. 조건문 - 1) if문
+if문은 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장이다.
+* 형식)    if(조건식) { 조건식이 참일 경우 실행문 };
+
+```javascript
+let name = prompt("방문자의 이름은?");
+
+if(name) {
+	document.write(name + "님 환영합니다.");
+}
+```
+
+<p align="center"><img src="./images/210423/05.png"></p>   
+<p align="center"><img src="./images/210423/06.png"></p>   
+
+단, 조건식에 `0`, `null`, `""`, `undefined` 등의 값이 들어가면 `false`를 반환하므로 주의하자.  
+입력창에 아무것도 입력하지 않았더니 '님 환영합니다.' 조차 출력되지 않는다.  
+if문 자체가 `false`처리 되어 작동하지 않았기 때문이다.  
+<p align="center"><img src="./images/210423/07.png"></p> 
+<p align="center"><img src="./images/210423/08.png"></p> 
+
+
+#### [예] if문 : 사용자의 아이디가 "test"일 경우에만 환영문구를 출력해 보자.
+
+```javascript
+let userId = prompt("아이디를 입력하세요.");
+
+if(userId == "test"){
+	document.write(userId + "님 환영합니다.");
+}
+```
+
+입력값이 "test"가 아닌 경우 아무것도 출력되지 않는다.  
+<p align="center"><img src="./images/210423/09.png"></p> 
+<p align="center"><img src="./images/210423/10.png"></p> 
+
+
+### 1. 조건문 - 2) if~else문
+조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
+조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
+* 형식)
+ 
+```
+if(조건식) {
+	조건식이 참인 경우 실행문;
+}else {
+	조건식이 거짓인 경우 실행문;
+}
+```
+
+#### [예] if~else문 : confirm 창을 활용해 보자.
+```javascript
+let result = cofirm("정말 탈퇴하시겠습니까?");
+	
+if(result) {
+	document.write("탈퇴 처리하였습니다.");
+}else {
+	document.write("취소되었습니다.");
+}
+```
+
+`confirm`에서 `확인`은 `true`를, `취소`는 `false`를 반환하는 것을 이용하여 작성하였다.  
+확인 버튼을 누르면 탈퇴처리 메시지가, 취소 버튼을 누르면 취소처리 메시지가 출력된다.  
+<p align="center"><img src="./images/210423/13.png"></p> 
+<p align="center"><img src="./images/210423/14.png"></p> 
+<p align="center"><img src="./images/210423/15.png"></p> 
+
+
+### 1. 조건문 - 3) 다중 if~else문
+여러 개의 조건문 중에 맞는 조건에 해당하는 문장을 실행하는 구조.
+* 형식) 
+
+```
+if(조건식1) {
+	조건식1이 참인 경우 실행문;
+}else if(조건식2) {
+	조건식1이 거짓이고 조건식2가 참인 경우 실행문;
+}else if(조건식3) {
+	조건식1, 2이 거짓이고 조건식3이 참인 경우 실행문;
+}else {
+	조건식1, 2, 3이 모두 거짓인 경우 실행문;
+}
+```
+
+
+#### [예] 다중 if~else문 : 성적을 출력해 보자.
+```javascript
+let kor = parseInt(prompt("국어 점수를 입력하세요."));
+let eng = parseInt(prompt("영어 점수를 입력하세요."));
+let mat = parseInt(prompt("수학 점수를 입력하세요."));
+	
+let avg = (kor+eng+mat) / 3;	// 평균
+	
+let grade;	// 학점을 받을 변수
+		
+if(avg >= 90) {
+	grade = "A학점";
+}else if(avg >= 80) {
+	grade = "B학점";
+}else if(avg >= 70) {
+	grade = "C학점";
+}else if(avg >= 60) {
+	grade = "D학점";
+}else {
+	grade = "F학점";
+}
+	
+document.write("국어 점수 : " + kor + "점<br>");
+document.write("영어 점수 : " + eng + "점<br>");
+document.write("수학 점수 : " + mat + "점<br>");
+document.write("평  균 : " + avg.toFixed(2) + "점<br>");
+document.write("학  점 : " + grade + "<br>");
+```
+* `toFixed(소숫점길이)` : 숫자에서 원하는 소숫점 길이만큼만 반올림하여 출력하는 함수.
+
+
+입력창에 국어, 영어, 수학 점수를 각각 입력하면  
+<p align="center"><img src="./images/210423/16.png"></p> 
+<p align="center"><img src="./images/210423/18.png"></p> 
+<p align="center"><img src="./images/210423/17.png"></p>
+
+
+스크립트에 작성한 if~else문에 따라 학점까지 계산되어 출력된다.  
+평균값인 avg를 출력할 때 `toFixed()`를 이용하여 소숫점 아래 두자리까지만 출력되었다.  
+<p align="center"><img src="./images/210423/19.png"></p>
+
+
+만약 `toFixed()`를 쓰지 않고 avg를 그대로 출력할 경우  
+자료형이 실수형이 되므로 아래와 같이 소숫점 아래 숫자가 길게 출력된다.  
+<p align="center"><img src="./images/210423/20.png"></p>
+
+
+
+### 1. 조건문 - 3) 다중 switch~case문
+식을 사용해서 다중분기하는 명령문.  
+* 형식
+   
+```javascript
+switch(식 또는 값) {
+	case 값1 :
+		값1일 때 실행문;
+		break;	 // switch~case 블록 탈출. 생략가능.
+	case 값2 :
+		값2일 때 실행문;
+		break;	 // switch~case 블록 탈출. 생략가능.
+	case 값3 :
+		값3일 때 실행문;
+		break;	 // switch~case 블록 탈출. 생략가능.
+	default :
+		값1, 2, 3 외에 다른 값이 들어온 경우 실행문;
+)
+```
+
+다중 if~else문을 switch~case문으로 변경할 수 있는 경우는 if문 중 조건식이 특정한 값과 일치하는 경우(`==`)뿐이다. 즉, 조건식에 `==`를 사용한 경우를 제외하고 `>=`, `>`, `<=`, `<`, `!=` 과 같은 비교연산자를 사용한 경우에는 switch~case문으로 변경할 수 없다.
+
+
+#### [예] 다중 switch~case문
+```javascript
+let site = prompt("네이버, 다음, 구글 중 자주 사용하는 포털 사이트는?");
+		
+let url;
+	
+switch(site){
+	case "네이버" :
+		url = "www.naver.com";
+		break;
+	case "다음" :
+		url = "www.daum.net";
+		break;
+	case "구글" :
+		url = "google.co.kr";
+		break;
+	default :
+		alert("보기 중에 없는 사이트입니다.");
+}
+	
+if(url) {
+	location.href="http://"+url;	// 페이지로 이동이 진행됨.	
+}else {
+	location.reload();	// 현재 페이지 새로고침
+}
+```
+
+
+예를 들어 구글을 입력하면 자동으로 구글 사이트로 페이지가 이동된다.  
+<p align="center"><img src="./images/210423/21.png"></p>
+<p align="center"><img src="./images/210423/22.png"></p>
+
+
+만약 네이버, 다음, 구글 외의 사이트를 입력하거나 빈 창으로 확인을 누르면  
+현재 페이지가 새로고침되어 다시 값을 입력하는 창을 열린다.  
+<p align="center"><img src="./images/210423/23.png"></p>
+<p align="center"><img src="./images/210423/24.png"></p>
+
+
+
+#### [예] 다중 switch~case문 : 난수를 발생시켜 추첨을 통해서 경품을 받게 해 보자.
+```javascript
+// 1에서부터 10까지의 난수를 발생
+let luckyNo = parseInt(Math.random()*10) + 1;
+	
+switch(luckyNo) {
+	case 3 :
+		document.write("냉장고에 당첨되었습니다.<br>");
+		break;
+	case 5 :
+		document.write("세탁기에 당첨되었습니다.<br>");
+		break;
+	case 8 :
+		document.write("TV에 당첨되었습니다.<br>");
+		break;
+	default : 
+		document.write(luckyNo + "(이)가 나왔네요...꽝!<br>");
+	}
+```
+
+* `Math.random()` : 0 이상 1 미만의 랜덤 숫자 발생시키는 함수.
+
+```java
+Math.random() 						// 0 <= Math.random() < 1
+Math.random()*10					// 0 <= Math.random() < 10
+parseInt(Math.random()*10)		// 범위 내의 수를 정수로 형변환. : 0 ~ 9 
+parseInt(Math.random()*10)+1	// 1 <= Math.random() < 11 : 1 ~ 10
+```
+
+`Math.randome()` 함수를 이용하여 1에서부터 10까지의 난수를 만들어 추첨하는 코드를 작성하였다.  
+switch~case문에 따라 발생한 난수가 3, 5, 8이면 경품에 당첨되고, 이외의 숫자는 꽝에 해당한다.  
+실행하면 난수값이 변하면서 당첨과 꽝을 오간다. 30% 확률이라 당첨률은 그다지 나쁘지 않다.  
+<p align="center"><img src="./images/210423/25.png"></p>
+<p align="center"><img src="./images/210423/26.png"></p>
+
+
