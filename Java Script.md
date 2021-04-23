@@ -423,16 +423,16 @@ document.write(su1 + " === " + su2 + " >>> " + (su1 === su2) + "<br>");
 * `!` : `true`이면 `false`, `false`이면 `true`가 된다.
 
 ```javascript
-let a = "A";
-let b = "B";
+let a = "A";	// 65
+let b = "B";	// 66
 	
-let c = !2 || 3 && !0; 	// false || true && true ==> true
+let c = !2 || 3 && !0; 		// false || true && true ==> true
 document.write(c+"<br>");
 	
-c = a < b && a == b;	// (65 < 66) true && false ==> false
+c = a < b && a == b;		// true && false ==> false
 document.write(c+"<br>");
 	
-c = a < b || a == b;	// true || false ==> true
+c = a < b || a == b;		// true || false ==> true
 document.write(c+"<br>");
 ```
 
@@ -478,7 +478,7 @@ document.write("++a + ++b = " + ++a + ++b + "<br>"); // 14 + 22 = 36
 
 
 ### * 삼항 연산자
-* 형식) (조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;
+* 형식) `(조건) ? 참인 경우 실행문 : 거짓인 경우 실행문;`
 * java와는 달리, 참인 경우 실행문과 거짓인 경우 실행문의 자료형이 달라도 된다.
 
 ```javascript
@@ -510,12 +510,12 @@ document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 
 
 ## 제어문
-1. 조건문 : if문, if~else문, 다중 if~else문, switch~case문   
-2. 반복문 : while문, do~while문, for문
+1. 조건문 : if문, if-else문, 다중 if-else문, switch-case문   
+2. 반복문 : while문, do-while문, for문
 
 ### 1. 조건문 - 1) if문
 if문은 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장이다.
-* 형식)    if(조건식) { 조건식이 참일 경우 실행문 };
+* 형식) `if(조건식) { 조건식이 참일 경우 실행문 };`
 
 ```javascript
 let name = prompt("방문자의 이름은?");
@@ -551,8 +551,8 @@ if(userId == "test"){
 
 
 ### 1. 조건문 - 2) if~else문
-조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
-조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if~else문을 빠져 나온다.  
+조건식이 참이면 조건식이 참인 경우 실행문을 실행하고 if-else문을 빠져 나온다.  
+조건식이 거짓이면 조건식이 거짓인 경우 실행문을 실행하고 if-else문을 빠져 나온다.  
 * 형식)
  
 ```
@@ -641,7 +641,7 @@ document.write("학  점 : " + grade + "<br>");
 
 
 만약 `toFixed()`를 쓰지 않고 avg를 그대로 출력할 경우  
-자료형이 실수형이 되므로 아래와 같이 소숫점 아래 숫자가 길게 출력된다.  
+avg의 자료형은 실수형이므로 아래와 같이 소숫점 아래 숫자가 길게 출력된다.  
 <p align="center"><img src="./images/210423/20.png"></p>
 
 
@@ -666,7 +666,7 @@ switch(식 또는 값) {
 )
 ```
 
-다중 if~else문을 switch~case문으로 변경할 수 있는 경우는 if문 중 조건식이 특정한 값과 일치하는 경우(`==`)뿐이다. 즉, 조건식에 `==`를 사용한 경우를 제외하고 `>=`, `>`, `<=`, `<`, `!=` 과 같은 비교연산자를 사용한 경우에는 switch~case문으로 변경할 수 없다.
+다중 if-else문을 switch-case문으로 변경할 수 있는 경우는 if문 중 조건식이 특정한 값과 일치하는 경우(`==`)뿐이다. 즉, 조건식에 `==`를 사용한 경우를 제외하고 `>=`, `>`, `<=`, `<`, `!=` 과 같은 비교연산자를 사용한 경우에는 switch-case문으로 변경할 수 없다.
 
 
 #### [예] 다중 switch~case문
