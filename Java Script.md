@@ -27,7 +27,7 @@
 	- 자바스크립트의 대표적인 라이브러리 언어는 제이쿼리(JQuery). 자바스크립트를 이용하여 다양한 기능들을 쉽게 구현할 수 있도록 만들어 놓은 함수들의 집합을 이용하면 쉽게 구현이 가능하다.
 
 
-# 자바 스크립트의 기본
+# 1. 자바 스크립트의 기본
 `<head>` 태그 안에 `<script>` 태그를 열고 그 안에 내용을 입력하여 사용한다.  
 ```javascript
 <script type="text/javascript">
@@ -250,7 +250,7 @@ document.write("당신의 적정 몸무게는 " + standWeight + "kg입니다.<br
 
 
 
-# 자바 스크립트의 변수	 
+#  변수 Variable
 ## 1. 변수
 데이터를 저장하는 공간. 데이터가 변할 수 있다.
 	* 물건을 보관했다가 필요할 때 다시 꺼내 사용하는 일종의 창고라고 생각하면 된다. 보관하는 내용이 물건 대신 데이터라는 점.
@@ -357,7 +357,7 @@ document.write("0/0 >>> " + 0/0);
 
 
 
-# 자바 스크립트의 연산자
+# 연산자 Operator
 기본적으로 java의 연산자와 비슷하다.
 
 
@@ -509,7 +509,7 @@ document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 
 
 
-# 제어문
+# 제어문 Control
 1. 조건문 : 조건을 제시하여 참이면 실행하고, 거짓이면 무시하는 문장.
 	- if문 
 	- if~else문 
@@ -788,7 +788,7 @@ while(조건식-관계연산자) {
 
 #### [예] while문 : 1부터 100까지의 수를 홀수는 빨간색, 짝수는 파란색으로 출력해 보자.
 
-```javascsript
+```javascript
 let num = 1;
 
 while (num <= 100) {	// num이 100보다 작은 동안 반복된다.
@@ -870,7 +870,7 @@ document.write("</table>");
 
 
 
-# 배열
+# 배열 Array
 자바 스크립트에서 배열은 모든 데이터 타입(자료형)을 다 담을 수 있다.  
 java에서의 Object 배열과 같다고 보면 된다.  
 
@@ -957,7 +957,7 @@ document.write(arr);
 <p align="center"><img src="./images/210423/34.png"></p>
 
 
-* `concat` : 배열에 복수 개의 데이터를 추가하는 방법.
+* `concat()` : 배열에 복수 개의 데이터를 추가하는 방법.
 	- 형식: `concat([추가할 원소1, 추가할 원소2, ... , 추가할 원소n]);`
 
 ```javascript
@@ -1022,6 +1022,345 @@ document.write(arr + "<br>");
 ```
 
 <p align="center"><img src="./images/210423/40.png"></p>
+
+
+
+# 함수 Function
+함수는 기능을 정의해놓은 것으로, 하나의 로직을 재사용할 수 있도록 하는 것으로 코드의 재사용성을 높여준다.  
+
+## 함수를 정의하는 방법 1
+* 형식)
+
+```javascript
+function 함수명(매개변수, 매개변수2, ...) {
+	함수 호출 시 실행문;
+	return 반환값;
+}
+```
+
+* 매개변수
+매개변수는 변수의 종류로, 일종의 외부 데이터를 함수 내부로 전달하는 매개체의 역할을 한다. 함수 내부에는 포장이 되어 있기 때문에 한 번 실행이 되면 외부에서 접근이 불가능하다. 함수 외부에서 함수 내부로 값을 전달하기 위해 매개변수를 이용한다. 
+
+
+* 반환값(return)
+반환값은 매개변수와는 반대되는 개념이다.  
+매개변수 값이 함수 외부에서 함수 내부로 들어오는 값이라면, 반환값은 함수 내부에서 처리된 결과값을 함수 외부로 전달하기 위해 사용되는 일종의 출력값을 의미한다. 이 때 사용되는 키워드가 return이다. 리턴값이라고도 한다.  
+ 
+
+* 함수 사용 시 장점
+	1. 코드의 중복 제거 및 코드 재사용 가능
+	2. 유지보수 용이성
+		
+		
+* 자바스크립트 함수의 종류
+	1. 사용자 정의 함수 : 사용자가 직접 만들어 놓은 함수.
+	2. 내장 함수 : 자바스크립트에서 자체적으로 제공해 주는 함수.
+
+#### [예] 함수 : 매개변수 없는 사용자 정의 함수를 작성해 보자.
+
+```javascript
+function hello() {	// 함수 정의
+	alert("안녕하세요. 반갑습니다.");
+}
+	
+hello();	// 정의한 함수 호출
+```
+
+<p align="center"><img src="./images/210426/00.png"></p>
+
+
+#### [예] 함수 : 매개변수가 있는 함수를 호출하는 코드를 작성해 보자.
+
+```javascript
+function adder(num1, num2) {	// 입력한 두 수를 매개변수로 받아서
+
+	// 두 수의 합을 브라우저에 표시한다.
+	document.write("두 수의 합 >>> " + (num1 + num2) + "<br>");
+}
+
+let su1 = parseInt(prompt("첫번째 숫자 입력"));
+let su2 = parseInt(prompt("두번째 숫자 입력"));
+
+adder(su1, su2);
+```
+
+두 수를 입력하면   
+<p align="center"><img src="./images/210426/01.png"></p>
+<p align="center"><img src="./images/210426/02.png"></p>
+
+
+사용자 정의 함수에 따라 두 수의 합이 자동으로 출력된다.   
+<p align="center"><img src="./images/210426/03.png"></p>
+
+
+
+#### [예] 함수 : 반환값이 있는 함수를 호출하는 코드를 작성해 보자.
+
+```javascript
+// num1, num2를 매개변수로 받아서 num1+num1를 반환한다.
+function sum(num1, num2) {
+	return num1 + num2;
+}
+
+let su1 = parseInt(prompt("첫번째 숫자 입력"));
+let su2 = parseInt(prompt("두번째 숫자 입력"));
+
+// num1+num1가 반환되어 result 변수에 저장된다.
+let result = sum(su1, su2);
+
+document.write(su1 + " + " + su2 + " = " + result + "<br>");
+```
+
+
+<p align="center"><img src="./images/210426/04.png"></p>
+<p align="center"><img src="./images/210426/05.png"></p>
+<p align="center"><img src="./images/210426/07.png"></p>
+
+
+
+## 함수를 정의하는 방법 2 무명함수(익명함수)
+무명함수는 이름이 없는 함수를 말한다. 이벤트 처리 등에 자주 사용이 된다.  
+주로 함수를 재사용하지 않는 경우에 함수를 무명으로 만든다.
+
+```javascript
+let numbering = function() {
+	for(let i=1; i<=10; i++) {
+		document.write("i >>> " + i + "<br>");
+	}
+}
+
+numbering();
+```
+
+let 변수에는 함수도 저장이 가능하다.   
+따라서 let 변수를 함수와 같이 `numbering()`로 호출하면 자동으로 `function()`이 실행된다.   
+
+
+<p align="center"><img src="./images/210426/06.png"></p>
+
+
+
+#### [예] 함수
+
+```javascript
+function sample() {
+	
+	let sum = 0, count = 1;
+	
+	while(true) {
+		let value = parseInt(prompt("수 입력"));
+		
+		if(value == 0) { // 0이 입력되면 함수가 종료된다.
+			document.write("종료합니다. <br>");
+			return; // 함수를 탈출하는 명령어. 
+		}
+		
+		sum += value;
+		
+		// 입력된 값을 출력을 해 보자.
+		document.write(count + " : " + sum + "<br>");
+		
+		count++;
+	}		
+} // sample() 함수 end
+
+sample();
+```
+
+<p align="center"><img src="./images/210426/04.png"></p>
+<p align="center"><img src="./images/210426/05.png"></p>
+<p align="center"><img src="./images/210426/08.png"></p>
+<p align="center"><img src="./images/210426/09.png"></p>
+<p align="center"><img src="./images/210426/10.png"></p>
+
+
+# 객체 Object
+## 객체 생성 방법
+### 객체 생성 방법 1
+객체 생성과 동시에 키와 데이터를 객체에 입력하는 방법.  
+
+```javascript
+
+// member라는 변수를
+// name, age, addr이라는 키와 각각의 데이터를 입력하여 생성
+// name(키): '홍길동'(데이터)
+let member = {name: '홍길동', age:27, addr: '서울시 마포구'};
+
+document.write("회원 이름 >>> " + member['name'] + "<br>");
+
+// member의 키가 k로 넘어온다.
+// 따라서 member[k]를 호출하면 각각의 키에 저장된 데이터가 출력된다.
+for(let k in member) {
+	document.write(k+"의 value >>> " + member[k] + "<br>");
+}
+```
+
+<p align="center"><img src="./images/210426/11.png"></p>
+
+
+
+### 객체 생성 방법 2
+객체를 먼저 생성한 후, 각각의 키마다 데이터 값을 입력한다. 
+
+```javascript
+let member = {};
+member['name'] = '홍길동';	// 
+member['age'] = 27;
+member['addr'] = '서울시 마포구';
+
+for(let k in member) {
+	document.write(k+"의 value >>> " + member[k] +"<br>");
+}
+```
+
+<p align="center"><img src="./images/210426/12.png"></p>
+
+
+
+## 내장 객체
+자바 스크립트에서 제공하는 객체.
+
+### * `Date()`
+`Date()`는 날짜와  시간과 관련된 정보를 제공하는 객체다.   
+
+```javascript
+let date = new Date();
+	
+document.write("현재 년도 : " + (date.getYear()+1900) + "년<br>");
+document.write("현재 년도 : " + date.getFullYear() + "년<br>");
+document.write("현재 월 : " + (date.getMonth()+1) + "월<br>");
+document.write("현재 일 : " + date.getDate() + "일<br>")
+```
+* `getYear()` : 1900년을 기준으로 하여 입력년도와의 차를 출력. 예) 1901년 ==> 1년
+* `getFullYear()` : 전체 년도를 출력.
+* `getMonth()` : 0부터 달을 출력. 예) 0 ==> 1월, 1 ==> 2월.
+* `getDate()` : 입력한 날(일)을 출력.
+
+
+`getYear()`를 사용할 경우 +1900을 해줘야 입력 년도가 정확하게 출력된다.  
+`getMonth()`를 사용할 경우 +1을 해줘야 입력 달(월)이 정확하게 출력된다.  
+<p align="center"><img src="./images/210426/13.png"></p>
+
+
+
+```javascript
+let date = new Date();
+let day = date.getDay();
+
+switch(day) {
+	case 0 : 
+		document.write("현재 요일은 일요일입니다.<br>");
+		break;
+	case 1 : 
+		document.write("현재 요일은 월요일입니다.<br>");
+		break;
+	case 2 : 
+		document.write("현재 요일은 화요일입니다.<br>");
+		break;
+	case 3 : 
+		document.write("현재 요일은 수요일입니다.<br>");
+		break;
+	case 4 : 
+		document.write("현재 요일은 목요일입니다.<br>");
+		break;
+	case 5 : 
+		document.write("현재 요일은 금요일입니다.<br>");
+		break;
+	case 6 : 
+		document.write("현재 요일은 토요일입니다.<br>");
+		break;
+}
+```
+* `getDay()` : 현재 요일 ==> 정수값 반환(0:일요일 ~ 6:토요일)
+
+오늘 요일인 월요일이 제대로 출력된다.
+<p align="center"><img src="./images/210426/14.png"></p>
+
+
+```javascript
+document.write("현재 시간 : " + date.getHours() + " : ");
+document.write(date.getMinutes() + " : ");
+document.write(date.getSeconds() + " : ");
+```
+
+* `getHours()` : 시를 출력.
+* `getMinutes()` : 분을 출력.
+* `getSeconds()` : 초를 출력.
+
+<p align="center"><img src="./images/210426/15.png"></p>
+
+
+
+### * Math()
+`Math()`는 수학과 관련된 연산을 하는 함수다.
+* `Math()` 내장 객체와 관련된 함수(메서드)
+	- abs(숫자) : 숫자의 절대값을 반환하는 함수
+	- max(숫자1, ... , 숫자n) : 숫자 중 가장 큰 값을 반환하는 함수.
+	- min(숫자1, ... , 숫자n) : 숫자 중 가장 작은 값을 반환하는 함수.
+	- pow(숫자, 제곱값) : 숫자의 거듭제곱한 값을 반환하는 함수.
+	- random() : 0 ~ 1 사이의 난수를 발생시키는 함수.
+	- round(숫자) : 소수점 첫째 자리에서 반올림하여 정수를 반환하는 함수.
+	- ceil(숫자) : 소수점 첫째 자리에서 무조건 올림해서 정수를 반환하는 함수.
+	- floor(숫자) : 소수점 첫째 자리에서 무조건 내림해서 정수를 반환하는 함수.
+	- sqrt(숫자) : 숫자의 제곱근 값을 반환하는 함수.
+
+
+```javscript
+document.write("최대값 >>> " + Math.max(30, 47, 8, 95, 81) + "<br>");
+	document.write("최소값 >>> " + Math.min(30, 47, 8, 95, 81) + "<br>");
+	
+document.write("<br>");
+	
+let num = 2.5234;
+	
+document.write("2.5234의 round() : " + Math.round(num) + "<br>");
+document.write("2.5234의 ceil() : " + Math.ceil(num) + "<br>");
+document.write("2.5234의 floor() : " + Math.floor(num) + "<br>");
+```
+
+<p align="center"><img src="./images/210426/16.png"></p>
+
+
+
+# BOM(Browser Object Model) : 브라우저 객체 모델
+BOM은 브라우저 내에 내장된 객체를 의미한ㄷ.  
+BOM 객체의 최상위 내장 객체는 `window` 객체로, 생략가능하다.  
+ 
+
+* `window` 객체의 주요 메서드
+	- `open()` : 새로운 창을 띄우고자 할 때 사용하는 메서드.
+	- `alert()` : 경고 창을 띄울 때 사용하는 메서드.
+	- `prompt()` : 질의/응답 창을 띄울 때 사용하는 메서드.
+	- `confirm()` : 확인/취소 창을 띄울 때 사용하는 메서드.
+	- `moveTo()` : 창의 위치를 이동시킬 때 사용하는 메서드.
+	- `resizeTo()` : 창의 크기를 변경시킬 때 사용하는 메서드.
+	- `setInterval()` : 일정 간격으로 지속적으로 실행문을 실행시킬 때 사용하는 메서드.
+	- `setTimeout()` : 일정 간격으로 한번만 실행문을 실행시킬 때 사용하는 메서드.
+	
+	
+ * `screen` 객체 : 사용자의 모니터 정보(속성)를 제공해 주는 객체. 
+ * `screen` 객체의 주요 속성  
+	- `screen.width` : 화면의 너비값을 반환하는 속성.
+	- `screen.height` : 화면의 높이값을 반환하는 속성.
+	- `screen.availWidth` : 작업표시줄을 제외한 화면의 너비값을 반환하는 속성.
+	- `screen.availHeight` : 작업표시줄을 제외한 화면의 높이값을 반환하는 속성.
+	- `screen.colorDepth` : 사용자 모니터가 표현 가능한 컬러 bit를 반환하는 속성.
+
+
+```javascript
+document.write("화면 너비 >>> " + screen.width + "<br>");
+document.write("화면 높이 >>> " + screen.height + "<br>");
+document.write("작업표시줄을 제외한 화면 너비 >>> " + screen.availWidth + "<br>");
+document.write("작업표시줄을 제외한 화면 높이 >>> " + screen.availHeight + "<br>");
+document.write("표현가능한 컬러 bit >>> " + screen.colorDepth + "<br>");
+```
+
+실제 컴퓨터 해상도와 일치하는 가로너비와 세로높이가 출력된다.  
+<p align="center"><img src="./images/210426/17.png"></p>
+
+
+화면 높이와 작업표시줄을 제외한 화면 높이를 비교해보면 작업표시줄의 높이는 40px임을 짐작해볼 수 있다.      
+<p align="center"><img src="./images/210426/18.png"></p>
 
 
 
