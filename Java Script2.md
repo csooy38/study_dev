@@ -379,7 +379,7 @@ onload = function() {
 
 
 
-### * 글자의 스티일 바꾸기  
+### * 글자의 스타일 바꾸기  
 
 ```javascript
 onload = function() {
