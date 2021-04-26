@@ -291,7 +291,7 @@ imgNode.setAttribute("height", 200);
 ### 문서의 요소를 가져오는 방법 1 : getElementById(id) 를 이용하는 방법
 
 
-````javascript
+```javascript
 <script type="text/javascript">
 
 	onload = function() {
@@ -308,6 +308,7 @@ imgNode.setAttribute("height", 200);
 	<h1 id="header_1">Header 2</h1>
 </body>
 ```
+
 * `innerHTML` : 해당 텍스트 요소를 변경해준다.
 
 
