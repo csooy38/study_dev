@@ -68,7 +68,7 @@ document.write("url 정보 >>> " + location.href);
 다음과 같은 페이지 3개를 만들어 `history` 객체의 메서드를 살펴 보자.   
 첫번째 페이지)
 
-```javascript
+```html
 <body>
 	<h1>첫번째 페이지</h1>
 	
@@ -86,7 +86,7 @@ document.write("url 정보 >>> " + location.href);
 
 두번째 페이지)
 
-```javascript
+```html
 <body>
 	<h1>두번째 페이지</h1>
 	<a href="Exam_03.html">세번째 페이지</a>
@@ -106,7 +106,7 @@ document.write("url 정보 >>> " + location.href);
 * `history.go(-1)` : 1번 뒤로 가기
 * `history.go(-2)` : 2번 뒤로 가기 (= 앞으로)
 
-```javascript
+```html
 <body>
 	<h1>세번째 페이지</h1>
 	<a href="Exam_01.html">첫번째 페이지</a>
@@ -291,7 +291,7 @@ imgNode.setAttribute("height", 200);
 ### 문서의 요소를 가져오는 방법 1 : getElementById(id) 를 이용하는 방법
 
 
-```javascript
+```html
 <script type="text/javascript">
 
 	onload = function() {
@@ -323,7 +323,7 @@ imgNode.setAttribute("height", 200);
 ### 문서의 요소를 가져오는 방법 2 : getElementsByTagName(tagName)을 이용하는 방법
 * `getElementsByTagName(tagName)` : tagName과 일치하는 요소를 배열로 가져오는 메서드. 즉 tagName이 여러개 있을 경우 사용.
 
-```javascript
+```html
 <script type="text/javascript">
 	onload = function() {
 
@@ -347,6 +347,7 @@ imgNode.setAttribute("height", 200);
 ```
 
 아래와 같이 for문을 이용해서 출력할 수도 있다.
+
 ```javascript
 for(let i=0; i<headers.length; i++){
 	headers[i].innerHTML = "getElementsByTagName() 2"+i;
@@ -411,7 +412,7 @@ onload = function() {
 
 ### * 이벤트 처리 작업
 
-```javscript
+```javascript
 onload = function() {
 	document.getElementById("header");
 			
@@ -426,7 +427,7 @@ onload = function() {
 
 #### [예] 버튼을 클릭했을 때 이벤트 처리
 
-```javascript
+```html
 <script type="text/javascript">
 
 	document.getElementById("btnChannel1").onclick = function() {
@@ -462,7 +463,7 @@ onload = function() {
 
 
 #### [예] 복사하기
-```javascript
+```html
 <script type="text/javascript">
 
 	onload = function() {
@@ -502,9 +503,9 @@ onload = function() {
 * 형식) `setInterval(호출할 함수 이름, 시간(ms));`
 
 
-#### [예] 1초마다 글자색 바꾸기
+#### [예] 일정 시간마다 글자색 바꾸기
 
-```javascript
+```html
 <script type="text/javascript">
 
 	let id;	// 전역 변수
@@ -542,8 +543,8 @@ onload = function() {
 
 
 
-#### [예] 회원가입 입력창 입력 여부 확인하기
-```javascript
+#### [예] 유효성 검사 : 회원가입 입력창 입력 여부 확인하기
+```html
 <title>유효성 검사</title>
 <script type="text/javascript">
 
@@ -625,4 +626,244 @@ onload = function() {
 ```
 
 <p align="center"><img src="./images/210426/05.gif"></p>
+
+
+
+### * getElementsByTagName()
+`getElementsByTagName()`의 결과값은 검색된 모든 노드를 NodeList라는 객체에 담아서 반환이 된다. 	NodeList는 자주 사용하는 배열과 비슷한 일종의 ArrayList 컬렉션 객체로 DOM 객체 중 하나이다. NodeList 객체에서 제공하는 프로퍼티와 메서드는 아래와 같다.
+- length : 결과값의 전체 개수 정보가 담겨져 있다. 
+- item : 결과값을 항목별로 접근할 때 사용한다.
+
+
+* 문서에서 특정 태그 이름을 지닌 노드 찾기
+
+```javascript
+onload = function() {
+	// 문서에서 태그 이름이 div인 노드를 찾아보자.
+	// div 태그가 여러 개이므로 배열 형태로 저장된다.
+	let divs = document.getElementsByTagName("div");
+		
+	alert("문서 내의 div 태그 개수 >>> " + divs.length);
+		
+	for(let i=0; i<divs.length; i++) {
+		// item() : 찾은 노드에서 n번째 노드에 접근하는 메서드.
+		let div = divs.item(i);
+		div.style.border = "1px solid red";
+	}
+}
+```
+
+
+* 특정 노드의 자식 노드에서 특정 태그 이름을 지닌 노드 찾기
+
+```javascript
+onload = function() {
+		let divs = document.getElementsByTagName("div");
+		
+		// 찾은 노드 가운데 3번째(2번째 인덱스) 노드를 찾아 보자.
+		let div2 = divs[2]; 
+		
+		let div2Child = div2.getElementsByTagName("div");
+		
+		for(let i=0; i<div2Child.length; i++) {
+			div2Child[i].style.border = "3px solid red";
+		}
+	}
+```
+
+
+* 문서에서 특정 클래스가 적용된 노드를 찾기
+
+```javascript
+onload = function() {
+	// 클래스도 중복해서 사용할 수 있으므로, 배열 형태로 저장된다.
+	let content = document.getElementsByClassName("content_data");	
+		
+	alert("content_data 요소 개수 >>> " + content.length);
+		
+	for(let i=0; i<content.length; i++) {
+		content[i].style.border = "3px solid blue"
+	}
+}
+```
+
+
+* 문서에서 특정 ID를 가진 노드를 찾기
+
+```javascript
+onload = function() {
+		
+	let page = document.getElementById("sample_page");
+	let nodes = page.childNodes;	// page의 자식노드(복수)
+		
+	let header = document.getElementById("header");
+	let footer = document.getElementById("footer");
+		
+	header.style.border = "3px solid red";
+	footer.style.border = "3px soild red";
+}
+```
+
+
+* 문서에서 자식 노드를 찾기
+
+```javascript
+onload = function() {
+	let page = document.getElementById("sample_page");
+	let nodes = page.childNodes;	// page의 자식노드(복수)
+		
+	alert("#sample_page의 자식 노드 개수 >>> " + nodes.length);
+		
+	// 자식 노드 중에서 첫번째 자식 노드 접근
+	let firstChild = page.firstChild;
+		
+	// 텍스트 노드는 스타일을 적용할 수 없다.
+	// firstChild.style.border = "3px solid red";
+		
+	// 자식 노드 중에서 첫번째 자식 노드 접근
+	let lastChild = page.lastChild;
+		
+	// 텍스트 노드는 스타일을 적용할 수 없다.
+	// lastChild.style.border = "3px solid red";
+}
+```
+
+
+* 문서에서 부모 노드 찾기
+
+```javascript
+onload = function() {
+	// #header인 노드의 부모 노드 찾기
+	let header = document.getElementById("header");
+		
+	let parent = header.parentNode;
+	parent.style.border = "3px solid blue";
+		
+	// 이렇게도 쓸 수 있다.
+	// header.parentNode.style.border = "3px solid blue";
+		
+	// [문제] id="data_1" 노드의 부모 노드를 찾아서 스타일을 적용해 보기.
+	let data = document.getElementById("data_1");
+	data.parentNode.style.border = "3px solid red";
+	
+}
+```
+
+
+* 문서에서 형제 노드를 찾기
+
+```javascipt
+onload = function() {
+	let content = document.getElementById("content");
+		
+	// 내 위치에서 이전 형제 노드를 찾는 방법
+	let pre = content.previousSibling.previousSibling;
+		
+	pre.style.border = "3px solid red";
+		
+	// 내 위치에서 이후 형제 노드를 찾는 방법
+	let next = content.nextSibling.nextSibling;
+		
+	next.style.border = "3px solid blue";
+}
+```
+
+
+* `document.createElement()` 메서드를 이용하여 노드 생성 및 추가하기
+
+```javascript
+onload = function() {
+	// 1. 추가(p태그 추가)
+	let page = document.getElementById("sample_page");
+		
+	// 기준 노드를 찾아 보자.
+	let firstChild = page.firstChild;
+		
+	// <p>태그를 동적으로 생성(실행될 때 생성된다)
+	let pNode = document.createElement("p");
+		
+		// 텍스트 노드도 동적으로 생성
+		let textNode = document.createTextNode("추가내용1");
+		
+		// p태그의 자식노드로 텍스트 노드를 추가
+		pNode.appendChild(textNode);
+		
+		pNode.style.border = "3px solid red";
+		
+		page.insertBefore(pNode, firstChild);
+		
+		
+		
+		// 2. 추가(div 태그 추가)
+		let content = document.getElementById("content");
+		let div1 = document.createElement("div");
+		
+		let textNode1 = document.createTextNode("생성할 노드가 많은 경우, ");
+		let span1 = document.createElement("span");
+		let textNode2 = document.createTextNode("어떤 방법을 ");
+		span1.appendChild(textNode2);
+		let textNode3 = document.createTextNode("사용해야 할까요?");
+		
+		// div 태그에 자식노드로 텍스트노드와 span태그를 추가해야 한다.
+		div1.appendChild(textNode1);
+		div1.appendChild(span1);
+		div1.appendChild(textNode3);
+		
+		div1.style.border = "3px solid blue";
+		
+		// 생성된 div 태그를 content id의 위쪽에 추가
+		page.insertBefore(div1, content);
+		
+		
+		// 3. 추가(p태그 추가)
+		let p2Node = document.createElement("p");
+		let textNode4 = document.createTextNode("추가내용2");
+		p2Node.appendChild(textNode4);
+		p2Node.style.border = "3px solid red";
+		
+		page.appendChild(p2Node);
+		
+	}
+```
+
+
+* `Node.cloneNode()` 메서드를 이용하여 노드 생성
+
+```javascript
+onload = function() {
+	let page = document.getElementById("sample_page");
+	
+	let first = page.firstChild;
+	
+	let pNode = document.createElement("p");
+	
+	let textNode = document.createTextNode("추가내용1");
+	
+	pNode.appendChild(textNode);
+	
+	pNode.style.border = "3px solid red";
+	
+	page.insertBefore(pNode, first);
+}
+```
+
+
+* 문서에서 노드 삭제하기 
+
+```javascript
+onload = function() {
+	// 지우려고 하는 노드가 포함된 부모 노드
+	let page = document.getElementById("sample_page");	
+	
+	// 지우려는 노드를 찾자.
+	let content = document.getElementById("content");
+	
+	// 부모 노드의 removeChild() 메서드를 이용하면 된다.
+	page.removeChild(content);
+	
+}
+```
+
+
+* 노드 이동시키기
 
