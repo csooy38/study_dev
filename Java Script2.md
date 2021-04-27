@@ -1,8 +1,8 @@
-# BOM(Browser Object Model : 브라우저 객체 모델) 
+# 8. BOM(Browser Object Model : 브라우저 객체 모델) 
 BOM은 브라우저 내에 내장된 객체를 의미한다.  
 BOM 객체의 최상위 내장 객체는 `window` 객체로, 생략가능하다.  
  
-## window 객체
+## 8.1. window 객체
 * `window` 객체의 주요 메서드
 	- `open()` : 새로운 창을 띄우고자 할 때 사용하는 메서드.
 	- `alert()` : 경고 창을 띄울 때 사용하는 메서드.
@@ -14,7 +14,7 @@ BOM 객체의 최상위 내장 객체는 `window` 객체로, 생략가능하다.
 	- `setTimeout()` : 일정 간격으로 한번만 실행문을 실행시킬 때 사용하는 메서드.
 	
 
-## screen 객체
+## 8.2. screen 객체
 사용자의 모니터 정보(속성)를 제공해 주는 객체. 
  * `screen` 객체의 주요 속성  
 	- `screen.width` : 화면의 너비값을 반환하는 속성.
@@ -41,7 +41,7 @@ document.write("표현가능한 컬러 bit >>> " + screen.colorDepth + "<br>");
 
 
 
-## location 객체
+## 8.3. location 객체
 `location` 객체는 자바스크립트가 실행되고 있는 현재 브라우저의 주소창에 표시된 주소 값에 관련된 내용을 다룬다. 사용자 브라우저의 주소 창의 url에 대한 정보(속성)와 새로고침 기능을 제공하는 객체.  
 * `location` 객체의 주요 속성 및 메서드
 	- `location.href` : 브라우저 창의 url 값을 반환하는 속성.
@@ -55,7 +55,7 @@ document.write("url 정보 >>> " + location.href);
 <p align="center"><img src="./images/210426/19.png"></p>
 
 
-## history 객체
+## 8.4. history 객체
 `history` 객체는 브라우저가 페이지를 변경한 이력이 클라이언트에 저장되어 있는 객체이다. 사용자가 방문한 사이트 중 이전에 방문한 사이트와 다음 방문한 사이트로 다시 돌아갈 수 있는 속성과 메서드를 제공한다.
 
 * `history` 객체의 속성과 메서드
@@ -126,8 +126,8 @@ document.write("url 정보 >>> " + location.href);
 
 
 
-
-# DOM(Document Object Model : 문서 객체 모델)
+---------------------------------------
+# 9. DOM(Document Object Model : 문서 객체 모델)
 DOM은 웹 화면에 보이는 요소를 조작하기 위한 기능으로 가득 찬 라이브러리 덩어리로, 웹 브라우저가 HTML 페이지에 접근하는 방법을 정의한 API이다.  
 
 
@@ -287,8 +287,8 @@ imgNode.setAttribute("height", 200);
 <p align="center"><img src="./images/210426/25.png"></p>
 
 
-## 문서의 요소를 가져오는 방법 
-### 문서의 요소를 가져오는 방법 1 : getElementById(id) 를 이용하는 방법
+## 9.1. 문서의 요소를 가져오는 방법 
+### 9.1.1. 문서의 요소를 가져오는 방법 : getElementById(id) 를 이용하는 방법
 
 
 ```html
@@ -320,7 +320,7 @@ imgNode.setAttribute("height", 200);
 
 
 
-### 문서의 요소를 가져오는 방법 2 : getElementsByTagName(tagName)을 이용하는 방법
+### 9.1.2. 문서의 요소를 가져오는 방법 : getElementsByTagName(tagName)을 이용하는 방법
 * `getElementsByTagName(tagName)` : tagName과 일치하는 요소를 배열로 가져오는 메서드. 즉 tagName이 여러개 있을 경우 사용.
 
 ```html
@@ -362,7 +362,7 @@ DOM 적용 후)
 
 
 
-### 문서의 요소를 가져오는 방법 3 : querySelector(선택자)를 이용하는 방법
+### 9.1.3. 문서의 요소를 가져오는 방법 : querySelector(선택자)를 이용하는 방법
 * `querySelector(선택자)` : 선택자로 가장 처음 선택되는 문서의 요소를 가져오는 메서드.
 * `querySelectorAll(선택자)` : 선택자로 선택된 문서의 요소 전체를 배열로 가져오는 메서드.
 
@@ -380,7 +380,7 @@ onload = function() {
 
 
 
-### * 글자의 스타일 바꾸기  
+## 9.2. 글자의 스타일 바꾸기  
 
 ```javascript
 onload = function() {
@@ -398,7 +398,7 @@ onload = function() {
 
 
 
-### * 특정 요소를 제거하는 방법
+## 9.3. 특정 요소를 제거하는 방법
 아래와 같이 작성시 id가 "header_2"인 태그는 제거되어 출력되지 않는다.
 
 ```javascript
@@ -410,7 +410,7 @@ onload = function() {
 ```
 
 
-### * 이벤트 처리 작업
+## 9.4. 이벤트 처리 작업
 
 ```javascript
 onload = function() {
@@ -497,7 +497,7 @@ onload = function() {
 <p align="center"><img src="./images/210426/03.gif"></p>
 
 
-## 자바스크립트 내장 함수
+## 9.5. 자바스크립트 내장 함수
 자바스크립트에서 자체적으로 제공해 주는 함수.
 * `setInterval()` : 일정한 시간마다 주기적으로 특정한 함수를 호출한다. 반드시 개발자가 종료(clearInterval())를 시켜주어야 한다.
 * 형식) `setInterval(호출할 함수 이름, 시간(ms));`
@@ -866,4 +866,18 @@ onload = function() {
 
 
 * 노드 이동시키기
+```javascript
+onload = function() {
+	// 이동시킬 노드를 찾아보자.
+	let header = document.getElementById("header");
+	
+	// 이동 위치의 노드를 구해보자.
+	document.getElementById("content");
+	
+	// header를 content의 자식 노드로 이동
+	content.appendChild(header);
+		
+	header.style.border = "3px solid blue";
+}
+```
 
