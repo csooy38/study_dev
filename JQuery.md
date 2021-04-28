@@ -115,20 +115,205 @@ $(document).ready(function(){
 	* 형식) `$("요소선택:last")`, `$("요소선택").last()`
 		- 예) `$(".menu li:last").css("color", "blue");`
 		- 예) `$(".menu li").last().css("color","blue");`
+3. 짝수 번째(홀수 인덱스) 요소 선택 : 전체 요소 중에서 짝수 번째(홀수 인덱스) 요소만 선택한다.
+	* 형식) `$("요소 선택:odd")`
+	* 예) `$(".menu li:even").css("background-color", "while");`
+4. 홀수 번째(짝수 인덱스) 요소 선택 : 전체 요소 중에서 홀수 번째(짝수 인덱스) 요소만 선택한다.
+	* 형식) `$("요소 선택:even")`
+	* 예) `$(".menu li:odd").css("background-color", "lightgray");`
+5. 전체 요소 중 특정 숫자 번째 요소만 선택
+	* 형식) `$("요소선택:nth-child(숫자)")`
+	* 예) `$("li:nth-child(2)").css("color", "red");`
+6. 전체 요소 중 특정 배수의 요소만 선택
+	* 형식) `$("요소선택:nth-child(숫자n)")`
+	* 예) `$("li:nth-child(3n)").css("color", "blue");`
+	* 예) `$("li:nth-child(3n+1)").css("color", "green");`
+	
+
+
+### 2.3.2. 탐색 선택자
+1. eq(index) 선택자 : 지정한 인덱스가 참조하는 요소만 선택한다.
+	* 예) `$("li:eq(3)").css("background-color", "pink");`
+2. lt(index) 선택자 : 지정한 인덱스보다 작은(less then) 요소만 선택한다.
+	* 예) `$("li:lt(3)").css("background-color", "yellow");`
+3. gt(index) 선택자 : 지정한 인덱스보다 큰(grater then) 요소만 선택한다. 
+	* 예) `$("li:gt(3)").css("background-color", "skyblue");`
+
+
+
+### 2.3.3. 속성 탐색 선택자 
+속성 탐색 선택자는 요소의 지정된 속성을 기준으로 선택한다.
+1. 요소[속성] : 속성이  있는 요소 가져오기 .
+	* 예) `$("a[title]").css("border", "1px solid red");`
+2. 요소[속성=값] : 속성과 값이 일치하는 요소 가져오기.
+	* 예) `$("a[href='http://www.naver.com']").css("background-color", "pink");`
+3. 요소[속성^=값] : 값으로 시작하는 요소 가져오기.
+	* 예) `$("a[href^='mailto']").css("background-color", "aqua");`
+4. 요소[속성$=값] : 값으로 끝나는 요소 가져오기.
+	* 예) `$("a[href$='net']").css("background-color", "lightgray");`
+5. 요소[속성*=값] : 값을 포함하는 요소 가져오기.
+	* 예) `$("a[href*=daum]").css("border", "1px solid red");`
+6. `요소[속성=값][속성=값]` : and 조건으로 조건 2개의 속성과 값을 모두 만족하는 요소 가져오기.
+	* 예) `$("a[href^='mailto'][href$='net']").css("background-color", "green");`
+
+
+
+### 2.3.4. 요소 조작 메서드 
+요소 조작 메서드는 요소를 생성, 복사, 삭제, 속성 변환과 관련된 메서드를 제공한다.
+1. 속성 조작 메서드
+* `html()` : 선택한 요소에 포함되는 하위 요소를 불러오거나 새 요소로 바꿀 때 사용한다.
+
+```javascript
+// h1태그의 요소내용을 불러와 alert 창으로 출력
+alert($("h1").html());	
+
+// h1태그의 요소를 "" 안에 작성한 내용으로 변경
+$("h1").html("<a href='#'>HTML 메서드</a>");	
+```
+
+
+* `text()` :  선택한 요소 내의 텍스트를 불러오거나 텍스트를 바꿀 때 사용한다.
+
+```javascript
+// h1태그의 텍스트를 불러와 alert 창으로 출력
+alert($("h1").text());
+
+// h1태그의 텍스트 내용을 "텍스트 메서드"로 변경
+$("h1").text("텍스트 메서드");
+```
+
+
+
+* `attr("속성")` / `attr("속성", "값")` : 선택한 요소에 새 속성을 추가하거나, 기존의 속성을 변경할 때 사용한다.
+	* 예) `$(".wrap img").attr("width", "200");`
+	* 예) `$(".text").text($(".wrap img").attr("src"));`
+
+
+* `removeAttr("속성")` : 선택한 요소에서 기존의 속성을 삭제할 때 사용한다.
+	* 예) `$(".wrap img").removeAttr("width");`
+
+
+* `addClass()` : 선택한 요소에 클래스 선택자를 생성할 때 사용한다.
+	* 예) `$("#p1").addClass("p1_class");`
+
+
+* `removeClass()` : 선택한 요소에 지정된 클래스 선택자를 삭제할 때 사용한다.
+	* 예) `$("#p1").removeClass("p1_class");`
+	
+	
+* `val()` / `val(값)` : 입력 요소에 있는 value 값을 가져오거나 변경할 때 사용한다.
+
+```javascript
+// id="user_name" 인 요소의 value값을 alert로 출력
+alert($("#user_name").val());
+
+// id="user_name" 인 요소의 value값을 id="my_name"인 요소에 지정
+$("#my_name").val($("#user_name").val());
+```
 
 
 
 
 
+2. 수치 조작 메서드
 
 
 
 
+3. 요소 편집 메서드
+요소 편집 메서드는 선택한 요소를 복제하거나 새 요소를 생성하는 메서드이다.  
+복제하거나 새로 생성한 요소를 의도한 위치로 삽입하고 선택한 요소를 삭제하는 기능을 한다.  
+
+* `before()` : 선택한 요소 이전 위치에 새 요소를 추가하는 메서드.
+	* 형식) `형식) $("요소선택").before("새 요소")`
+* `after()` : 선택한 요소 다음 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("요소선택").after("새 요소")`
+
+```javascript
+// class="myList" 앞에 새로운 내용 추가
+$(".myList").before("<li>새로운 내용 추가1</li>");
+
+// class="myList" 뒤에 새로운 내용 추가
+$(".myList").after("<li>새로운 내용 추가2</li>");
+```
 
 
 
 
+* `append()` : 선택한 요소의 마지막 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("요소선택").append("새 요소")`
+* `appendTo()` : 선택한 요소의 마지막 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("새 요소").appendTo("요소 선택")`
+* `prepend()` : 선택한 요소의 맨 앞 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("요소선택").prepend("새 요소")`
+* `prependTo()` : 선택한 요소의 맨 앞 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("새 요소").prependTo("요소선택")`
+
+
+```javascript
+// class="myList"의 앞과 뒤에 각각 새로운 내용 1, 2를 추가
+$(".myList").append("<li>새로운 내용1</li>");
+$(".myList").prepend("<li>새로운 내용2</li>");
+
+// 이렇게 작성해도 된다.
+$("<li>새로운 내용1</li>").appendTo(".myList");
+$("<li>새로운 내용2</li>").prependTo(".myList");
+```
+
+
+
+* `insertBefore()` : 선택한 요소의 이전 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("새 요소").insertBefore("요소선택")`
+* `insertAfter()` : 선택한 요소의 다음 위치에 새 요소를 추가하는 메서드.
+	* 형식) `$("새 요소").insertAfter("요소선택")`
+* `clone()` : 선택한 요소를 복사하는 메서드.
+	* 형식) `$("요소선택").clone(true or false)`
+	- `true` : 하위 요소까지 모두 복사.
+	- `false` : 선택한 요소만 복사.
+	
+
+```javascript
+// class="myList" 이전 위치에 새로운 내용 추가
+$("<li>새로운 내용</li>").insertBefore(".myList");
+
+// class="myList"를 복사해서 my_clone이라는 변수에 저장
+let my_clone = $(".myList").clone();
+
+// 복사한 요소를 class="myList" 다음 위치에 추가
+$(my_clone).insertAfter(".myList");
+```
 
 
 
 
+* `empty()` : 선택한 요소의 하위 내용들을 모두 삭제하는 메서드. 선택한 요소 자체는 삭제되지 않는다.
+	* 형식) `$("요소선택").empty()`
+* `remove()` : 선택한 요소를 삭제하는 메서드. 
+	* 형식) `$("요소선택").remove()`
+	
+```javascript
+// class="line_1"인 요소의 하위 내용만 삭제. 
+$(".line_1").empty();
+
+// class="line_2"의 요소를 모두 삭제. 아예 사라진다.
+$(".line_2").remove();
+```
+
+	
+
+
+
+* `replaceWith()` : 선택된 요소만 새 요소로 교체하는 메서드.
+	* 형식) `$("요소선택").replaceWith("새 요소")`
+* `replaceAll()` : 선택 요소 전체를 새 요소로 교체하는 메서드.
+	* 형식) `$("요소선택").replaceAll("새 요소")`
+
+```javascript
+// <h2>태그로 작성된 모든 내용을 <h3>태그로 작성된 내용으로 교체
+$("h2").replaceWith("<h3>replaceWith() 메서드</h3>");
+
+// <p>태그로 작성된 모든 내용을 <h2> 태그의 "replaceAll"으로 내용 변경
+$("<h2>내용변경</h2>").replaceAll("p");
+```
+
+	
