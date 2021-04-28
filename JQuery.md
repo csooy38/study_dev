@@ -174,20 +174,26 @@ $("h1").text("텍스트 메서드");
 
 
 * `attr("속성")` / `attr("속성", "값")` : 선택한 요소에 새 속성을 추가하거나, 기존의 속성을 변경할 때 사용한다.
-	$(".wrap img").attr("width", "200");
-`$(".text").text($(".wrap img").attr("src"));`
-
+```javascript
+$(".wrap img").attr("width", "200");
+$(".text").text($(".wrap img").attr("src"));
+```
 
 * `removeAttr("속성")` : 선택한 요소에서 기존의 속성을 삭제할 때 사용한다.
-	* 예) `$(".wrap img").removeAttr("width");`
+```javascript
+$(".wrap img").removeAttr("width");
+``` 
 
 
 * `addClass()` : 선택한 요소에 클래스 선택자를 생성할 때 사용한다.
-	* 예) `$("#p1").addClass("p1_class");`
-
+```javascript
+$("#p1").addClass("p1_class");
+```
 
 * `removeClass()` : 선택한 요소에 지정된 클래스 선택자를 삭제할 때 사용한다.
-	* 예) `$("#p1").removeClass("p1_class");`
+```javacsript
+$("#p1").removeClass("p1_class");
+```
 	
 	
 * `val()` / `val(값)` : 입력 요소에 있는 value 값을 가져오거나 변경할 때 사용한다.
