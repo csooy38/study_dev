@@ -158,9 +158,10 @@ $(document).ready(function(){
 
 
 
-### 2.3.4. 요소 조작 메서드 
+## 2.4. 요소 조작 메서드 
 요소 조작 메서드는 요소를 생성, 복사, 삭제, 속성 변환과 관련된 메서드를 제공한다.
-1. 속성 조작 메서드
+
+### 2.4.1. 속성 조작 메서드
 * `html()` : 선택한 요소에 포함되는 하위 요소를 불러오거나 새 요소로 바꿀 때 사용한다.
 
 ```javascript
@@ -215,17 +216,17 @@ $("#my_name").val($("#user_name").val());
 
 
 
-2. 수치 조작 메서드
+2.4.2. 수치 조작 메서드
 
 
 
 
-3. 요소 편집 메서드
+2.4.3. 요소 편집 메서드
 요소 편집 메서드는 선택한 요소를 복제하거나 새 요소를 생성하는 메서드이다.  
 복제하거나 새로 생성한 요소를 의도한 위치로 삽입하고 선택한 요소를 삭제하는 기능을 한다.  
 
 * `before()` : 선택한 요소 이전 위치에 새 요소를 추가하는 메서드.
-	* 형식) `형식) $("요소선택").before("새 요소")`
+	* 형식) `$("요소선택").before("새 요소")`
 * `after()` : 선택한 요소 다음 위치에 새 요소를 추가하는 메서드.
 	* 형식) `$("요소선택").after("새 요소")`
 
@@ -309,11 +310,468 @@ $(".line_2").remove();
 	* 형식) `$("요소선택").replaceAll("새 요소")`
 
 ```javascript
-// <h2>태그로 작성된 모든 내용을 <h3>태그로 작성된 내용으로 교체
+// <h2>태그로 작성된 내용을 <h3>태그로 작성된 내용으로 교체
 $("h2").replaceWith("<h3>replaceWith() 메서드</h3>");
 
 // <p>태그로 작성된 모든 내용을 <h2> 태그의 "replaceAll"으로 내용 변경
 $("<h2>내용변경</h2>").replaceAll("p");
 ```
 
+
+* 속성으로 노드를 찾기
+	- `$("E[A]")` : 속성 A를 포함한 모든 E 노드 찾기
+	- `$("E[A=V]")` : 속성 A의 값이 V인 모든 E 노드 찾기
+	- `$("E[A^=V]")` : 속성 A의 값이 V로 시작하는 모든 E 노드 찾기
+	- `$("E[A$=V]")` : 속성 A의 값이 V로 끝나는 모든 E 노드 찾기
+	- `$("E[A*=V]")` : 속성 A의 값이 V를 포함하고 있는 모든 E 노드 찾기
+
+```javascript
+// 클래스가 적용된 모든 노드를 찾아 border 속성 변경
+$("[class]").css("border", "3px solid red");
+
+// 클래스 이름에 test라는 단어가 포함된 모든 노드를 찾아 border 속성 변경
+$("[class*=test]").css("border", "3px solid red");
+```
+
+
+* 찾은 노드 다루기
+
+```javascript
+// 문서에서 div 태그 노드가 몇 개인지 확인
+// let divs = $("div");
+alert("div 갯수 >>> " + $("div").length);
+```
+
+
+* 순차적으로 찾은 노드 접근하기
+
+```javascript
+형식)
+$("요소선택").each(function(index) {
+	let 변수 = $(this);
+})
+```
+
+```javascript
+let li_list = $("ul.menu li");
+li_list.each(function(index){
+	console.log("index >>> " + index);
+});
+```
+
+
+* 찾은 노드 중에서 특정 노드에 접근하기 : ul.menu li 에서 나온 결과값에 있는 항목 중에 select 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용한다.
+	* 형식) $("요소선택").filter("선택자")
 	
+```javascript
+let li_list = $("ul.menu li");
+li_list.filter(".select").css("border", "3px solid red");
+
+```
+
+* 찾은 노드의 자손(자식포함) 노드 중 특정 노드 찾기
+	* 형식) $("요소선택").find("선택자")
+	
+```javascript
+// content 아이디 중 test1이라는 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용.
+$("#content").find(".test1").css("border", "3px solid red");
+```
+
+
+
+* 모든 자식 노드 찾기
+	* 형식) $("요소선택").children()
+	
+```javascript
+// content 아이디 중 test1이라는 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용.
+$("#sample_page").children().css("border", "3px solid red");
+```
+
+
+* 특정 자식 노드만 찾기
+	* 형식) $("요소선택").children("선택자")
+	
+```javascript
+$("#sample_page").find(".test1").css("border", "3px solid red");
+```
+
+
+※` children()` : 바로 다음 하위 자식 중에서 노드를 찾음.
+※ `find()` : 바로 다음 하위 자식 노드 뿐만 아니라 모든 자손 노드에서 찾음.
+	
+
+# 이벤트 Event
+
+## 이벤트 종류
+1. 마우스 이벤트 : 사용자가 마우스 버튼을 눌렀을때 발생하는 이벤트.
+2. 키보드 이벤트 : 사용자가 키보드를 눌렀을 때 발생하는 이벤트. 이 때 눌린 키에 대한 정보가 이벤트에 담긴다.
+3. 태그요소 고유 이벤트 : 요소마다 발생하는 고유의 이벤트.
+4. 사용자 정의 이벤트 : 개발자가 직접 만들어 사용하는 이벤트.
+
+* 이벤트 형식) 
+	1. `$("요소선택").on("이벤트이름", 이벤트리스너)`
+	2. `$("요소선택").이벤트이름(이벤트리스너)` 
+
+```javascript
+// 버튼을 누르면 "환영합니다."라는 alert 창이 열리는 이벤트
+$(function() {
+	$(".btn").on("click", function() {
+		alert("환영합니다.");
+	});
+});
+```
+
+<p align="center"><img src="./images/210429/05.gif"></p>
+
+
+## 이벤트 목록
+blur, change, load, unload, resize, scroll, select, submit, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, focus, keydown, keupress, keyup....
+	
+```javascript
+// id="menu"의 li태그를 클릭할 때마다 
+// 해당 태그의 html 정보를 alert 창으로 출력
+$(".menu li").on("click", function() {
+	alert($(this).html());
+});
+```
+
+<p align="center"><img src="./images/210429/06.gif"></p>
+	
+	
+	
+
+```javascript
+// 버튼을 클릭하면 p태그의 배경색이 노란색이 되는 이벤트
+$(".btn1").click(function() {
+	$("p").css("background-color", "yellow");
+});
+
+// 버튼을 더블클릭하면 p태그에 보더가 생기는 이벤트
+$(".btn2").dblclick(function() {
+	$("p").css("border", "2px solid red");
+});
+```
+
+<p align="center"><img src="./images/210429/08.gif"></p>
+
+
+## 마우스 이벤트
+* `mouseout()` : `$("요소선택").mouseout(function() {.....});`
+
+* `mouseover()` : `$("요소선택").mouseover(function() {.....});`
+
+* `hover()` 
+
+```javascript
+$("요소선택").hover (
+	function() {.....}), ==> 마우스가 올라갔을 때 실행
+	function() {.....}); ==> 마우스가 벗어났을 때 실행
+)
+```	        
+	        	
+	        	
+```javascript
+// 버튼에 마우스가 올라가면 p태그의 배경색을 핑크로 바꾸는 이벤트
+$(".btn1").on("mouseover", function() {
+	$("p").css("background-color", "pink");
+});
+	
+// 버튼에서 마우스가 내려오면 p태그의 배경색을 라이트그레이로 바꾸는 이벤트
+$(".btn1").on("mouseout", function() {
+	$("p").css("background-color", "lightgray");
+});
+		
+// 마우스가 버튼을 오르내릴때마다 발생하는 이벤트
+$(".btn2").hover(
+	function() {  // 마우스가 올라갔을 때 이벤트 실행
+		$("p").css("border", "2px solid red");
+	},			
+	function() {  // 마우스가 벗어났을 때 이벤트 실행
+		$("p").css("background-color", "yellow");
+	});
+});
+```
+
+<p align="center"><img src="./images/210429/089.gif"></p>
+
+
+
+
+- `mouseenter()` : 선택한 요소의 경계 범위 내에 마우스가 올라갔을 때 이벤트 발생.
+	* 형식) $("요소선택").mouseenter(function() {...});
+- `mouseleave()` : 선택한 요소의 경계 범위 내에서 마우스가 떠나갔을 때 이벤트 발생.
+	* 형식) $("요소선택").mouseleave(function() {...});
+			
+```javascript
+// 마우스가 올라가면 배경색이 파란색이 된다.
+$(".wrap").on("mouseenter", function() {
+	$("p").css("background-color", "blue");
+})
+	
+// 마우스가 떠나면 배경색이 노란색이 된다.	
+$(".wrap").mouseleave(function() {
+	$("p").css("background-color", "yellow");
+})
+```
+
+<p align="center"><img src="./images/210429/01.gif"></p>
+
+
+
+* `mousemove()` : 선택한 요소의 영역에서 마우스를 움직일 때마다 이벤트 발생.
+	* 형식) $("요소선택").mousemove(function() {...})
+
+```javascript
+// $(document) : 현재 문서
+// e : 매개변수
+$(document).on("mousemove", function(e) {
+	let x = e.pageX	// 마우스의 x 좌표값을 구함
+	let y = e.pageY	// 마우스의 y 좌표값을 구함
+	$("h2").text("x : " + x + ", y : " + y);
+});
+```
+
+<p align="center"><img src="./images/210429/00.gif"></p>
+
+
+
+## 키보드 이벤트
+- `keypress()` : 선택한 요소에서 키보드를 눌렀을 때 이벤트 발생. 문자 키를 제외한 키 코드값을 반환한다.
+	* 형식) $("요소선택").keypress(function() {...})
+- `keydown()` : 선택한 요소에서 키보드를 눌렀을 때 이벤트 발생.
+	* 형식) $("요소선택").keydown(function() {...})
+- `keyup()` : 선택한 요소에서 키보드에서 손을 떼었을 때 이벤트 발생.
+	* 형식) $("요소선택").keyup(function() {...})
+	
+	
+```javascript
+$("#user_id").on("keypress", function(e) {
+	$(".txt2").text(e.keyCode);	// 아스키코드로 반환
+});
+		
+// 키보드를 누르면 누른 값이 아스키코드로 반환되고,배경색이 노란색이 된다.
+$("#user_id").on("keydown", function(e) {
+	$(".txt1").text(e.keyCode);
+			
+	// this : 현재 태그 (#user_id)
+	$(this).css("background-color", "yellow");
+});
+		
+// 키보드를 떼면 배경색이 토마토색이 된다.
+$("#user_id").on("keyup", function(e) {
+	$(this).css("background-color", "tomato");
+});
+```
+
+<p align="center"><img src="./images/210429/02.gif"></p>
+	
+	
+## 기타 자주 사용되는 이벤트 메서드
+- `change()` : 선택한 입력 요소에 값이 새 값으로 변경되고 포커스가 다른 요소로 이동이 되었을 때 이벤트 발생.
+	
+```javascript
+$(".site").on("change", function() {
+	$(".txt").text($(this).val());	
+});
+```
+
+<p align="center"><img src="./images/210429/03.gif"></p>
+
+
+
+
+# Animation 애니메이션
+
+## 효과 관련 메서드
+- `hide()` : 노출되어 있는 요소를 숨기는 기능.
+	* 형식) $("요소선택").hide(효과속도(ms), 콜백함수)
+- `show()` : 숨겨져 있던 요소를 노출시키는 기능.
+	* 형식) $("요소선택").show(효과속도(ms), 콜백함수)
+	
+* 콜백함수 : 효과가 완료되면 실행되는 함수. 생략가능.
+			
+```javascript
+// 버튼을 누르면 h2태그가 숨겨지는 애니메이션
+$(".btn1").click(function() {
+	$("h2").hide(500, function() {
+		alert("숨김이 완료되었습니다.");
+	});
+});
+		
+// 버튼을 누르면 숨겨져있던 h2가 나타나는 애니메이션
+$(".btn2").click(function() {
+	$("h2").show(1000, function() {
+		alert("노출이 완료되었습니다.");
+	});
+});
+```
+
+<p align="center"><img src="./images/210429/04.gif"></p>
+
+
+
+* `toggle()` : 선택한 요소가 보이면 숨기고, 숨겨져 있으면 보이게 하는 기능.
+	* 형식) $("요소선택").toggle(효과속도, 콜백함수)
+	
+```javascript
+// 버튼을 누르면 이미지가 보이면 숨기고 숨겨져 있으면 보이는 애니메이션
+$(".btn").click(function() {
+	$("img").toggle(1000)
+});
+```
+
+<p align="center"><img src="./images/210429/07.gif"></p>
+
+
+
+* `fadeIn()` : 숨겨져 있던 요소가 점점 불투명해지면서 노출되는 기능.
+	* 형식) $("요소선택").fadeIn(효과속도, 콜백함수)
+* `fadeOut()` : 노출되어 있던 요소가 점점 사라지는(투명해지는) 기능.
+	* 형식) $("요소선택").fadeOut(효과속도, 콜백함수)
+* `fadeToggle()` : 노출이 되어 있던 요소는 점점 사라지고, 사라져 있던 요소는 점점 선명해지는 기능.
+	* 형식) $("요소선택").fadeToggle(효과속도, 콜백함수)
+
+```javascript
+// 버튼을 누르면 이미지가 점점 투명해지는 애니메이션
+$(".btn1").click(function() {
+	$("img").fadeOut(500);
+});
+		
+// 버튼을 누르면 이미지가 점점 선명해지는 애니메이션
+$(".btn2").click(function() {
+	$("img").fadeIn(500)
+});
+		
+// 버튼을 누르면 있던 이미지는 투명해지고, 없던 이미지는 선명해지는 애니메이션
+$(".btn3").click(function() {
+	$("img").fadeToggle(500)
+});
+```
+	
+<p align="center"><img src="./images/210429/10.gif"></p>
+
+
+
+* `fadeTo()` : 선택한 요소를 지정한 투명도의 값까지만 숨기는 기능. 투명도는 0부터 1사이의 값까지만 입력할 수 있다.
+	* 형식) $("요소선택").fadeTo(효과속도, 투명도, 콜백함수)
+
+```javascript
+$(".btn1").click(function() {
+	$("img").fadeTo(1000, 0.25) // 투명도 0.25
+});
+		
+$(".btn2").click(function() {
+	$("img").fadeTo(1000, 0.5)	// 투명도 0.5
+});
+		
+$(".btn3").click(function() {
+	$("img").fadeTo(1000, 0.75)	// 투명도 0.75
+});
+		
+$(".btn4").click(function() {
+	$("img").fadeTo(1000, 1)		// 투명도 1
+});
+```
+
+<p align="center"><img src="./images/210429/11.gif"></p>
+
+
+
+- `slideUp()` : 선택한 요소를 숨길 때 사용하는 메서드.
+	* 형식) $("요소선택").slideUp(효과속도, 콜백함수)
+- `slideDown()` : 숨겨져있는 요소를 나타낼 때 사용하는 메서드.
+	* 형식) $("요소선택").slideDown(효과속도, 콜백함수)
+- `slideToggle()` : 요소가 나타나 있으면 숨기고, 숨겨져 있으면 나타내는 메서드.
+	* 형식) $("요소선택").slideToggle(효과속도, 콜백함수)
+	
+```javascript
+$(".btn1").click(function() {
+	$("img").slideUp(1000);
+});
+	
+$(".btn2").click(function() {
+	$("img").slideDown(1000);
+});
+
+$(".btn3").click(function() {
+	$("img").slideToggle(1000);
+});
+```
+	
+
+<p align="center"><img src="./images/210429/12.gif"></p>
+
+
+
+- `animate()` : 선택한 요소에 다양한 동작(motion) 효과를 적용하는 메서드.
+	* 형식) $("요소선택").animation({애니메이션 속성}, 효과속도, 콜백함수)
+	* 애니메이션 속성 : 모션으로 적용할 속성을 CSS(스타일)을 이용하여 입력한다.
+	* 효과속도 : ms(1/1000) 또는 "slow", "normal", "fast"로도 가능하다.
+
+```javascript
+// 3초동안 좌측에서부터 250px 이동 후, 콜백함수로 alert창 호출.
+$("h1").animate({marginLeft: "250px"}, 3000, function() {
+	alert("도착 완료");
+});
+		
+// 3초동안 좌측에서부터 250px 이동.
+$("h2").animate({marginLeft: "250px", width: "100px", opacity: 0.25}, 3000);
+		
+// 콜백함수에 다시 애니메이션을 넣을 수 있다.
+// 2초동안 좌측에서부터 250px 멀어진 후, 다시 1초동안 우측으로 100px 이동.
+$("h3").animate({marginLeft: "250px"}, 2000, function() {
+	$("h3").animate({marginLeft: "100px"}, 1000);
+});
+```
+
+<p align="center"><img src="./images/210429/13.gif"></p>
+
+
+- `stop()` : 선택한 요소에 효과 또는 애니메이션이 적용된 효과를 정지시키는 메서드. 
+	* 형식) $("요소선택").stop()
+- `delay()` : 선택한 요소에 효과 또는 애니메이션이 족용된 효과를 지연시키는 메서드.
+	* 형식) $("요소선택").delay(지연시간).애니메이션 효과 메서드();
+	
+
+```javascript
+$("h1").animate({marginLeft: "250px"}, 3000);
+		
+$("h2").delay(2000).animate({marginLeft: "250px"}, 1000);
+		
+$(".stop").click(function() {
+	$("h1").stop;	// h1 태그 동작 정지
+	$("h2").stop;	// h2 태그 동작 정지
+}); 
+```
+
+
+#### [예] 글자크기와 글자체를 변경해보자.
+
+```javascript
+// 초기값 설정
+let size = 14;
+
+// 1. 글자 크기의 버튼을 클릭했을 때 이벤트 발생
+// id="zoom"인 태그 내의 button 태그를 클릭했을 때
+$(".zoom button").click(function() {
+	let btn_index = $(".zoom button").index(this);
+	
+	if(btn_index === 0) {		// "+" 버튼을 클릭한 경우
+		size++;	// size(크기)가 1씩 증가
+		$("#txt_wrap").css("font-size", size+"px");
+	}else if(btn_index === 2){	// "-" 버튼을 클릭한 경우
+		size--;	// size(크기)가 1씩 감소
+		$("#txt_wrap").css("font-size", size+"px");
+	}else {						// "0" 버튼을 클릭한 경우
+		size = 14;
+		$("#txt_wrap").css("font-size", size+"px");
+	}
+});
+		
+// 2. 글자체를 선택했을 때 이벤트 발생
+$("#fs").change(function(){
+	$("#txt_wrap").css("font-family",  $(this).val());
+});
+```
+
+<p align="center"><img src="./images/210429/14.gif"></p>
