@@ -152,9 +152,6 @@ $(document).ready(function(){
 <<<<<<< HEAD
 
 ### 2.4.1. 속성 조작 메서드
-=======
-#### 1. 속성 조작 메서드
->>>>>>> branch 'main' of https://github.com/csooy38/github
 * `html()` : 선택한 요소에 포함되는 하위 요소를 불러오거나 새 요소로 바꿀 때 사용한다.
 
 ```javascript
@@ -215,20 +212,13 @@ $("#my_name").val($("#user_name").val());
 
 
 
-<<<<<<< HEAD
-2.4.2. 수치 조작 메서드
-=======
-#### 2. 수치 조작 메서드
->>>>>>> branch 'main' of https://github.com/csooy38/github
+### 2.4.2. 수치 조작 메서드
 
 
 
 
-<<<<<<< HEAD
-2.4.3. 요소 편집 메서드
-=======
-#### 3. 요소 편집 메서드
->>>>>>> branch 'main' of https://github.com/csooy38/github
+### 2.4.3. 요소 편집 메서드
+
 요소 편집 메서드는 선택한 요소를 복제하거나 새 요소를 생성하는 메서드이다.  
 복제하거나 새로 생성한 요소를 의도한 위치로 삽입하고 선택한 요소를 삭제하는 기능을 한다.  
 
@@ -324,9 +314,9 @@ $("h2").replaceWith("<h3>replaceWith() 메서드</h3>");
 $("<h2>내용변경</h2>").replaceAll("p");
 ```
 
-<<<<<<< HEAD
 
-* 속성으로 노드를 찾기
+## 3. 기타
+### 3.1. 속성으로 노드를 찾기
 	- `$("E[A]")` : 속성 A를 포함한 모든 E 노드 찾기
 	- `$("E[A=V]")` : 속성 A의 값이 V인 모든 E 노드 찾기
 	- `$("E[A^=V]")` : 속성 A의 값이 V로 시작하는 모든 E 노드 찾기
@@ -342,7 +332,7 @@ $("[class*=test]").css("border", "3px solid red");
 ```
 
 
-* 찾은 노드 다루기
+### 3.2. 찾은 노드 다루기
 
 ```javascript
 // 문서에서 div 태그 노드가 몇 개인지 확인
@@ -351,10 +341,9 @@ alert("div 갯수 >>> " + $("div").length);
 ```
 
 
-* 순차적으로 찾은 노드 접근하기
-
-```javascript
+### 3.3 순차적으로 찾은 노드 접근하기
 형식)
+```javascript
 $("요소선택").each(function(index) {
 	let 변수 = $(this);
 })
@@ -368,8 +357,9 @@ li_list.each(function(index){
 ```
 
 
-* 찾은 노드 중에서 특정 노드에 접근하기 : ul.menu li 에서 나온 결과값에 있는 항목 중에 select 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용한다.
-	* 형식) $("요소선택").filter("선택자")
+### 3.4. 찾은 노드 중에서 특정 노드에 접근하기 
+ul.menu li 에서 나온 결과값에 있는 항목 중에 select 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용한다.
+* 형식) $("요소선택").filter("선택자")
 	
 ```javascript
 let li_list = $("ul.menu li");
@@ -377,8 +367,8 @@ li_list.filter(".select").css("border", "3px solid red");
 
 ```
 
-* 찾은 노드의 자손(자식포함) 노드 중 특정 노드 찾기
-	* 형식) $("요소선택").find("선택자")
+### 3.5. 찾은 노드의 자손(자식포함) 노드 중 특정 노드 찾기
+* 형식) $("요소선택").find("선택자")
 	
 ```javascript
 // content 아이디 중 test1이라는 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용.
@@ -387,8 +377,8 @@ $("#content").find(".test1").css("border", "3px solid red");
 
 
 
-* 모든 자식 노드 찾기
-	* 형식) $("요소선택").children()
+### 3.6. 모든 자식 노드 찾기
+* 형식) $("요소선택").children()
 	
 ```javascript
 // content 아이디 중 test1이라는 클래스가 적용된 노드를 찾아서 "3px solid red" 로 적용.
@@ -396,21 +386,21 @@ $("#sample_page").children().css("border", "3px solid red");
 ```
 
 
-* 특정 자식 노드만 찾기
-	* 형식) $("요소선택").children("선택자")
+### 3.7. 특정 자식 노드만 찾기
+* 형식) $("요소선택").children("선택자")
 	
 ```javascript
 $("#sample_page").find(".test1").css("border", "3px solid red");
 ```
 
 
-※` children()` : 바로 다음 하위 자식 중에서 노드를 찾음.
+※` children()` : 바로 다음 하위 자식 중에서 노드를 찾음.    
 ※ `find()` : 바로 다음 하위 자식 노드 뿐만 아니라 모든 자손 노드에서 찾음.
 	
 
-# 이벤트 Event
+# 4. 이벤트 Event
 
-## 이벤트 종류
+## 4.1. 이벤트 종류
 1. 마우스 이벤트 : 사용자가 마우스 버튼을 눌렀을때 발생하는 이벤트.
 2. 키보드 이벤트 : 사용자가 키보드를 눌렀을 때 발생하는 이벤트. 이 때 눌린 키에 대한 정보가 이벤트에 담긴다.
 3. 태그요소 고유 이벤트 : 요소마다 발생하는 고유의 이벤트.
@@ -432,7 +422,7 @@ $(function() {
 <p align="center"><img src="./images/210429/05.gif"></p>
 
 
-## 이벤트 목록
+## 4.2. 이벤트 목록
 blur, change, load, unload, resize, scroll, select, submit, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, focus, keydown, keupress, keyup....
 	
 ```javascript
@@ -463,7 +453,7 @@ $(".btn2").dblclick(function() {
 <p align="center"><img src="./images/210429/08.gif"></p>
 
 
-## 마우스 이벤트
+## 4.3. 마우스 이벤트
 * `mouseout()` : `$("요소선택").mouseout(function() {.....});`
 
 * `mouseover()` : `$("요소선택").mouseover(function() {.....});`
@@ -543,7 +533,7 @@ $(document).on("mousemove", function(e) {
 
 
 
-## 키보드 이벤트
+## 4.4. 키보드 이벤트
 - `keypress()` : 선택한 요소에서 키보드를 눌렀을 때 이벤트 발생. 문자 키를 제외한 키 코드값을 반환한다.
 	* 형식) $("요소선택").keypress(function() {...})
 - `keydown()` : 선택한 요소에서 키보드를 눌렀을 때 이벤트 발생.
@@ -574,7 +564,7 @@ $("#user_id").on("keyup", function(e) {
 <p align="center"><img src="./images/210429/02.gif"></p>
 	
 	
-## 기타 자주 사용되는 이벤트 메서드
+## 4.5. 기타 자주 사용되는 이벤트 메서드
 - `change()` : 선택한 입력 요소에 값이 새 값으로 변경되고 포커스가 다른 요소로 이동이 되었을 때 이벤트 발생.
 	
 ```javascript
@@ -588,9 +578,9 @@ $(".site").on("change", function() {
 
 
 
-# Animation 애니메이션
+# 5. Animation 애니메이션
 
-## 효과 관련 메서드
+## 5.1. 효과 관련 메서드
 - `hide()` : 노출되어 있는 요소를 숨기는 기능.
 	* 형식) $("요소선택").hide(효과속도(ms), 콜백함수)
 - `show()` : 숨겨져 있던 요소를 노출시키는 기능.
@@ -783,6 +773,4 @@ $("#fs").change(function(){
 ```
 
 <p align="center"><img src="./images/210429/14.gif"></p>
-=======
-	
->>>>>>> branch 'main' of https://github.com/csooy38/github
+
