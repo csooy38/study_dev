@@ -299,8 +299,6 @@ $(".line_2").remove();
 
 	
 
-
-
 * `replaceWith()` : 선택된 요소만 새 요소로 교체하는 메서드.
 	* 형식) `$("요소선택").replaceWith("새 요소")`
 * `replaceAll()` : 선택 요소 전체를 새 요소로 교체하는 메서드.
@@ -315,13 +313,15 @@ $("<h2>내용변경</h2>").replaceAll("p");
 ```
 
 
+
+
 ## 3. 기타
 ### 3.1. 속성으로 노드를 찾기
-	- `$("E[A]")` : 속성 A를 포함한 모든 E 노드 찾기
-	- `$("E[A=V]")` : 속성 A의 값이 V인 모든 E 노드 찾기
-	- `$("E[A^=V]")` : 속성 A의 값이 V로 시작하는 모든 E 노드 찾기
-	- `$("E[A$=V]")` : 속성 A의 값이 V로 끝나는 모든 E 노드 찾기
-	- `$("E[A*=V]")` : 속성 A의 값이 V를 포함하고 있는 모든 E 노드 찾기
+- `$("E[A]")` : 속성 A를 포함한 모든 E 노드 찾기
+- `$("E[A=V]")` : 속성 A의 값이 V인 모든 E 노드 찾기
+- `$("E[A^=V]")` : 속성 A의 값이 V로 시작하는 모든 E 노드 찾기
+- `$("E[A$=V]")` : 속성 A의 값이 V로 끝나는 모든 E 노드 찾기
+- `$("E[A*=V]")` : 속성 A의 값이 V를 포함하고 있는 모든 E 노드 찾기
 
 ```javascript
 // 클래스가 적용된 모든 노드를 찾아 border 속성 변경
@@ -419,7 +419,7 @@ $(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/05.gif"></p>
+<p align="center"><img src="./images/210429/00.gif"></p>
 
 
 ## 4.2. 이벤트 목록
@@ -433,7 +433,7 @@ $(".menu li").on("click", function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/06.gif"></p>
+<p align="center"><img src="./images/210429/01.gif"></p>
 	
 	
 	
@@ -450,7 +450,7 @@ $(".btn2").dblclick(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/08.gif"></p>
+<p align="center"><img src="./images/210429/02.gif"></p>
 
 
 ## 4.3. 마우스 이벤트
@@ -490,7 +490,7 @@ $(".btn2").hover(
 });
 ```
 
-<p align="center"><img src="./images/210429/089.gif"></p>
+<p align="center"><img src="./images/210429/03.gif"></p>
 
 
 
@@ -512,7 +512,7 @@ $(".wrap").mouseleave(function() {
 })
 ```
 
-<p align="center"><img src="./images/210429/01.gif"></p>
+<p align="center"><img src="./images/210429/04.gif"></p>
 
 
 
@@ -529,7 +529,7 @@ $(document).on("mousemove", function(e) {
 });
 ```
 
-<p align="center"><img src="./images/210429/00.gif"></p>
+<p align="center"><img src="./images/210429/05.gif"></p>
 
 
 
@@ -561,7 +561,7 @@ $("#user_id").on("keyup", function(e) {
 });
 ```
 
-<p align="center"><img src="./images/210429/02.gif"></p>
+<p align="center"><img src="./images/210429/06.gif"></p>
 	
 	
 ## 4.5. 기타 자주 사용되는 이벤트 메서드
@@ -573,7 +573,7 @@ $(".site").on("change", function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/03.gif"></p>
+<p align="center"><img src="./images/210429/07.gif"></p>
 
 
 
@@ -604,7 +604,7 @@ $(".btn2").click(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/04.gif"></p>
+<p align="center"><img src="./images/210429/08.gif"></p>
 
 
 
@@ -618,7 +618,7 @@ $(".btn").click(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/07.gif"></p>
+<p align="center"><img src="./images/210429/09.gif"></p>
 
 
 
@@ -742,6 +742,8 @@ $(".stop").click(function() {
 }); 
 ```
 
+<p align="center"><img src="./images/210429/14.gif"></p>
+
 
 #### [예] 글자크기와 글자체를 변경해보자.
 
@@ -772,5 +774,5 @@ $("#fs").change(function(){
 });
 ```
 
-<p align="center"><img src="./images/210429/14.gif"></p>
+<p align="center"><img src="./images/210429/15.gif"></p>
 
