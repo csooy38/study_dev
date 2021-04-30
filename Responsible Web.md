@@ -53,7 +53,7 @@ viewport는 웹 페이지에서 사용자의 보이는 영역(visible area)이�
 
 ## rem
 
-```html
+```css
 .wrapper {
 	width: 96%;
 	margin: 0 auto;
@@ -74,7 +74,7 @@ viewport는 웹 페이지에서 사용자의 보이는 영역(visible area)이�
 그래서 이러한 단점을 대신하기 위해서 나온 단위가 rem이라는 단위이다.  
 
 
-```html
+```css
 body {
 	font-size: 16px;	/* rem의 기준이 되는 기본 크기를 지정 */
 }
@@ -86,9 +86,143 @@ body {
 .text {
 	font-size: 1.5rem;	/* 16px * 1.5 = 24px */
 }
+```
 
 rem 단위는 root 즉, `<body>` 태그를 처음부터 기본 크기로 지정하기 때문에 em 단위처럼 기본이 되는 크기가 중간에 변경되지 않는다.  
 처음부터 끝까지 하나의 기본 사이즈를 기준으로 삼기 때문에 em 단위보다 간결하다.  
+
+
+
+## max-width
+`width` 속성은 웹 문서에 삽입할 이미지의 너비 값을 표현하는 것이다.  
+`max-width` 속성은 가변 이미지에서 최대한 표시할 수 있는 이미지의 너비값을 말한다. 브라우저 창의 너비를 줄이면 이미지도 같이 줄어든다.
+
+```css
+.content img {
+	 max-width: 100%;
+	 height: auto;
+}
+```
+
+
+<p align="center"><img src="./images/210430/00.gif"></p>
+
+
+
+비디오 파일에도 동일하게 적용 가능하다.
+
+```css
+video {
+	max-width: 100%;
+}
+```
+
+
+<p align="center"><img src="./images/210430/02.gif"></p>
+
+
+
+## srcset
+* 형식) `srcset="파일 위치 [픽셀밀도][너비값]"`
+	- `srcset` : 픽셀의 밀도와 너비값을 줄 수 있는 속성.
+	- 밀도 : 픽셀이 얼마나 빽빽하게 차 있는지를 의미.
+
+
+```html
+<picture>
+<!-- 1024px 이상은 large, 768~1024px은 medium, 320~768px은 small 이미지 표출  -->
+	<source srcset="images/shop-large.jpg" media="(min-width:1024px)">
+	<source srcset="images/shop-medium.jpg" media="(min-width:768px)">	
+	<source srcset="images/shop-small.jpg" media="(min-width:320px)">
+			
+	<img src="images/shop.jpg" style="width: 100%">	
+</picture>
+```
+
+
+<p align="center"><img src="./images/210430/01.gif"></p>
+
+
+
+## 미디어 쿼리
+미디어 쿼리는 접속하는 장치(미디어)에 따라서 특정한 CSS 스타일을 사용하도록 하는 것을 말한다.
+
+* `@media screen` : 미디어가 스크린일 때.
+
+* `max-width` : 여러 개 작성 시 내림차순으로 작성해야 한다.
+* `min-width` : 여러 개 작성 시 오름차순으로 작성해야 한다.
+
+
+```css
+/* 최대 너비 > 1024px 일 때는 bg0.jpg 파일을 body 태그의 배경 이미지로 설정 */
+body {
+	background: url("images/bg0.jpg") no-repeat fixed;
+	background-size: cover;	/* 창크기에 딱 맞게 이미지 크기 설정 */
+}
+
+/* 768 < 최대 너비 <= 1024px 일 때는 bg1 이미지 깔기 */
+@media screen and (max-width: 1024px) {
+	body {
+		background: url("images/bg1.jpg") no-repeat fixed;
+		background-size: cover;
+	}
+}
+	
+/* 320px < 최대 너비 <= 768px 일 때는 bg2 이미지 깔기 */
+media screen and (max-width: 768px) {
+	body {
+		background: url("images/bg2.jpg") no-repeat fixed;
+		background-size: cover;
+	}
+}
+	
+/* 최대 너비 <= 320px 일 때는 bg3 이미지 깔기 */
+@media screen and (max-width: 320px) {
+	body {
+		background: url("images/bg3.jpg") no-repeat fixed;
+		background-size: cover;
+	}
+}
+```
+
+
+캡쳐를 위해 해상도를 50%로 잡아 px은 작성코드와 다를 수 있다.  
+<p align="center"><img src="./images/210430/03.gif"></p>
+
+
+
+```css
+#wrap {
+	height: 500px;
+	margin: 0 auto;
+	border: 3px solid #000;
+}
+
+@media screen and (min-width: 320px) {
+	#wrap {
+		width: 30%;
+		background-color: green;
+	}
+} 
+
+@media screen and (min-width: 768px) {
+	#wrap {
+		width: 60%;
+		background-color: blue;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#wrap {
+		width: 90%;
+		background-color: red;
+	}
+}
+```
+
+
+캡쳐를 위해 해상도를 50%로 잡아 px은 작성코드와 다를 수 있다.  
+<p align="center"><img src="./images/210430/04.gif"></p>
 
 
 
