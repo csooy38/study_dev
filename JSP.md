@@ -253,7 +253,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ### * JSP 주석
 * `<%-- --%>` : JSP의 주석. 소스코드 보기에 노출되지 않는다.
 
-```html
+```jsp
 <!-- HTML 주석 -->
 	
 <%-- JSP 주석 : 소스코드보기에 노출되지 않는다. --%>
@@ -314,7 +314,7 @@ response.setContentType("text/html; charset=UTF-8");
 1. 스크립틀릿 : 가장 일반적으로 JSP 페이지에서 많이 쓰이는  스크립트 요소. 주로 프로그래밍의 로직을 기술할 때 많이 사용된다. JSP 페이지에서 자바 코드가 작성되는 공간.
 	* 형식) <% 자바 코드; %>
 
-```html
+```jsp
 <% 
 	Calendar cal = Calendar.getInstance();
 	  	
@@ -328,7 +328,7 @@ response.setContentType("text/html; charset=UTF-8");
 2. 표현식 : 일반적으로 JSP 페이지에서 자바의 System.out.println()과 유사하게 사용된다. 데이터를 출력할 때 주로 사용.
 	* 형식) <%=변수명, 수식 %>
 	
-```html
+```jsp
 <%=year%>년  <%=month%>월 <%=day %>일
 ```
 
@@ -336,7 +336,7 @@ response.setContentType("text/html; charset=UTF-8");
 3. 선언문 : 일반적으로 JSP 페이지에서 자바의 멤버변수 또는 멤버 메서드를 선언할 때 사용된다.
 	* 형식) <%! 변수 선언 및 메서드 선언; %> 
 	
-```html
+```jsp
 <%
 	public int plus(int a, int b){
 		return a + b;
