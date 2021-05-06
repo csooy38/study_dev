@@ -10,10 +10,10 @@
 public class EmpDTO {
 	
 	private int empno;			// 사원 번호
-	private String ename;		// 사원 이름
+	private String ename;			// 사원 이름
 	private String job;			// 담당 업무
 	private int mgr;			// 관리자 사원번호 
-	private String hiredate;	// 입사 일자
+	private String hiredate;		// 입사 일자
 	private int sal;			// 사원 급여
 	private int comm;			// 사원 보너스
 	private int deptno;			// 사원 부서번호
@@ -90,8 +90,9 @@ public class EmpDTO {
 </body>
 ```
 
-- [전체 레코드] 클릭시 `/select` 를 통해 서블렛으로 이동한다.
-- `href="<%=request.getContextPath() %>/select"` = "현재 프로젝트명/select" 를 주소값으로 설정하는 것과 같다.	
+- [전체 레코드] 클릭시 `/select` 를 통해 서블릿으로 이동한다.
+- `href="<%=request.getContextPath() %>/select"` = "현재 프로젝트명/select" 를 주소값으로 설정하는 것과 같다.
+	* `select.jsp`와 같이 확장자명이 붙지 않으면 서블릿으로 이해한다.	
 	* 예) 현재 주소 : http://localhost:8080/example/test.jsp 
 	* 예) "<%=request.getContextPath() %>/select" = http://localhost:8080/example/select
 
@@ -100,7 +101,7 @@ public class EmpDTO {
 
 
 # SelectServlet
-- service 서블렛으로 생성하였다.
+- service 서블릿으로 생성하였다.
 
 
 ```java
