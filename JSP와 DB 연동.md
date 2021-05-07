@@ -1,14 +1,15 @@
 # JSP와 DB 연동
 
 # 1. DB의 emp테이블을 웹 페이지에 출력하기
-1. EmpDTO : emp테이블과 동일한 변수를 생성.
-2. index.jsp : 기본적인 화면을 구성.
+1. EmpDTO : DB emp테이블과 동일한 변수를 생성.
+2. EmpDAO : DB 접속(연동) 객체 클래스. selectList() 메서드 포함.
+3. index.jsp : 기본적인 화면을 구성.
 	- [전체 레코드] 클릭시 select 서블릿으로 이동.
-3. select 서블릿 
-	- empDTO의 생성자 호출 ==> DB 연결.
-	- empDAO의 selectList() 메서드 호출 ==> emp 테이블의 데이터를 EmpDTO 클래스에 저장(list).
+4. select 서블릿 
+	- empDAO의 생성자 호출 → DB 연결.
+	- empDAO의 selectList() 메서드 호출 → DB emp 테이블의 데이터를 EmpDTO 클래스에 저장(list).
 	- 저장된 데이터(list)를 키값과 함께 select.jsp 로 페이지 이동.
-4. select.jsp
+5. select.jsp
 	- 저장된 데이터(list)를 키 값을 통해 넘겨 받아 웹 페이지에 출력.
 
 
@@ -17,8 +18,7 @@
 * DTO(Data Transfer Object) : 데이터 전송 객체
 	- 기본적으로 DB 상의 테이블의 컬럼과 동일하게 멤버변수 구성.
 
-
-- DB와 동일하게 멤버변수 구성
+- private로 변수를 선언하고, getter와 setter를 통해 접근하도록 한다.
 
 ```java
 public class EmpDTO {
@@ -87,11 +87,11 @@ public class EmpDTO {
 
 ## index.jsp
 - 기본 화면 설정
-- - [전체 레코드] 클릭시 `/select` 를 통해 서블릿으로 이동한다.
+- [전체 레코드] 클릭시 `/select` 를 통해 select 서블릿으로 이동한다.
 - `href="<%=request.getContextPath() %>/select"` = "현재 프로젝트명/select" 를 주소값으로 설정하는 것과 같다.
-	* `select.jsp`와 같이 확장자명이 붙지 않으면 서블릿으로 이해한다.	
 	* 예) 현재 주소 : http://localhost:8080/example/test.jsp 
-	* 예) "<%=request.getContextPath() %>/select" = http://localhost:8080/example/select
+	* 예) `"<%=request.getContextPath() %>/select"` = http://localhost:8080/example/select
+	* `select.jsp`와 같이 확장자명이 붙지 않으면 서블릿으로 이해한다.	
 
 ```jsp
 <body>
@@ -114,7 +114,7 @@ public class EmpDTO {
 
 
 
-## SelectServlet 
+## elect 서블릿 
 - service 메소드만 체크하여 서블릿을 생성하였다.
 
 
@@ -225,11 +225,12 @@ public class EmpDAO {
 			}
 			
 			// open 객체 닫기
-			rs.close(); pstmt.close(); con.close();			
+			rs.close(); pstmt.close(); con.close();	
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("데이터 완료");
+		System.out.println("데이터  완료");
 		
 		// call by reference로 호출되는 형태를 확인하기 위해 주소값을 출력해본다.
 		System.out.println("selectList() 메서드에서 list >>> " + list);
@@ -248,7 +249,7 @@ public class EmpDAO {
 	= select.jsp의 emp의 주소값  
 	= select.jsp body태그 내 dto의 주소값 
 - 참조변수를 활용하여 주소값을 넘겨주었으므로 모두 같은 주소값을 공유한다.
-- 따라서  데이터가 변경되어도 모든 데이터가 동일하게 변경된다.
+- 따라서 하나의 데이터가 변경되어도 모든 데이터가 동일하게 변경된다.
 
 
 ```jsp
@@ -324,6 +325,29 @@ public class EmpDAO {
 	
 
 # 2. DB의 emp테이블에 새로운 레코드 추가하기
+1. EmpDTO 클래스 : DB emp 테이블과 동일한 변수 생성.
+2. deptDTO 클래스 : DB dept 테이블과 동일한 변수 생성.
+3. EmpDAO 클래스 : DB 접속(연동) 객체 클래스. selectList() insertEmp() 메서드 포함.
+4. index.jsp : 기본적인 화면을 구성.
+	- [전체 레코드] 클릭시 select 서블릿으로 이동.
+5. select 서블릿 
+	- empDAO의 생성자 호출 → DB 연결.
+	- empDAO의 selectList() 메서드 호출 → DB emp 테이블의 데이터를 EmpDTO 클래스에 저장(list).
+	- 저장된 데이터(list)를 키값과 함께 select.jsp 로 페이지 이동.
+6. select.jsp
+	- 저장된 데이터(list)를 키 값을 통해 넘겨 받아 웹 페이지에 출력. 
+	- [사원 추가] 클릭 시 insert 서블릿으로 이동.
+7. insert 서블릿
+	- empDAO의 생성자 호출 → DB 연결.
+	- empDAO의 insertEmp() 메서드 호출 → DB emp 테이블에 데이터를 추가한 후 empDTO 클래스에 저장(list).
+	- 저장된 데이터(list)를 키 값과 함께 insertForm.jsp 로 페이지 이동.
+8. insertForm.jsp
+	- 저장된 데이터(list)를 키 값과 함께 넘겨 받아 저장.
+	- 웹 페이지에서 데이터 입력 후 [사원 등록] 클릭 시 insertOK 서블릿으로 이동.
+9. insertOK 서블릿
+	- insertForm 에서 넘어 온 데이터를 DB에 저장.
+	- DB에 데이터 추가 성공 시 select 서블릿을 호출하여 데이터가 추가된 테이블 조회.
+	- DB에 데이터 추가 실패 시 실패 메시지 출력 후 이전 페이지로 이동.
 
 
 ## select.jsp
@@ -384,7 +408,7 @@ public List<DeptDTO> deptList() {
 		pstmt = con.prepareStatement(sql);		
 		rs = pstmt.executeQuery();
 			
-		// 다음 커서에 데이터가 있는 동안 반복된느 while문
+		// 다음 커서에 데이터가 있는 동안 반복 while문
 		while(rs.next()) {
 		
 			// DeptDTO 객체의 참조변수 dto 생성 
@@ -503,6 +527,10 @@ public List<DeptDTO> deptList() {
 
 
 ## insertOK 서블릿
+- insertForm 에서 넘어 온 데이터를 DB에 저장.
+- DB에 데이터 추가 성공 시 select 서블릿을 호출하여 데이터가 추가된 테이블 조회.
+- DB에 데이터 추가 실패 시 실패 메시지 출력 후 이전 페이지로 이동.
+
 
 ```java
 @WebServlet("/insertOK")
@@ -602,9 +630,29 @@ public int insertEmp(EmpDTO dto) {
 
 
 
-# 2. DB의 emp테이블에서 레코드 삭제하기
+# 3. DB의 emp테이블에서 레코드 삭제하기
+1. EmpDTO 클래스 : DB emp 테이블과 동일한 변수 생성.
+2. deptDTO 클래스 : DB dept 테이블과 동일한 변수 생성.
+3. EmpDAO 클래스 : DB 접속(연동) 객체 클래스. selectList() insertEmp() deleteEmp() 메서드 포함.
+4. index.jsp : 기본적인 화면을 구성.
+	- [전체 레코드] 클릭시 select 서블릿으로 이동.
+5. select 서블릿 
+	- empDAO의 생성자 호출 → DB 연결.
+	- empDAO의 selectList() 메서드 호출 → DB emp 테이블의 데이터를 EmpDTO 클래스에 저장(list).
+	- 저장된 데이터(list)를 키값과 함께 select.jsp 로 페이지 이동.
+6. select.jsp
+	- 저장된 데이터(list)를 키 값을 통해 넘겨 받아 웹 페이지에 출력. 
+	- [삭 제] 클릭 시 delete 서블릿으로 이동.
+7. delete 서블릿
+	- select.jsp 에서 삭제하기로 선택된 사번(empno)의 데이터를 넘겨 받는다.
+	- empDAO의 생성자 호출 → DB 연결.
+	- empDAO의 deleteEmp() 메서드 호출 → DB emp 테이블에 선택된 사번(empno)의 전체 레코드 삭제.
+	- DB의 레코드 삭제 성공 시 elect 서블릿을 호출하여 데이터가 삭제된 테이블 조회.
+	- DB의 레코드 삭제 실패 시 실패 메시지 출력 후 이전 페이지로 이동.
+
 
 ## select.jsp
+- [삭 제] 클릭 시 delete 서블릿으로 이동.
 
 ```jsp
 <body>
@@ -668,7 +716,13 @@ public int insertEmp(EmpDTO dto) {
 ```
 
 
-## Delete 서블릿
+## delete 서블릿
+- select.jsp 에서 삭제하기로 선택된 사번(empno)의 데이터를 넘겨 받는다.
+- empDAO의 생성자 호출 → DB 연결.
+- empDAO의 deleteEmp() 메서드 호출 → DB emp 테이블에 선택된 사번(empno)의 전체 레코드 삭제.
+- DB의 레코드 삭제 성공 시 elect 서블릿을 호출하여 데이터가 삭제된 테이블 조회.
+- DB의 레코드 삭제 실패 시 실패 메시지 출력 후 이전 페이지로 이동.
+
 
 ```java
 @WebServlet("/delete")
@@ -706,8 +760,9 @@ public class DeleteServlet extends HttpServlet {
 
 
 ## EmpDAO의 deleteEmp() 메서드
+- EMP 테이블에서 사원번호에 해당하는 사원을 삭제하는 메서드
+
 ```java
-// EMP 테이블에서 사원번호에 해당하는 사원을 삭제하는 메서드
 public int deleteEmp(int empno) {
 	int result = 0;	
 		
