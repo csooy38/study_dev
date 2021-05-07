@@ -1,5 +1,7 @@
 # JSP와 DB 연동
 
+<p align="center"><img src="./images/210506/00.gif"></p>
+
 # 1. DB의 emp테이블을 웹 페이지에 출력하기
 1. EmpDTO : DB emp테이블과 동일한 변수를 생성.
 2. EmpDAO : DB 접속(연동) 객체 클래스. selectList() 메서드 포함.
@@ -113,7 +115,7 @@ public class EmpDTO {
 <p align="center"><img src="./images/210506/00.png"></p>
 
 
-## elect 서블릿 
+## select 서블릿 
 - service 메소드만 체크하여 서블릿을 생성하였다.
 
 
@@ -324,6 +326,10 @@ public class EmpDAO {
 </html>
 ```
 
+
+DB의 emp 테이블  
+<p align="center"><img src="./images/210506/07.png"></p>
+JSP로 연동하여 웹 페이지로 출력한 emp 테이블  
 <p align="center"><img src="./images/210506/01.png"></p>
 	
 	
