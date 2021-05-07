@@ -110,8 +110,7 @@ public class EmpDTO {
 * `request.getContextPath()` : 현재 프로젝트명을 반환하는 메서드.
 
 
-<p align="center"><src img="./images/210506/00.png"></p>
-
+<p align="center"><img src="./images/210506/00.png"></p>
 
 
 ## elect 서블릿 
@@ -252,6 +251,11 @@ public class EmpDAO {
 - 따라서 하나의 데이터가 변경되어도 모든 데이터가 동일하게 변경된다.
 
 
+각각의 주소값을 출력했을 때 아래와 같이 출력된다.  
+길어서 생략했지만 동일한 주소값이 반복되어 출력됨을 알 수 있다.  
+<p align="center"><img src="./images/210506/06.png"></p>
+
+
 ```jsp
 <%
 	// select 서블릿에서 보낸 allList의 주소값를 List를 키값으로 하여 emp로 저장한다.
@@ -320,7 +324,7 @@ public class EmpDAO {
 </html>
 ```
 
-<p align="center"><src img="./images/210506/01.png"></p>
+<p align="center"><img src="./images/210506/01.png"></p>
 	
 	
 
@@ -625,8 +629,8 @@ public int insertEmp(EmpDTO dto) {
 ```
 
 
-<p align="center"><src img="./images/210506/02.png"></p>
-<p align="center"><src img="./images/210506/03.png"></p>	
+<p align="center"><img src="./images/210506/02.png"></p>
+<p align="center"><img src="./images/210506/03.png"></p>	
 
 
 
@@ -785,3 +789,6 @@ public int deleteEmp(int empno) {
 } // deleteEmp() 메서드 end
 ```
 
+
+<p align="center"><img src="./images/210506/04.png"></p>
+<p align="center"><img src="./images/210506/05.png"></p>
