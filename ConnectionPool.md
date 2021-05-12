@@ -26,6 +26,32 @@
 
 # 커넥션 풀(Connection Pool) 연결 방법
 1) Context 객체를 생성한다.
+          - name : 현재 리소스를 등록할 이름을 지정.
+    	- auth : DBCP를 관리할 관리자 지정(보통 Container or Application)
+    	- type : 리소스의 타입을 지정. 커넥션 풀을 사용할 수 있도록 하는 객체의 반환 타입을 의미.
+    	- url : 접속할 DB 서버의 url을 지정.
+    	- driverClassName : DB 작업을 로딩할 드라이버. JDBC 방식에서 Class.forName()의 인자값을 의미.
+    	- username : DB 서버에 로그인할 계정을 지정.
+    	- password : DB 서버에 로그인할 계정의 비밀번호를 지정.
+    	- maxActive : 생성할 Connection의 개수를 지정. 동시에 최대로 데이터베이스에 연결할 수 있는 Connection 수를 의미.
+    	- maxIdle : 커넥션 풀에 여분으로 남겨질 최대 Connection 개수를 지정.    
+
+```xml
+<!-- Server 폴더의 Context.xml Source 하단에 작성 -->
+<Resource 
+          name="jdbc/myoracle"
+    	auth="Container"
+    	type="javax.sql.DataSource"
+    	url="jdbc:oracle:thin:@localhost:1521:XE"
+    	driverClassName="oracle.jdbc.driver.OracleDriver"
+    	username="web"
+    	password="1234"
+    	maxActive="200"
+    	maxIdle="100"
+/>
+```
+
+
 2) lookup() 메서드를 이용하여 매칭되는 커넥션을 찾는다.
 3) DataSource.getConnection() 메서드를 이용하여 커넥션을 확보한다.
 
