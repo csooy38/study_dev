@@ -27,7 +27,7 @@
 # 커넥션 풀(Connection Pool) 연결 방법
 1) Context 객체를 생성한다.
           - name : 현재 리소스를 등록할 이름을 지정.
-    	- auth : DBCP를 관리할 관리자 지정(보통 Container or Application)
+          - auth : DBCP를 관리할 관리자 지정(보통 Container or Application)
     	- type : 리소스의 타입을 지정. 커넥션 풀을 사용할 수 있도록 하는 객체의 반환 타입을 의미.
     	- url : 접속할 DB 서버의 url을 지정.
     	- driverClassName : DB 작업을 로딩할 드라이버. JDBC 방식에서 Class.forName()의 인자값을 의미.
