@@ -142,7 +142,7 @@ JSTL 값 출력 : <c:out value="${test }"/>
 	<c:when test="조건식3">조건식3이 참인 경우 실행문</c:when>
 	<c:otherwise>상기 조건식 이외의 경우 실행문</c:otherwise>
 </c:choose>
-```		
+```	
 
 
 ```jsp
@@ -154,7 +154,7 @@ JSTL 값 출력 : <c:out value="${test }"/>
 	<c:when test="${grade >=70 }">결과 : C학점</c:when>
 	<c:when test="${grade >=60 }">결과 : D학점</c:when>
 </c:choose>
-```	
+```
 grade의 값이 88이므로 결과 : B학점 이 출력된다.
 
 
@@ -183,6 +183,163 @@ grade의 값이 88이므로 결과 : B학점 이 출력된다.
 <p align="center"><img src="./images/210513/01.png"></p>
 	
 
+### 포맷팅 라이브러리 종류
+포맷팅 라이브러리를 상단에 추가해서 사용한다.
 
+```jsp
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+```
+
+- <fmt:timeZone> : 지정한 국가의 시간을 지정하는 태그. 태그를 열고 닫는 영역에서만 적용된다. 
+- <fmt:setTimeZone> : 지정한 국가의 시간을 지정하는 태그.
+- <fmt:formatNumber> : 표시할 숫자의 형식을 지정하는 태그.
+	- value : 출력될 숫자의 형식 지정.
+	- type : 출력될 타입 지정.
+		* percent : %
+		* number : 숫자 (default)
+		* currency : 통화 형식
+	- currencyCode : 통화 코드 지정. 한국 원화는 KRW.
+	- currencySymbol : 통화를 표시할 때 사용할 기호를 표시.
+	- var : <fmt:formatNumber> 태그의 결과를 저장할 변수 이름 지정.
+	- scope : 변수의 접근 범위 지정.
+	- pattern : 숫자가 출력될 양식 지정.
+- <fmt:formatDate> : 지정한 형식의 날짜를 표시하는 태그.	
+	- value : 포맷될 날짜를 지정하는 속성.
+	- type : 포맷팅할 타입을 지정하는 속성.
+		* date : 날짜 지정.
+		* time : 시간 지정.
+		* both : 날짜/시간 모두 지정.
+	- dateStyle : 날짜의 출력 양식을 지정하는 속성. 값(value)에는 full, long, medium, short 등이 지정되어 있다. 
+	- timeStyle : 시간 출력 형식을 지정하는 속성.
+	- pattern : 직접 출력 형식을 지정하는 속성.
+	- timeZone : 특정 나라 시간대로 시간을 설정하는 속성.
+
+
+#### [예] 포맷팅 라이브러리
+```jsp
+<h2>formatDate 예제</h2>
+<c:set var="now" value="<%=new Date()%>" />
+<fmt:formatDate value="${now }" type="date" dateStyle="full" /><br>
+<fmt:formatDate value="${now }" type="date" dateStyle="long" /><br>
+<fmt:formatDate value="${now }" type="date" dateStyle="medium" /><br>
+<fmt:formatDate value="${now }" type="date" dateStyle="short" /><br>
+
+한국 현재 시간 : 
+<fmt:formatDate value="${now }" type="both" dateStyle="full" timeStyle="full"/><br>
+	
+	
+<fmt:timeZone value="America/LA">
+	미국 LA 현재 시간 : <fmt:formatDate value="${now }" type="both" dateStyle="full" timeStyle="full"/><br>
+</fmt:timeZone>
+```
+
+<p align="center"><img src="./images/210513/04.png"></p>
 
 	
+
+#### [예] 커피 주문
+value로 값을 받아서 넘기면 JSTL로 받아서 포맷팅 라이브러리로 천단위로 쉼표(,)를 찍어서 웹 페이지에 출력.
+
+```jsp
+<body>
+	<div align="center">
+	  	<hr width="50%" color="blue">
+	  		<h3>커피 주문</h3>
+	  	<hr width="50%" color="blue">
+	  	<br><br>
+	  	
+	  	<form method="post" action="Ex03.jsp">
+	 		 <table border="1" cellspacing="0" width="300">
+	 		 	<tr>
+	 		 		<th>커피종류</th>
+	 		 		<td>
+	 		 			<select name="coffee_str">
+	 		 				<option value="1">아메리카노(3,000원)</option>
+	 		 				<option value="2">카페라떼(3,500원)</option>
+	 		 				<option value="3">카푸치노(4,500원)</option>
+	 		 				<option value="4">카라멜 마끼아또(4,000원)</option>
+	 		 			</select>
+	 		 		</td>
+	 		 	</tr>
+	 		 	
+	 		 	<tr>
+	 		 		<th>수 량</th>
+	 		 		<td><input type="number" min="1" max="20" name="su"></td>
+	 		 	</tr>
+	 		 	
+	 		 	<tr>
+	 		 		<td colspan="2" align="center">
+	 		 			<input type="submit" value="계산">
+	 		 				&nbsp;&nbsp;&nbsp;
+	 		 			<input type="reset" value="취소">
+	 		 		</td>
+	 		 	</tr>
+	 		 </table>
+	  	</form>
+	</div>
+
+</body>
+```
+
+```jsp
+<body>
+	<c:set var="coffee" value="${param.coffee_str }" />
+	<c:choose>
+		<c:when test="${coffee == 1 }">
+			<c:set var="coffee_str1" value="아메리카노"/>
+			<c:set var="price" value="3000" />
+		</c:when>
+		
+		<c:when test="${coffee == 2 }">
+			<c:set var="coffee_str1" value="카페라떼"/>
+			<c:set var="price" value="3500" />
+		</c:when>
+		
+		<c:when test="${coffee == 3 }">
+			<c:set var="coffee_str1" value="카푸치노"/>
+			<c:set var="price" value="4500" />
+		</c:when>
+		
+		<c:when test="${coffee == 4 }">
+			<c:set var="coffee_str1" value="카라멜 마끼아또"/>
+			<c:set var="price" value="4000" />
+		</c:when>
+	</c:choose>
+	
+	<table border="1" cellspacing="0" width="300">
+		<tr>
+			<th>커피 종류</th>
+			<td>${coffee_str1 }</td>
+		</tr>
+		<tr>
+			<th>커피 단가</th>
+			<td><fmt:formatNumber value="${price }"/>원</td>
+		</tr>
+		<tr>
+			<th>커피 수량</th>
+			<c:set var="amount" value="${param.su }" />
+			<td>${amount }</td>
+		</tr>
+		<tr>	
+			<th>공급가액</th>
+			<td><fmt:formatNumber value="${amount * price }"/>원</td>
+		</tr>
+		
+		<tr>
+			<th>부가세액</th>
+			<td><fmt:formatNumber value="${(amount * price) * 0.1 }" /> 원</td>
+		</tr>
+		
+		<tr>
+			<th>총 금 액</th>
+			<td><fmt:formatNumber value="${amount * price + (amount * price) * 0.1 }"/> 원</td>
+		</tr>
+	</table>
+</body>
+```
+
+
+<p align="center"><img src="./images/210513/02.png"></p>
+<p align="center"><img src="./images/210513/03.png"></p>
+
+
