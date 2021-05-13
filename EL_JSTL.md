@@ -38,7 +38,7 @@
 	* `param` : 파라미터 값을 얻어올 때 사용.
 	* `paramValues` : 파라미터 값을 배열로 얻어올 때 사용.
           
-※ 내장 객체를 사용할 때는 map 자료구조 형태로 `key, value`값을 저장.
+※ 내장 객체를 사용할 때는 map 자료구조 형태로 `key, value`값을 저장.  
 	- `setAttribute(String key, Object value)`
 	- `getAttribute(String key)` 
         
