@@ -208,7 +208,30 @@ request.setAttribute("List", pageList);
 
 ## 4. dao.getBoardList()
 BoardDAO 클래스에서 getBoardList() 메서드를 호출한다.  
+
+
 sql문 작성에 주의.  
+
+
+<p align="center"><img src="./images/210517/02.png"></p>
+
+
+* `row_number()` : 원하는 컬럼만 정렬해서 순서를 정하거나, 원하는 곳에서 구역을 나눠 순서를 정하는 명령어. 여기선 전자의 방식으로 사용되었다.
+	- row_number() over(order by ~ )
+	- row_number() over(partition by ~ order by ~)
+* `over()` : 분석함수와 집계함수를 GROUP BY 또는 서브쿼리 없이 사용할 수 있도록 하는 명령어.
+	- 분석함수 : `SUM`, `MAX`, `COUNT` 등
+	- 집계함수 : `GROUP BY`, `ORDER BY` 등
+
+```java
+sql = "select * from "
+		+ "(select row_number() over(order by board_no desc) rnum, b.* from board b) "
+		+ "where rnum >= ? and rnum <= ?";
+```
+
+
+이하 getBoardList() 메서드 전체.  
+sql문을 제외하곤 기존의 전체 목록을 불러오는 방식과 거의 동일하다.  
 
 ```java
 // board 테이블에서 게시물을 가져오는 메서드
