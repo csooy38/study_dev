@@ -206,7 +206,57 @@ request.setAttribute("List", pageList);
 
 
 
-## 4. board_list.jsp
+## 4. dao.getBoardList()
+BoardDAO 클래스에서 getBoardList() 메서드를 호출한다.  
+sql문 작성에 주의.  
+
+```java
+// board 테이블에서 게시물을 가져오는 메서드
+public List<BoardDTO> getBoardList(int page, int rowsize){
+		
+	List<BoardDTO> list = new ArrayList<BoardDTO>();	// DB에서 불러올 데이터를 저장할 list 선언
+			
+	int startNo = (page * rowsize) - (rowsize - 1);	// 해당 페이지에서 시작 번호
+	int endNo = (page * rowsize);							// 해당 페이지에서 마지막 번호
+		
+	try {
+		openConn();
+		sql = "select * from "
+			+ "(select row_number() over(order by board_no desc) rnum, b.* from board b) "
+			+ "where rnum >= ? and rnum <= ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, startNo);
+		pstmt.setInt(2, endNo);
+			
+		rs = pstmt.executeQuery();
+			
+		while(rs.next()) {
+			BoardDTO dto = new BoardDTO();
+			
+			dto.setBoard_no(rs.getInt("board_no"));
+			dto.setBoard_writer(rs.getString("board_writer"));
+			dto.setBoard_title(rs.getString("board_title"));
+			dto.setBoard_cont(rs.getString("board_cont"));
+			dto.setBoard_pwd(rs.getString("board_pwd"));
+			dto.setBoard_hit(rs.getInt("board_hit"));
+			dto.setBoard_regdate(rs.getString("board_regdate"));
+				
+			list.add(dto);
+		}
+			
+		// open 객체 닫기
+		rs.close(); pstmt.close(); con.close();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return list;
+}
+```
+
+
+## 5. board_list.jsp
 위에서 모든 작업이 완료되면 저장된 키 값과 함께 FrontController에서 설정했던 페이지 주소로 이동한다.  
 가져온 값들을 웹 페이지에 출력한다.  
 게시글 목록 출력은 이전에 다루었으므로 여기선 페이징 출력만 정리한다.  
