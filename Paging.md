@@ -215,6 +215,11 @@ sql문 작성에 주의.
 
 <p align="center"><img src="./images/210517/02.png"></p>
 
+```java
+sql = "select * from "
+		+ "(select row_number() over(order by board_no desc) rnum, b.* from board b) "
+		+ "where rnum >= ? and rnum <= ?";
+```
 
 * `row_number()` : 원하는 컬럼만 정렬해서 순서를 정하거나, 원하는 곳에서 구역을 나눠 순서를 정하는 명령어. 여기선 전자의 방식으로 사용되었다.
 	- row_number() over(order by ~ )
@@ -223,11 +228,6 @@ sql문 작성에 주의.
 	- 분석함수 : `SUM`, `MAX`, `COUNT` 등
 	- 집계함수 : `GROUP BY`, `ORDER BY` 등
 
-```java
-sql = "select * from "
-		+ "(select row_number() over(order by board_no desc) rnum, b.* from board b) "
-		+ "where rnum >= ? and rnum <= ?";
-```
 
 
 이하 getBoardList() 메서드 전체.  
