@@ -207,7 +207,7 @@ request.setAttribute("List", pageList);
 
 
 ## 4. board_list.jsp
-위에서 모든 작업이 완료되면 저장된 키 값과 함께 FrontController에서 설정해던 페이지 주소로 이동한다.  
+위에서 모든 작업이 완료되면 저장된 키 값과 함께 FrontController에서 설정했던 페이지 주소로 이동한다.  
 가져온 값들을 웹 페이지에 출력한다.  
 게시글 목록 출력은 이전에 다루었으므로 여기선 페이징 출력만 정리한다.  
 모두 <body> 태그 안에 작성한다.    
