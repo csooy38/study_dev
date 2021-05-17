@@ -115,7 +115,7 @@ DB상의 게시글 전체 리스트를 조회한다.
 
 1) 필요한 변수를 선언한다.
 
-<p aling="center"><img src="./images/210517/01.png"></p>
+<p align="center"><img src="./images/210517/01.png"></p>
 
 
 ```java
