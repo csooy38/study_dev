@@ -1,7 +1,7 @@
 # mapping.properties 파일 방식을 이용하여 게시판 구현하기
 
 14_Board_Reply 구현 내용이다.  
-forward로 데이터를 넘기는 게 어려워서 아직 공부 중이다.  
+forward로 데이터를 넘기는 게 어려워서 아직 공부 중이다.(+수정완료 210521 | 5-1 참고)
 
 ## 1. Action 인터페이스
 이전까지는 반환타입을 String, void로 두었다면  
@@ -216,3 +216,193 @@ public class BbsDeleteAction implements Action {
 }
 
 ```
+
+
+## 5-1. 데이터 값을 액션클래스에서 함께 넘기는 방법
+게시물을 수정하는데 자꾸 페이지 이동에 에러가 발생하였다.  
+수정이 성공되거나 비밀번호 불일치로 실패하거나 모두 cont 페이지로 이동하지 못하고 NullPointException 을 출력하였다.  
+
+
+no변수와 page변수가 함께 넘어가지 않아서 cont 페이지가 열리지 않는다고 판단하여 setAttribute를 설정하는 등 여러가지로 코드를 수정해 보았으나 결과부터 말하자면  
+
+
+**모두 필요 없었다.**   
+수정 성공시에는 forward의 path 지정에서 기존의 방식과 동일하게 경로에서 데이터를 넘기면 되었다.  
+수정 실패시에는 오타가 있어 오류가 발생하는 거였다. 생략된 괄호")"를 넣어 수정하니 정상적으로 페이지가 돌아갔다. 오타에 주의하자!
+
+```java
+forward.setPath("bbs_cont.do?no="+bbs_no+"&page="+nowPage);
+```
+
+
+아래는 애먹었던 코드 전문
+
+```java
+if(bbs_pwd.equals(db_pwd)) {	// 비밀번호가 같은 경우
+	
+	// 변경된 게시물 작성내용을 dto 객체에 저장		
+	BbsDAO dao = BbsDAO.getInstance();
+	BbsDTO dto = new BbsDTO();
+	
+	dto.setBoard_no(bbs_no);
+	dto.setBoard_writer(bbs_writer);
+	dto.setBoard_title(bbs_title);
+	dto.setBoard_cont(bbs_cont);
+	dto.setBoard_pwd(bbs_pwd);
+			
+	// 게시글을 수정하는 메서드 호출
+	int res = dao.updateBbs(dto);
+			
+	if(res > 0) {	// 게시글 수정이 성공한 경우
+		out.println("<script>");
+		out.println("alert('수정완료!')");
+		out.println("</script>");
+				
+		forward.setRedirect(true);
+		forward.setPath("bbs_cont.do?no="+bbs_no+"&page="+nowPage);
+	}else {	// 게시글 수정이 실패한 경우
+		out.println("<script>");
+		out.println("alert('수정실패!')");
+		out.println("history.back()");
+		out.println("</script>");
+	}	
+			
+}else {	// 비밀번호가 다른 경우
+	out.println("<script>");
+	out.println("alert('수정실패! 비밀번호를 확인하세요!')");
+	out.println("history.back()");
+	out.println("</script>");
+}			
+```
+
+
+## 6. 답변 기능
+
+<p align="center"><img src="./images/210521/01.png"></p>
+
+이번 게시판의 테이블은 다음과 같다.  
+
+```sql
+create table jsp_bbs(
+	board_no number(5) primary key,				-- 게시판 글번호
+	board_writer varchar2(20) not null,		-- 게시판 글 작성자
+	board_title varchar2(100) not null,		-- 게시판 글 제목
+	board_cont varchar2(1000) not null,		-- 게시판 글 내용
+	board_pwd varchar2(20) not null,			-- 게시판 글 비밀번호
+	board_hit number(5) default 0,				-- 게시판 글 조회수
+	board_date date,								-- 게시판 글 작성일자
+	board_group number(5),						-- 게시판 글 그룹
+	board_step number(5),							-- 게시판 글 답변 단계
+	board_indent number(5)						--	게시판 답변글 들여쓰기
+);
+```
+
+여기서 board_group, board_step, board_indent 가 답변 기능에서 활용되는 컬럼들이다.  
+* board_group : 글 번호에 해당하는 답글들을 하나의 그룹으로 묶어주는 컬럼.
+* board_step : 답글이 달린 순서에 따라 오름차순으로 정렬하기 위한 컬럼.
+* board_indent : 들여쓰기 횟수를 지정하기 위한 컬럼. 
+
+
+
+그림으로 나타내면 다음과 같다. 작성순서는 test 옆의 수로 나타내었다.  
+
+
+<p align="center"><img src="./images/210521/00.png"></p>
+
+1. 10번 게시글에 달린 답글은 모두 10번 group 으로 묶였다. (board_group)  
+2. 답글이 step에 따라 오름차순으로 정렬되었다. (board_step)
+3. indent의 수만큼 들여쓰기가 적용되었다. (board_indent)
+
+
+위와 같이 출력하기 위하여, 답글을 작성할 때는 두 가지 메서드를 호출한다.  
+
+## 6-1. replyUpdate() 
+jsp_bbs 테이블 게시판 답변 글의 step을 하나 증가시키는 메서드. 
+n번 글에 답변을 달 때, n번 글의 그룹이면서 step이 n번 글의 step보다 큰 모든 게시글의 step을 모두 +1 한다.   
+
+
+```java
+sql = "update jsp_bbs set board_step = board_step + 1 where board_group = ? and board_step > ?";
+
+pstmt = con.prepareStatement(sql);
+pstmt.setInt(1, bbs_group);
+pstmt.setInt(2, bbs_step);
+
+pstmt.executeUpdate();
+```
+
+
+## 6-2. replyBbs() 
+
+DB에 작성한 답글의 데이터를 저장하는 메서드.  
+
+```java
+int result = 0, count = 0;
+
+openConn();
+sql = "select count(*) from jsp_bbs";
+pstmt = con.prepareStatement(sql);
+rs = pstmt.executeQuery();
+
+if (rs.next()) {
+	count = rs.getInt(1) + 1;	// sequence 대신 사용하는 방법
+}
+
+sql = "insert into jsp_bbs values(?,?,?,?,?,default,sysdate,?,?,?)";
+
+pstmt = con.prepareStatement(sql);
+pstmt.setInt(1, count);
+pstmt.setString(2, dto.getBoard_writer());
+pstmt.setString(3, dto.getBoard_title());
+pstmt.setString(4, dto.getBoard_cont());
+pstmt.setString(5, dto.getBoard_pwd());
+pstmt.setInt(6, dto.getBoard_group());
+
+pstmt.setInt(7, dto.getBoard_step() + 1);	// 답변을 달 게시글보다 step 을 +1한다. 
+pstmt.setInt(8, dto.getBoard_indent() + 1);	// 답변을 달 게시글보다 indent 를 +1한다.
+
+result = pstmt.executeUpdate();
+```
+
+예를 들어 아래의 그림에서 15번 게시글인 "re) re) test6"에 답글을 작성한다고 가정해 보자.  
+
+<p align="center"><img src="./images/210521/02.png"></p>
+
+15번 게시글은 10번 게시글의 답글에 답글이 달린, 즉 10번 그룹에 속하는 글이다.   
+현재 step이 2 이므로, 아래에 달릴 답글의 step은 3이 되어야 한다.  
+이 때 3과 동일한 step이 존재하면 순서가 꼬일 수도 있으므로 3 이상의 step들을 모두 +1씩 해주어야 한다.  
+
+
+<p align="center"><img src="./images/210521/03.png"></p>
+
+즉, 답글을 달 15번 게시글의 step인 2보다 큰 수들을 모두 +1씩 해주고 그 사이에 step이 3인 게시글을 넣는 식이다.  
+기존글과 답글을 구분하기 위한 들여쓰기를 위해 indent 수도 +1 한다.  
+
+
+
+<p align="center"><img src="./images/210521/04.png"></p>
+
+
+indent는 게시글 출력시에 반복문의 end 변수로 사용한다.  
+
+
+```java
+<td> 
+	<c:forEach begin="1" end="${dto.getBoard_indent() }">
+		&nbsp;&nbsp;&nbsp;&nbsp;	// 들여쓰기
+	</c:forEach>
+						
+	<a href="<%=request.getContextPath() %>/bbs_cont.do?no=${dto.getBoard_no() }&page=${page }">
+						
+		<c:forEach begin="1" end="${dto.getBoard_indent() }">
+			re)
+		</c:forEach>
+		
+		${dto.getBoard_title() }
+	</a>
+</td>
+```
+
+
+
+
