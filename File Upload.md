@@ -14,7 +14,7 @@
 
 ## 1. upload_write.jsp : 파일 업로드 폼
 
-<p align="center"><img src="./images/06.png"></p>
+<p align="center"><img src="./images/210521/06.png"></p>
 
 게시글 작성 jsp 파일에서 파일 업로드할 때에는 input type을 "file"로 설정한다. 
 
