@@ -24,6 +24,13 @@
 ```
 
 
+폼 태그에서 enctype을 설정한다. 
+
+```java
+<%-- enctype : 이진 파일을 업로드하기 위한 속성 --%>
+<form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/upload_write_ok.do">
+```
+
 ## 2. UploadWriteAction : 게시글 작성 폼에서 작성한 파일 데이터 받기
 자료실 폼 페이지에서 넘어온 데이터들을 DB에 저장하는 클래스.
 편의상 첨부파일의 여부로 두 가지로 나누었지만 모든 경우를 아울러야하므로 둘 다 작성해야 한다.  
@@ -148,3 +155,24 @@ if(res > 0) {
 	return forward;
 }
 ```
+
+
+## 3. 파일 삭제
+file.delete() 메서드를 이용하여 게시물 삭제 시 파일도 함께 삭제되도록 한다.  
+
+```java
+// upload된 파일까지 삭제
+String up = "C:\\NCS\\transfer\\15_Board_FileUpload\\WebContent\\upload";
+		
+// 업로드된 파일명 : /년-월-일/파일명
+String fileName = dto.getUpload_file();
+			
+File file = new File(up+fileName);
+file.delete();	// 기존 이진 파일을 삭제하는 메서드
+```
+
+
+
+
+
+

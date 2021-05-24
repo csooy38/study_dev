@@ -404,5 +404,33 @@ indent는 게시글 출력시에 반복문의 end 변수로 사용한다.
 ```
 
 
+## 6-3. deleteBbs()
+답변이 달린 게시글은 삭제되지 않도록 sql문을 작성한다.  
+
+```java
+sql = "select count(*) from jsp_bbs where board_no > ? and board_group = ? and board_step > ?";
+
+pstmt = con.prepareStatement(sql);
+
+pstmt.setInt(1, dto.getBoard_no());
+pstmt.setInt(2, dto.getBoard_group());
+pstmt.setInt(3, dto.getBoard_step());
+
+rs = pstmt.executeQuery();
+
+if (rs.next()) {
+	count = rs.getInt(1);
+} 
+			
+if(count > 0) {	// 답글이 있는 게시물의 경우
+	result = -2;
+}else {
+	sql = "delete from jsp_bbs where board_no = ?";
+	pstmt = con.prepareStatement(sql);
+	pstmt.setInt(1, dto.getBoard_no());
+	result = pstmt.executeUpdate();
+}
+```
+
 
 
