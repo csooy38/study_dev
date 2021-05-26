@@ -86,6 +86,7 @@ if(upload_file != null) { 	// 첨부파일이 존재하는 경우
 			
 	// getName() : 첨부파일의 이름을 문자열로 반환하는 메서드.
 	String fileName = upload_file.getName();
+	
 			
 	// 날짜 객체 생성 : 첨부파일을 날짜별로 저장하기 위하여.
 	Calendar cal = Calendar.getInstance();
