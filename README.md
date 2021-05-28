@@ -1,6 +1,6 @@
 
 # 수업 내용을 정리하고 복습하는 저장소
-<div align="center">
+
 ## 1. Java
   - <a href="https://docs.google.com/document/d/1c9ZEmq23fB88MOJkvFK4qOM26naMORbPAtUS193HAgY/edit?usp=sharing">Java</a>
 --------------------
@@ -42,4 +42,4 @@
 --------------------
 ## 9. AJAX
   - <a href="https://github.com/csooy38/github/blob/main/AJAX.md">AJAX</a>
-</div>
+
