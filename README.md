@@ -1,5 +1,5 @@
 
-#국비지원 학원 수업 내용을 정리하고 복습하는 저장소.
+# 국비지원 학원 수업 내용을 정리하고 복습하는 저장소.
 
 ## 1. HTML
   - <a href="https://github.com/csooy38/github/blob/main/HTML%20install.md">HTML install</a>
