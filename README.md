@@ -2,10 +2,10 @@
 #국비지원 학원 수업 내용을 정리하고 복습하는 저장소.
 
 ## 1. HTML
-    - <a href="https://github.com/csooy38/github/blob/main/HTML%20install.md">HTML install</a>
-    - <a href="https://github.com/csooy38/github/blob/main/HTML.md">HTML</a>
-    - <a href="https://github.com/csooy38/github/blob/main/HTML%20TAG.md">HTML TAG</a>
-    - <a href="https://github.com/csooy38/github/blob/main/HTML5.md">HTML5</a>
+  - <a href="https://github.com/csooy38/github/blob/main/HTML%20install.md">HTML install</a>
+  - <a href="https://github.com/csooy38/github/blob/main/HTML.md">HTML</a>
+  - <a href="https://github.com/csooy38/github/blob/main/HTML%20TAG.md">HTML TAG</a>
+  - <a href="https://github.com/csooy38/github/blob/main/HTML5.md">HTML5</a>
 --------------------
 ## 2. CSS
   - <a href="https://github.com/csooy38/github/blob/main/CSS.md">CSS</a>
