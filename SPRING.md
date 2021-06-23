@@ -217,18 +217,18 @@
 	* 주로 아래 두 xml 파일에서 설정.
 <p align="center"><img src="./images/210623/01.PNG"></p>
 
-	```xml
-	<bean>
-		- id 속성 : bean의 고유한 이름. 클래스에서 작성한 변수(참조변수) 이름. 중복불가.
-		- class 속성 : 스프링 컨테이너에서 객체를 생성할 클래스의 위치(패키지명.클래스명).
-	</bean> 
-	```
+```xml
+<bean>
+	- id 속성 : bean의 고유한 이름. 클래스에서 작성한 변수(참조변수) 이름. 중복불가.
+	- class 속성 : 스프링 컨테이너에서 객체를 생성할 클래스의 위치(패키지명.클래스명).
+</bean> 
+```
 
-	#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
+#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
 
-	* **class GetSum**
+* **class GetSum**
 
-	```java
+```java
 	public class GetSum {
 
 		private int num1;
@@ -252,9 +252,9 @@
 			System.out.println("더하기 >> " + (num1 + num2));
 		}
 	}
-	```
+```
 
-	* **class MyGetSum**
+* **class MyGetSum**
 
 	```java
 	public class MyGetSum {
@@ -291,7 +291,7 @@
 	}
 	```
 
-	* **getsum.xml**
+* **getsum.xml**
 		- src/main/resources/getsum.xml
 		- Spring Bean Configuration File
 		- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.
