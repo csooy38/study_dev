@@ -412,6 +412,11 @@ public class MyGetSum {
 	* **baseball.xml**
 		* `<beans>` 태그 안에 `<context:annotation-config />` 태그를 선언하여 애노테이션을 인식할 수 있도록 한다.
 		* `<context:annotation-config />` 태그 : 특정 패키지 안에 있는 클래스 중에서 @Configuration, @Bean, @Autowired, @Resource 애노테이션이 존재하면 해당 애노테이션을 인식할 수 있도록 하는 태그.
+		* Namespaxes 에서 context를 체크한 후 사용한다.
+		* 체크하면 `<beans>` 태그에 다음과 같은 코드가 추가된다. 
+		* `xmlns:context="http://www.springframework.org/schema/context`
+		
+<p align="center"><img src="./images/210623/03.png"></p>
 
 		```xml
 		<context:annotation-config/>
@@ -514,6 +519,9 @@ public class MyGetSum {
 ## 2. MVC 흐름
 
 #### 1. web.xml
+
+<p align="center"><img src="./images/210623/04.png"></p>
+
 	- 클라이언트로부터 요청이 들어오면 해당 요청을 가장 먼저 처리하는 곳.
 	- 필터가 있다면 가장 먼저 반응을 하여 필터 작업을 진행. => 한글 인코딩 처리.
   
