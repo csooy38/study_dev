@@ -224,11 +224,11 @@
 </bean> 
 ```
 
-#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
+	#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
 
-* **class GetSum**
+	* **class GetSum**
 
-```java
+	```java
 	public class GetSum {
 
 		private int num1;
@@ -252,7 +252,7 @@
 			System.out.println("더하기 >> " + (num1 + num2));
 		}
 	}
-```
+	```
 
 * **class MyGetSum**
 
