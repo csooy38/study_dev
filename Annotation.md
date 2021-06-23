@@ -32,11 +32,11 @@
 
 2. 종류
 
-```java
-@Data			// getter/setter
-@NoArgsConstructor	// 인자를 가지지 않는 생성자
-@AllArgsConstructor	// 모든 멤버를 인자로 가지는 인자생성자
-```
+	```java
+	@Data			// getter/setter
+	@NoArgsConstructor	// 인자를 가지지 않는 생성자
+	@AllArgsConstructor	// 모든 멤버를 인자로 가지는 인자생성자
+	```
 
 ---
 
@@ -50,20 +50,20 @@
 
 2. 추가방법 : pom.xml에 cglib 라이브러리 추가.
 
-```xml
-<!-- https://mvnrepository.com/artifact/cglib/cglib -->
-<dependency>
-    <groupId>cglib</groupId>
-    <artifactId>cglib</artifactId>
-    <version>2.2.2</version>
-</dependency>
-```
+	```xml
+	<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+	<dependency>
+	    <groupId>cglib</groupId>
+	    <artifactId>cglib</artifactId>
+	    <version>2.2.2</version>
+	</dependency>
+	```
 
 3. 종류
 
-```java
-@Configuration	// 클래스 앞에 선언하는 애노테이션. "해당 클래스는 스프링 설정에 사용되는 클래스입니다."라고 알려주는 애노테이션.
-@bean 		// 메소드 앞에 사용되는 애노테이션. "해당 메서드는 객체를 생성하는데 사용됩니다." 의미.
-```
+	```java
+	@Configuration	// 클래스 앞에 선언하는 애노테이션. "해당 클래스는 스프링 설정에 사용되는 클래스입니다."라고 알려주는 애노테이션.
+	@bean 		// 메소드 앞에 사용되는 애노테이션. "해당 메서드는 객체를 생성하는데 사용됩니다." 의미.
+	```
 
 
