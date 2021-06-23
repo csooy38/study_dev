@@ -305,7 +305,7 @@ public class MyGetSum {
 	- 스프링 컨테이너 객체를 생성한다.
 	- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체가 생성된다.(메모리로 로딩)
 
-	1. 스프링 컨테이너 객체 생성
+	1) 스프링 컨테이너 객체 생성
 
 	```java
 	// xml 설정 파일(classpath:getsum.xml)을 읽어들여서 메모리로 로딩.
@@ -319,7 +319,7 @@ public class MyGetSum {
 	AbstractApplicationContext ctx = new GenericXmlApplicationContext(path, path2);
 	```
 
-	2. 실제적으로 아래 코드에서 주입과정이 일어나게 된다.
+	2) 실제적으로 아래 코드에서 주입과정이 일어나게 된다.
 		- `new` 키워드를 사용하지 않고 직접 스프링 컨테이너에서 꺼내서 사용한다.
 		- my1 = my2  동일. (방식의 차이)
 
@@ -333,7 +333,7 @@ public class MyGetSum {
 	GetSum my3 = (GetSum)ctx.getBean("mySum");
 	```
 
-	3. 메서드 또는 값 호출
+	3) 메서드 또는 값 호출
 
 	```java		
 	my1.sum();	// 메서드(비지니스 로직)를 호출
@@ -343,7 +343,7 @@ public class MyGetSum {
 	System.out.println("수2 : " + my3.getSu2());	
 	```
 
-	4. 사용한 자원은 반납해야 한다.
+	4) 사용한 자원은 반납해야 한다.
 
 	```java
 	ctx.close();
