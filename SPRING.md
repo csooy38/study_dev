@@ -225,160 +225,130 @@
 </bean> 
 ```
 
-	#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
+#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
 
-	* **class GetSum**
+* **class GetSum**
 
-	```java
-	public class GetSum {
+```java
+@Data	// lombok : getter/setter 기능 대신하는 애노테이션
+public class GetSum {
 
-		private int num1;
-		private int num2;
+	private int num1;
+	private int num2;
 
-		public int getNum1() {
-			return num1;
-		}
-		public void setNum1(int num1) {
-			this.num1 = num1;
-		}
-		public int getNum2() {
-			return num2;
-		}
-		public void setNum2(int num2) {
-			this.num2 = num2;
-		}
-
-		// 핵심기능(비지니스 로직)
-		public void hap(int num1, int num2) {
-			System.out.println("더하기 >> " + (num1 + num2));
-		}
+	// 핵심기능(비지니스 로직)
+	public void hap(int num1, int num2) {
+		System.out.println("더하기 >> " + (num1 + num2));
 	}
-	```
+}
+```
 
-	* **class MyGetSum**
+* **class MyGetSum**
 
-	```java
-	public class MyGetSum {
+```java
+@Data	// lombok : getter/setter 기능 대신하는 애노테이션
+public class MyGetSum {
 
-		private int su1;
-		private int su2;
-		private GetSum getSum;
+	private int su1;
+	private int su2;
+	private GetSum getSum;
 
-		public int getSu1() {
-			return su1;
-		}
-		public void setSu1(int su1) {
-			this.su1 = su1;
-		}
-		public int getSu2() {
-			return su2;
-		}
-		public void setSu2(int su2) {
-			this.su2 = su2;
-		}
-		public GetSum getGetSum() {
-			return getSum;
-		}
-
-		// GetSum 타입의 인자가 들어오면 되므로 MyGetSum 타입의 인자도 들어올 수 있다.(다형성)
-		public void setGetSum(GetSum getSum) {
-			this.getSum = getSum;
-		}
-
-		// 핵심 기능
-		public void sum() {
-			this.getSum.hap(su1, su2);
-		}
+	// GetSum 타입의 인자가 들어오면 되므로 MyGetSum 타입의 인자도 들어올 수 있다.(다형성)
+	public void setGetSum(GetSum getSum) {
+		this.getSum = getSum;
 	}
-	```
 
-	* **getsum.xml**
-		- src/main/resources/getsum.xml  
-		- Spring Bean Configuration File  
-		- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.  
-		- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.  
-		- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.  
+	// 핵심 기능
+	public void sum() {
+		this.getSum.hap(su1, su2);
+	}
+}
+```
+
+* **getsum.xml**
+	- src/main/resources/getsum.xml  
+	- Spring Bean Configuration File  
+	- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.  
+	- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.  
+	- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.  
 
 
-	```xml
-	<!-- 
-		"com.sist.di01" 패키지에 있는 "GetSum" 클래스를 "getsum"이라는 id로 지정하여 객체(bean)를 생성한다는 의미.
-		GetSum getsum = new GetSum(); 와 동일 
+```xml
+<!-- 
+	"com.sist.di01" 패키지에 있는 "GetSum" 클래스를 "getsum"이라는 id로 지정하여 객체(bean)를 생성한다는 의미.
+	GetSum getsum = new GetSum(); 와 동일 
+-->
+<bean id="getsum" class="com.sist.di01.GetSum"/>
+
+<bean id="mySum" class="com.sist.di01.MyGetSum">
+	<!--
+		MyGetSum mySum = new MyGetSum();
+		mySum.setSu1(200);
+		mySum.setSu2(100);
 	-->
-	<bean id="getsum" class="com.sist.di01.GetSum"/>
 
-	<bean id="mySum" class="com.sist.di01.MyGetSum">
-		<!--
-			MyGetSum mySum = new MyGetSum();
-			mySum.setSu1(200);
-			mySum.setSu2(100);
-		-->
+	<!-- 속성(setter)을 활용하는 경우 -->
+	<property name="su1" value="200"/>
+	<property name="su2" value="100"/>
+	<property name="getSum">
 
-		<!-- 속성(setter)을 활용하는 경우 -->
-		<property name="su1" value="200"/>
-		<property name="su2" value="100"/>
-		<property name="getSum">
+		<!-- bean id="getsum"을 참조(reference)한다. -->
+		<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
+		<ref bean="getsum"/>	
 
-			<!-- bean id="getsum"을 참조(reference)한다. -->
-			<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
-			<ref bean="getsum"/>	
+	</property>
+</bean>
+```
 
-		</property>
-	</bean>
+* **Main.java** : 실행 파일
+	- `AbstractApplicationContext` 객체가 DI 작업을 하는 스프링 컨테이너.
+	- 스프링 컨테이너 객체를 생성한다.
+	- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체가 생성된다.(메모리로 로딩)
+
+	1. 스프링 컨테이너 객체 생성
+
+	```java
+	// xml 설정 파일(classpath:getsum.xml)을 읽어들여서 메모리로 로딩.
+	AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:getsum.xml");
+
+	// 또는 path를 별도로 두어도 된다.
+	String path1 = "classpath:getsum.xml";
+	String path2 = "classpath:getsum2.xml";
+
+	// path가 여러개일 경우 ,로 구분하여 인자로 넣는다.
+	AbstractApplicationContext ctx = new GenericXmlApplicationContext(path, path2);
 	```
 
+	2. 실제적으로 아래 코드에서 주입과정이 일어나게 된다.
+		- `new` 키워드를 사용하지 않고 직접 스프링 컨테이너에서 꺼내서 사용한다.
+		- my1 = my2  동일. (방식의 차이)
 
-	
-	
-	* **Main.java** : 실행 파일
-		- `AbstractApplicationContext` 객체가 DI 작업을 하는 스프링 컨테이너.
-		- 스프링 컨테이너 객체를 생성한다.
-		- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체가 생성된다.(메모리로 로딩)
+	```java
+	MyGetSum my1 = (MyGetSum)ctx.getBean("mySum");
 
-		1. 스프링 컨테이너 객체 생성
+	// getBean(스프링 빈 객체 id, 그 객체의 클래스 타입)
+	MyGetSum my2 = ctx.getBean("mySum", MyGetSum.class);	
 
-		```java
-		// xml 설정 파일(classpath:getsum.xml)을 읽어들여서 메모리로 로딩.
-		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:getsum.xml");
+	// GetSum 인터페이스 객체로 생성도 가능하다.
+	GetSum my3 = (GetSum)ctx.getBean("mySum");
+	```
 
-		// 또는 path를 별도로 두어도 된다.
-		String path1 = "classpath:getsum.xml";
-		String path2 = "classpath:getsum2.xml";
+	3. 메서드 또는 값 호출
 
-		// path가 여러개일 경우 ,로 구분하여 인자로 넣는다.
-		AbstractApplicationContext ctx = new GenericXmlApplicationContext(path, path2);
-		```
+	```java		
+	my1.sum();	// 메서드(비지니스 로직)를 호출
+	my2.sum();
 
+	System.out.println("수1 : " + my3.getSu1());	// 이렇게 값을 가져올 수도 있다.
+	System.out.println("수2 : " + my3.getSu2());	
+	```
 
-		2. 실제적으로 이 코드에서 주입과정이 일어나게 된다.
-			- new 키워드를 사용하지 않고 직접 스프링 컨테이너에서 꺼내서 사용한다.
-			- my1 = my2  동일. (방식의 차이)
+	4. 사용한 자원은 반납해야 한다.
 
-		```java
-		MyGetSum my1 = (MyGetSum)ctx.getBean("mySum");
+	```java
+	ctx.close();
+	```
 
-		// getBean(스프링 빈 객체 id, 그 객체의 클래스 타입)
-		MyGetSum my2 = ctx.getBean("mySum", MyGetSum.class);	
-
-		// GetSum 인터페이스 객체로 생성도 가능하다.
-		GetSum my3 = (GetSum)ctx.getBean("mySum");
-		```
-
-		3. 메서드 또는 값 호출
-
-		```java		
-		my1.sum();	// 메서드(비지니스 로직)를 호출
-		my2.sum();
-
-		System.out.println("수1 : " + my3.getSu1());	// 이렇게 값을 가져올 수도 있다.
-		System.out.println("수2 : " + my3.getSu2());	
-		```
-
-		4. 사용한 자원은 반납해야 한다.
-
-		```java
-		ctx.close();
-		```
 	---
 
 	#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션(annotation) 이용.
