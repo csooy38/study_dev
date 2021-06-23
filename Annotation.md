@@ -12,24 +12,25 @@
 	
 ---
 ### * Lombok 
-* 방법 1
-	1. <a href="http://projectlombok.org/download">projectlombok.org/download</a> - Download 1.18.20
-	2. 다운로드 받은 파일 실행 - Specify Location - 스프링 설치 경로(sts.exe) 설정 - install/update - Quit Installer
+1. 추가방법
+	* 방법 1
+		1. <a href="http://projectlombok.org/download">projectlombok.org/download</a> - Download 1.18.20
+		2. 다운로드 받은 파일 실행 - Specify Location - 스프링 설치 경로(sts.exe) 설정 - install/update - Quit Installer
 
-* 방법 2
-	* pom.xml 에 라이브러리 추가
+	* 방법 2
+		* pom.xml 에 라이브러리 추가
 
-```xml
-<!-- lombok 라이브러리 -->
-<dependency>
-	<groupId>org.projectlombok</groupId>
-	<artifactId>lombok</artifactId>
-	<version>1.18.20</version>
-	<scope>provided</scope>
-</dependency>
-```
+	```xml
+	<!-- lombok 라이브러리 -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.20</version>
+		<scope>provided</scope>
+	</dependency>
+	```
 
-* 종류
+2. 종류
 
 ```java
 @Data			// getter/setter
@@ -41,13 +42,13 @@
 
 ### * cglib
 
-* 애노테이션 역할
+1. 애노테이션 역할
 	* 컴파일러에게 정보를 알려주는 역할.
 	* 컴파일 할 때와 설치 시의 작업을 지정하는 역할.
 	* 실행할 때에 별도의 처리가 필요한 경우 사용되는 역할.
 
 
-* pom.xml에 cglib 라이브러리 추가.
+2. 추가방법 : pom.xml에 cglib 라이브러리 추가.
 
 ```xml
 <!-- https://mvnrepository.com/artifact/cglib/cglib -->
@@ -58,11 +59,11 @@
 </dependency>
 ```
 
-* 종류
+3. 종류
 
-```xml
+```java
 @Configuration	// 클래스 앞에 선언하는 애노테이션. "해당 클래스는 스프링 설정에 사용되는 클래스입니다."라고 알려주는 애노테이션.
-@bean 			// 메소드 앞에 사용되는 애노테이션. "해당 메서드는 객체를 생성하는데 사용됩니다." 의미.
+@bean 		// 메소드 앞에 사용되는 애노테이션. "해당 메서드는 객체를 생성하는데 사용됩니다." 의미.
 ```
 
 
