@@ -88,6 +88,8 @@
 	</bean>
 	```
 
+	---
+
 	#### [예] 1.5.2. constructor(인자생성자)를 이용한 주입
 	xml 파일에 인자생성자를 이용하여 주입하는 방법.    
 	Exam 클래스에 멤버변수를 선언하고, 인자 생성자를 작성하였다. 
@@ -106,19 +108,21 @@
 	멤버변수가 선언된 순서대로 value 값을 지정한다.    
 	별도의 타입을 설정하지 않아도 적절한 타입으로 저장된다.    
 
-	**1. 방식1**
+	**xml파일**
 
 	```xml
+	<!-- 방식1 -->
 	<constructor-arg value="안녕하세요. 스프링에 오신 걸 환영합니다."/>
-	```
-
-	**2. 방식2**
-
-	```xml	
+	
+	<!-- 방식2 -->
 	<constructor-arg>
 		<value>100</value>
 	</constructor-arg>
 	```
+	
+	---
+	
+	#### [+] 형식에 따른 주입 방법
 
 	* ArrayList 와 같은 List 계열 : 태그 안에 `<list>` 태그로 원하는 만큼 value 값을 지정한다.
 
@@ -140,12 +144,13 @@
 		</entry>
 	</map>
 	```
+	
+	---
 
 	#### [예] 1.5.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
-	* 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
-	* 인자생성자에 인자로 없는 멤버변수 : `<property>` 태그로 선언
 
-	1. 인자생성자 - `<constructor-arg>`
+	1. 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
+
 
 	```xml
 	<constructor-arg value="김현수"/>
@@ -158,12 +163,14 @@
 	</constructor-arg>
 	```
 
-	2. 속성(setter) - `<property>`
+	2. 인자생성자에 인자로 없는 멤버변수 : `<property>` 태그로 선언
 
 	```xml
 	<property name="weight" value="95"/>
 	<property name="height" value="185"/>
 	```
+	
+	---
 
 	#### [+] Namespaces 를 활용하는 방법
 	* 네임스페이스(Namespaces) : `<property>` 태그나 `<constructor-arg>` 태그를 사용하다 보면 작성해야 할 xml 문서의 내용이 전반적으로 증가하게 된다. 이를 좀 더 짧게 작성하게 하는 것이 네임스페이스이다.
@@ -192,10 +199,14 @@
 	* c : `<constructor-arg>`
 	* p : `<property>`
 
+	
 	```xml
 	<bean id="player" class="com.sist.di07.player"
 		c:name="김현수" c:age="33" c:position="좌익수" p:weight="95" p:height="15" />
 	```
+	---
+	
+	
 		
 ### 1.6. 의존 관계를 설정하는 방법
 1. XML 파일을 이용하여 의존 관계 설정
@@ -206,259 +217,263 @@
 	* 주로 아래 두 xml 파일에서 설정.
 <p align="center"><img src="./images/210623/01.PNG"></p>
 
-```xml
-<bean>
-	- id 속성 : bean의 고유한 이름. 클래스에서 작성한 변수(참조변수) 이름. 중복불가.
-	- class 속성 : 스프링 컨테이너에서 객체를 생성할 클래스의 위치(패키지명.클래스명).
-</bean> 
-```
+	```xml
+	<bean>
+		- id 속성 : bean의 고유한 이름. 클래스에서 작성한 변수(참조변수) 이름. 중복불가.
+		- class 속성 : 스프링 컨테이너에서 객체를 생성할 클래스의 위치(패키지명.클래스명).
+	</bean> 
+	```
 
-#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
+	#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
 
-* **class GetSum**
+	* **class GetSum**
 
-```java
-public class GetSum {
-	
-	private int num1;
-	private int num2;
-	
-	public int getNum1() {
-		return num1;
-	}
-	public void setNum1(int num1) {
-		this.num1 = num1;
-	}
-	public int getNum2() {
-		return num2;
-	}
-	public void setNum2(int num2) {
-		this.num2 = num2;
-	}
-	
-	// 핵심기능(비지니스 로직)
-	public void hap(int num1, int num2) {
-		System.out.println("더하기 >> " + (num1 + num2));
-	}
-}
-```
+	```java
+	public class GetSum {
 
-* **class MyGetSum**
+		private int num1;
+		private int num2;
 
-```java
-public class MyGetSum {
-	
-	private int su1;
-	private int su2;
-	private GetSum getSum;
-	
-	public int getSu1() {
-		return su1;
-	}
-	public void setSu1(int su1) {
-		this.su1 = su1;
-	}
-	public int getSu2() {
-		return su2;
-	}
-	public void setSu2(int su2) {
-		this.su2 = su2;
-	}
-	public GetSum getGetSum() {
-		return getSum;
-	}
-	
-	// GetSum 타입의 인자가 들어오면 되므로 MyGetSum 타입의 인자도 들어올 수 있다.(다형성)
-	public void setGetSum(GetSum getSum) {
-		this.getSum = getSum;
-	}
-	
-	// 핵심 기능
-	public void sum() {
-		this.getSum.hap(su1, su2);
-	}
-}
-```
+		public int getNum1() {
+			return num1;
+		}
+		public void setNum1(int num1) {
+			this.num1 = num1;
+		}
+		public int getNum2() {
+			return num2;
+		}
+		public void setNum2(int num2) {
+			this.num2 = num2;
+		}
 
-* **getsum.xml**
-	- src/main/resources/getsum.xml
-	- Spring Bean Configuration File
-	- DI 즉, 주입을 어떻게 할 것인지는 xml 문서에 기입이 되어 있다.
-	- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.
-	- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.
+		// 핵심기능(비지니스 로직)
+		public void hap(int num1, int num2) {
+			System.out.println("더하기 >> " + (num1 + num2));
+		}
+	}
+	```
+
+	* **class MyGetSum**
+
+	```java
+	public class MyGetSum {
+
+		private int su1;
+		private int su2;
+		private GetSum getSum;
+
+		public int getSu1() {
+			return su1;
+		}
+		public void setSu1(int su1) {
+			this.su1 = su1;
+		}
+		public int getSu2() {
+			return su2;
+		}
+		public void setSu2(int su2) {
+			this.su2 = su2;
+		}
+		public GetSum getGetSum() {
+			return getSum;
+		}
+
+		// GetSum 타입의 인자가 들어오면 되므로 MyGetSum 타입의 인자도 들어올 수 있다.(다형성)
+		public void setGetSum(GetSum getSum) {
+			this.getSum = getSum;
+		}
+
+		// 핵심 기능
+		public void sum() {
+			this.getSum.hap(su1, su2);
+		}
+	}
+	```
+
+	* **getsum.xml**
+		- src/main/resources/getsum.xml
+		- Spring Bean Configuration File
+		- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.
+		- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.
+		- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.
 
 
-```xml
-<!-- 
-	"com.sist.di01" 패키지에 있는 "GetSum" 클래스를 "getsum"이라는 id로 지정하여 객체(bean)를 생성한다는 의미.
-	GetSum getsum = new GetSum(); 와 동일 
--->
-<bean id="getsum" class="com.sist.di01.GetSum"/>
-	
-<bean id="mySum" class="com.sist.di01.MyGetSum">
-	<!--
-		MyGetSum mySum = new MyGetSum();
-		mySum.setSu1(200);
-		mySum.setSu2(100);
+	```xml
+	<!-- 
+		"com.sist.di01" 패키지에 있는 "GetSum" 클래스를 "getsum"이라는 id로 지정하여 객체(bean)를 생성한다는 의미.
+		GetSum getsum = new GetSum(); 와 동일 
 	-->
-	
-	<!-- 속성(setter)을 활용하는 경우 -->
-	<property name="su1" value="200"/>
-	<property name="su2" value="100"/>
-	<property name="getSum">
-	
-		<!-- bean id="getsum"을 참조(reference)한다. -->
-		<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
-		<ref bean="getsum"/>	
-		
-	</property>
-</bean>
-```
+	<bean id="getsum" class="com.sist.di01.GetSum"/>
 
+	<bean id="mySum" class="com.sist.di01.MyGetSum">
+		<!--
+			MyGetSum mySum = new MyGetSum();
+			mySum.setSu1(200);
+			mySum.setSu2(100);
+		-->
 
-* **Main.java** : 실행 파일
-	- `AbstractApplicationContext` 객체가 DI 작업을 하는 스프링 컨테이너.
-	- 스프링 컨테이너 객체를 생성한다.
-	- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체가 생성된다.(메모리로 로딩)
+		<!-- 속성(setter)을 활용하는 경우 -->
+		<property name="su1" value="200"/>
+		<property name="su2" value="100"/>
+		<property name="getSum">
 
-1. 스프링 컨테이너 객체 생성
+			<!-- bean id="getsum"을 참조(reference)한다. -->
+			<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
+			<ref bean="getsum"/>	
 
-```java
-// xml 설정 파일(classpath:getsum.xml)을 읽어들여서 메모리로 로딩.
-AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:getsum.xml");
-
-// 또는 path를 별도로 두어도 된다.
-String path1 = "classpath:getsum.xml";
-String path2 = "classpath:getsum2.xml";
-
-// path가 여러개일 경우 ,로 구분하여 인자로 넣는다.
-AbstractApplicationContext ctx = new GenericXmlApplicationContext(path, path2);
-```
-
-
-2. 실제적으로 이 코드에서 주입과정이 일어나게 된다.
-	- new 키워드를 사용하지 않고 직접 스프링 컨테이너에서 꺼내서 사용한다.
-	- my1 = my2  동일. (방식의 차이)
-
-```java
-MyGetSum my1 = (MyGetSum)ctx.getBean("mySum");
-
-// getBean(스프링 빈 객체 id, 그 객체의 클래스 타입)
-MyGetSum my2 = ctx.getBean("mySum", MyGetSum.class);	
-
-// GetSum 인터페이스 객체로 생성도 가능하다.
-GetSum my3 = (GetSum)ctx.getBean("mySum");
-```
-
-3. 메서드 또는 값 호출
-
-```java		
-my1.sum();	// 메서드(비지니스 로직)를 호출
-my2.sum();
-
-System.out.println("수1 : " + my3.getSu1());	// 이렇게 값을 가져올 수도 있다.
-System.out.println("수2 : " + my3.getSu2());	
-```
-		
-4. 사용한 자원은 반납해야 한다.
-
-```java
-ctx.close();
-```
-
-#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션 이용.
-
-설정 시 `cglib` 라이브러리가 반드시 필요하므로, pom.xml에 라이브러리를 추가해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[cglib 추가방법]</a>   
-new 키워드를 사용하는 등 결합이 강하므로 자주 사용되는 방법은 아니다.    
-
-* **class Config**
-	- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션을 선언한다.
-	- 애노테이션 역할
-		* 컴파일러에게 정보를 알려주는 역할.
-		* 컴파일 할 때와 설치 시의 작업을 지정하는 역할.
-		* 실행할 때에 별도의 처리가 필요한 경우 사용되는 역할.
-
-```java
-@Configuration	// 애노테이션
-public class Config {
-	
-	@Bean	// 애노테이션
-	public Player player1() {
-		ArrayList<String> position = new ArrayList<String>();
-		position.add("4번 타자");
-		position.add("1루수");
-		
-		Player player = new Player("추신수", 38, position);
-		
-		player.setWeight(100);
-		player.setHeight(188);
-		
-		return player;
-	}
-}
-```
-
-* **class Main**
-
-```java
-// Config 클래스를 컨테이너로 가져온다.
-AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
-
-// Config 클래스의 메서드 이름(player1)이 id로 들어간다.
-Player player1 = (Player)ctx.getBean("player1");
-
-System.out.println("선수 이름 : " + player1.getName());
-System.out.println("선수 포지션 : " + player1.getPosition());
-System.out.println("선수 체중 : " + player1.getWeight());
-
-ctx.close();
-```
-
-
-#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 
-
-* **class Config**
-
-```java
-@Configuration
-public class Config {
-	
-	@Bean
-	public Player player1() {
-		ArrayList<String> position = new ArrayList<String>();
-		position.add("4번 타자");
-		position.add("1루수");
-		
-		Player player = new Player("추신수", 38, position);
-		
-		player.setWeight(100);
-		player.setHeight(188);
-		
-		return player;
-	}
-}
-```
-
-* **baseball.xml**
-
-```xml
-<context:annotation-config/>
-	 
-	<bean class="com.sist.di10.Config"/>
-	
-	<bean id="player3" class="com.sist.di10.Player">
-		<constructor-arg value="김현수"/>
-		<constructor-arg value="33"/>
-		<constructor-arg>
-			<list>
-				<value>3번 타자</value>
-				<value>외야수</value>
-			</list>
-		</constructor-arg>
-		<property name="weight" value="95"/>
-		<property name="height" value="185"/>
+		</property>
 	</bean>
-```
+	```
+
+
+	
+	
+	* **Main.java** : 실행 파일
+		- `AbstractApplicationContext` 객체가 DI 작업을 하는 스프링 컨테이너.
+		- 스프링 컨테이너 객체를 생성한다.
+		- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체가 생성된다.(메모리로 로딩)
+
+		1. 스프링 컨테이너 객체 생성
+
+		```java
+		// xml 설정 파일(classpath:getsum.xml)을 읽어들여서 메모리로 로딩.
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:getsum.xml");
+
+		// 또는 path를 별도로 두어도 된다.
+		String path1 = "classpath:getsum.xml";
+		String path2 = "classpath:getsum2.xml";
+
+		// path가 여러개일 경우 ,로 구분하여 인자로 넣는다.
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(path, path2);
+		```
+
+
+		2. 실제적으로 이 코드에서 주입과정이 일어나게 된다.
+			- new 키워드를 사용하지 않고 직접 스프링 컨테이너에서 꺼내서 사용한다.
+			- my1 = my2  동일. (방식의 차이)
+
+		```java
+		MyGetSum my1 = (MyGetSum)ctx.getBean("mySum");
+
+		// getBean(스프링 빈 객체 id, 그 객체의 클래스 타입)
+		MyGetSum my2 = ctx.getBean("mySum", MyGetSum.class);	
+
+		// GetSum 인터페이스 객체로 생성도 가능하다.
+		GetSum my3 = (GetSum)ctx.getBean("mySum");
+		```
+
+		3. 메서드 또는 값 호출
+
+		```java		
+		my1.sum();	// 메서드(비지니스 로직)를 호출
+		my2.sum();
+
+		System.out.println("수1 : " + my3.getSu1());	// 이렇게 값을 가져올 수도 있다.
+		System.out.println("수2 : " + my3.getSu2());	
+		```
+
+		4. 사용한 자원은 반납해야 한다.
+
+		```java
+		ctx.close();
+		```
+	---
+
+	#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션 이용.
+
+	설정 시 `cglib` 라이브러리가 반드시 필요하므로, pom.xml에 라이브러리를 추가해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[cglib 설정]</a>   
+	`new` 키워드를 사용하는 등 결합이 강하므로 자주 사용되는 방법은 아니다.    
+
+	* **class Config**
+		- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션을 선언한다.
+		- 애노테이션 역할
+			* 컴파일러에게 정보를 알려주는 역할.
+			* 컴파일 할 때와 설치 시의 작업을 지정하는 역할.
+			* 실행할 때에 별도의 처리가 필요한 경우 사용되는 역할.
+
+		```java
+		@Configuration	// 애노테이션
+		public class Config {
+
+			@Bean	// 애노테이션
+			public Player player1() {
+				ArrayList<String> position = new ArrayList<String>();
+				position.add("4번 타자");
+				position.add("1루수");
+
+				Player player = new Player("추신수", 38, position);
+
+				player.setWeight(100);
+				player.setHeight(188);
+
+				return player;
+			}
+		}
+		```
+
+	* **class Main**
+
+		```java
+		// Config 클래스를 컨테이너로 가져온다.
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+
+		// Config 클래스의 메서드 이름(player1)이 id로 들어간다.
+		Player player1 = (Player)ctx.getBean("player1");
+
+		System.out.println("선수 이름 : " + player1.getName());
+		System.out.println("선수 포지션 : " + player1.getPosition());
+		System.out.println("선수 체중 : " + player1.getWeight());
+
+		ctx.close();
+		```
+	
+	---
+
+	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 
+
+	* **class Config**
+
+		```java
+		@Configuration
+		public class Config {
+
+			@Bean
+			public Player player1() {
+				ArrayList<String> position = new ArrayList<String>();
+				position.add("4번 타자");
+				position.add("1루수");
+
+				Player player = new Player("추신수", 38, position);
+
+				player.setWeight(100);
+				player.setHeight(188);
+
+				return player;
+			}
+		}
+		```
+
+	* **baseball.xml**
+
+		```xml
+		<context:annotation-config/>
+
+			<bean class="com.sist.di10.Config"/>
+
+			<bean id="player3" class="com.sist.di10.Player">
+				<constructor-arg value="김현수"/>
+				<constructor-arg value="33"/>
+				<constructor-arg>
+					<list>
+						<value>3번 타자</value>
+						<value>외야수</value>
+					</list>
+				</constructor-arg>
+				<property name="weight" value="95"/>
+				<property name="height" value="185"/>
+			</bean>
+		```
 
 
 ### 1.7. 한글 인코딩
