@@ -20,15 +20,15 @@
 	* 방법 2
 		* pom.xml 에 라이브러리 추가
 
-	```xml
-	<!-- lombok 라이브러리 -->
-	<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		<version>1.18.20</version>
-		<scope>provided</scope>
-	</dependency>
-	```
+		```xml
+		<!-- lombok 라이브러리 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
+		</dependency>
+		```
 
 2. 종류
 
