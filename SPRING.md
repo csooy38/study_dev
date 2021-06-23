@@ -380,13 +380,13 @@
 		```
 	---
 
-	#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션 이용.
+	#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션(annotation) 이용.
 
 	설정 시 `cglib` 라이브러리가 반드시 필요하므로, pom.xml에 라이브러리를 추가해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[cglib 설정]</a>   
 	`new` 키워드를 사용하는 등 결합이 강하므로 자주 사용되는 방법은 아니다.    
 
 	* **class Config**
-		- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션을 선언한다.
+		- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션(annotation)을 선언한다.
 		- 애노테이션 역할
 			* 컴파일러에게 정보를 알려주는 역할.
 			* 컴파일 할 때와 설치 시의 작업을 지정하는 역할.
@@ -413,11 +413,12 @@
 		```
 
 	* **class Main**
+		- xml 파일을 이용하여 메모리로 스프링 컨테이너 객체 생성하지 않는다.
 
 		```java
 		// Config 클래스를 컨테이너로 가져온다.
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
-
+	
 		// Config 클래스의 메서드 이름(player1)이 id로 들어간다.
 		Player player1 = (Player)ctx.getBean("player1");
 
@@ -430,51 +431,84 @@
 	
 	---
 
-	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 
+	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - XML 중심
+	- xml 파일에 애노테이션도 읽을 수 있도록 태그를 추가한 후, xml 파일을 이용하여 의존 설정한다.
 
 	* **class Config**
-
-		```java
-		@Configuration
-		public class Config {
-
-			@Bean
-			public Player player1() {
-				ArrayList<String> position = new ArrayList<String>();
-				position.add("4번 타자");
-				position.add("1루수");
-
-				Player player = new Player("추신수", 38, position);
-
-				player.setWeight(100);
-				player.setHeight(188);
-
-				return player;
-			}
-		}
-		```
+		- #### [예] 1.6.2. 와 동일한 **class Config**
+		- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션(annotation)을 선언한다.
 
 	* **baseball.xml**
+		* `<beans>` 태그 안에 `<context:annotation-config />` 태그를 선언하여 애노테이션을 인식할 수 있도록 한다.
+		* `<context:annotation-config />` 태그 : 특정 패키지 안에 있는 클래스 중에서 @Configuration, @Bean, @Autowired, @Resource 애노테이션이 존재하면 해당 애노테이션을 인식할 수 있도록 하는 태그.
 
 		```xml
 		<context:annotation-config/>
 
-			<bean class="com.sist.di10.Config"/>
-
-			<bean id="player3" class="com.sist.di10.Player">
-				<constructor-arg value="김현수"/>
-				<constructor-arg value="33"/>
-				<constructor-arg>
-					<list>
-						<value>3번 타자</value>
-						<value>외야수</value>
-					</list>
-				</constructor-arg>
-				<property name="weight" value="95"/>
-				<property name="height" value="185"/>
-			</bean>
+		<bean class="com.sist.di10.Config"/>
+		<bean id="player3" class="com.sist.di10.Player">
+			<constructor-arg value="김현수"/>
+			<constructor-arg value="33"/>
+			<constructor-arg>
+				<list>
+					<value>3번 타자</value>
+					<value>외야수</value>
+				</list>
+			</constructor-arg>
+			<property name="weight" value="95"/>
+			<property name="height" value="185"/>
+		</bean>
 		```
+	
+	* **class Main**
+		- 기존의 XML 파일을 이용하여 의존을 설정하는 방식과 동일하게 설정한다.
+		- XML 파일에서 애노테이션도 읽을 수 있도록 태그를 설정하였으므로, 애노테이션과 XML 방식을 혼용할 수 있다.
+	
+		```java
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:baseball3.xml");
+	
+		// 애노테이션으로 받는 변수
+		Player player1 = (Player) ctx.getBean("player1");
+		Player player2 = (Player) ctx.getBean("player2");
+	
+		// XML 파일 설정으로 받는 변수
+		Player player3 = (Player) ctx.getBean("player3");
+		```
+	
+	---
+	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - 애노테이션(annotation) 중심
+	- `@ImportResource("classpath:xml 파일명")` 애노테이션을 추가하여 xml 파일도 함께 읽을 수 있게 한다.
+	- `@ImportResource("classpath:xml 파일명")` : xml 파일도 함께 읽도록 하는 애노테이션.
+	
+		* **class Config**
+		- 클래스명 앞에 `@ImportResource("classpath:xml 파일명")`를 추가한다.
+	
+		```java
+		@Configuration		// 애노테이션
+		@ImportResource("classpath:baseball4.xml")	// 애노테이션
+		public class Config {
 
+			@Bean		// 애노테이션
+			public Player player1() {...}
+		}
+		```
+	
+		* **class Main**
+		- 위에서 설정을 했으므로,   
+	애노테이션으로 의존 설정하는 방식과 동일하게 작성해도 애노테이션, xml 파일 설정을 모두 활용할 수 있다.
+		
+		```java
+		AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+	
+		// 애노테이션으로 받는 변수
+		Player player1 = (Player) ctx.getBean("player1");
+		Player player2 = (Player) ctx.getBean("player2");
+	
+		// XML 파일 설정으로 받는 변수
+		Player player3 = (Player) ctx.getBean("player3");
+		```
+	---
+	
 
 ### 1.7. 한글 인코딩
 
@@ -505,29 +539,7 @@
 ```
 
 
-
-
-
-
-
-
-
-
-* **baseball.xml**
-
-
-* `<context:annotation-config />` 태그
-	* 특정 패키지 안에 있는 클래스 중에서 `@Configuration`, `@Bean`, `@Autowired`, `@Resource` 애노테이션이 존재하면 해당 애노테이션을 인식할 수 있도록 하는 태그.
-	* xml 파일 내에 선언하여 사용.
-	* 해당 태그를 선언하면 기존 방식과 동일하게 호출가능하다. 
-	
-
-* `@ImportResource("classpath:baseball4.xml")` : baseball4.xml까지 읽어온다.
-
-
-
 ---
-
 ## 2. MVC 흐름
 
 1. web.xml
@@ -575,72 +587,64 @@
      
 ### 2.1. Model
 
-스프링 MVC에서 **Model** (모델)이란?
-- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
+*스프링 MVC에서 **Model** (모델)이란?
+	- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
 이러한 정보들을 스프링에서는 Model(모델)이라고 한다. 이 Model(정보)를 view page로 보내게 된다.
 
+	```java
+	@RequestMapping("/memberInfo")
+	// view page 이름을 String 타입으로 적는다.
+	public String member(Model model) {
 
+		model.addAttribute("name", "홍길동");
+		model.addAttribute("age", 27);
+
+		return "member";	// WEB_INF/views/member.jsp 로 이동
+	}
+	```
+	
 HomeController에서 addAttribute()로 키-값을 저장해서 return 하면,  
 
 
-```java
-@RequestMapping("/memberInfo")
-// view page 이름을 String 타입으로 적는다.
-public String member(Model model) {
-		
-	model.addAttribute("name", "홍길동");
-	model.addAttribute("age", 27);
-			
-	return "member";	// WEB_INF/views/member.jsp 로 이동
-}
-```
+	```html
+	<body>
+		<h2>회원 정보 페이지입니다.</h2>
 
-
+		<p>회원 이름 : ${name }</p>
+		<p>회원 나이 : ${age }</p>
+	</body>
+	```
 return된 view page에서 EL언어 등으로 호출이 가능하다.  
 
-```html
-<body>
 
-	<h2>회원 정보 페이지입니다.</h2>
-	
-	<p>회원 이름 : ${name }</p>
-	<p>회원 나이 : ${age }</p>
+### 2.2. ModelAndView 객체 
+* ModelAndView 객체 
+	- `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다. 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
 
-</body>
-```
+	```java
+	@Controller	// 자동으로 bean 등록
+	public class MyController {
 
+		@RequestMapping("/info")	// 프로젝트 실행 후 주소 뒤에 "/info"를 붙이면 아래코드를 실행하여 view page로 넘어간다.
+		public ModelAndView aaa() {
 
-### 2.2. ModelAndView 객체 - ModelAndView 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게
-	  반환되어 브라우저에 보여질 정보들이 만들어진다. 이 때 만들어진 정보를 응답할 view page 정보와 전달할 값을 한꺼번에 저장하여
-	  view page로 넘겨줄 때 사용한다.
+			ModelAndView mav = new ModelAndView();		// ModelAndView 객체 생성
 
-```java
-@Controller	// 자동으로 bean 등록
-public class MyController {
+			mav.addObject("email", "hong@naver.com");	// view page에 넘어갈 정보(Model) 저장
+			mav.setViewName("member/email");		// 이동할 view page 주소(views/member/email.jsp) 저장
 
-	@RequestMapping("/info")
-	public ModelAndView aaa() {
-		
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("email", "hong@naver.com");	// view page에 넘어갈 정보(Model) 저장
-		mav.setViewName("member/email");			// 이동할 view page 주소(views/member/email.jsp) 저장
-		
-		return mav;
+			return mav;
+		}
 	}
-}
-```
+	```
 
-```
-     
-     
-     <context:component-scan base-package="com.sist.mvc01" />
+이렇게 저장된 값 "email"은 view page(views/member/email.jsp)에서 EL언어(`${email }`) 등으로 호출할 수 있다.   
+
 	
-	<!-- 
-		<context:component-scan> 태그
-			base-package 속성에 있는 패키지(com.sist.mvc01) 안에 @Controller, @Repository, @Service, @Component 애노테이션이 있는 
-			클래스가 존재하면 해당 클래스를 자동으로 빈으로 등록하라는 의미.
-	 -->
+	
+* <context:component-scan> 태그 
+	> <context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
+	- base-package 속성에 있는 패키지(com.sist.mvc01) 안에 `@Controller`, `@Repository`, `@Service`, `@Component` 애노테이션이 있는 클래스가 존재하면 해당 클래스를 자동으로 bean으로 등록하라는 의미.
      
      
      
