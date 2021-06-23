@@ -415,9 +415,7 @@ public class MyGetSum {
 		* Namespaxes 에서 context를 체크한 후 사용한다.
 		* 체크하면 `<beans>` 태그에 다음과 같은 코드가 추가된다. 
 		* `xmlns:context="http://www.springframework.org/schema/context`
-		
 <p align="center"><img src="./images/210623/03.png"></p>
-
 		```xml
 		<context:annotation-config/>
 
@@ -484,8 +482,6 @@ public class MyGetSum {
 		Player player3 = (Player) ctx.getBean("player3");
 		```
 	---
-	
-
 ### 1.7. 한글 인코딩
 
 프로젝트의 web.xml 파일에서 한글 인코딩 설정 작업을 하면 프로젝트 전체에 적용된다. 
