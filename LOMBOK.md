@@ -1,6 +1,6 @@
 # LOMBOK
 
-애노테이션(annotation) 중의 하나.
+스프링 애노테이션(annotation) 중의 하나.
 
 ## 1. 설정 방법
 1. <a href="projectlombok.org/download">projectlombok.org/download</a> - Download 1.18.20
