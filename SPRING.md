@@ -122,31 +122,6 @@
 	
 	---
 	
-	#### [+] 형식에 따른 주입 방법
-
-	* ArrayList 와 같은 List 계열 : 태그 안에 `<list>` 태그로 원하는 만큼 value 값을 지정한다.
-
-	```xml
-	<!-- ArrayList의 경우 -->
-	<list>
-		<value>3번 타자</value>
-		<value>좌익수</value>
-	</list>
-	```
-
-	* map : 태그 안에 `<map>` 태그를 이용. 원하는 만큼 `<entry>` 태그를 반복한다.
-
-	```xml
-	<map>
-		<entry>
-			<key> <value>1</value> </key>
-			<value>짜장면</value>
-		</entry>
-	</map>
-	```
-	
-	---
-
 	#### [예] 1.5.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
 
 	1. 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
@@ -168,6 +143,31 @@
 	```xml
 	<property name="weight" value="95"/>
 	<property name="height" value="185"/>
+	```
+	
+	---
+	
+	#### [+] 형식에 따른 주입 방법
+
+	* ArrayList 와 같은 List 계열 : 태그 안에 `<list>` 태그로 원하는 만큼 value 값을 지정한다.
+
+	```xml
+	<!-- ArrayList의 경우 -->
+	<list>
+		<value>3번 타자</value>
+		<value>좌익수</value>
+	</list>
+	```
+
+	* map : 태그 안에 `<map>` 태그를 이용. 원하는 만큼 `<entry>` 태그를 반복한다.
+
+	```xml
+	<map>
+		<entry>
+			<key> <value>1</value> </key>
+			<value>짜장면</value>
+		</entry>
+	</map>
 	```
 	
 	---
