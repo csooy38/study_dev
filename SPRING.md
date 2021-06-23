@@ -11,6 +11,8 @@
 - Java EE에서 MVC-2 모델 방식도 새로운 애플리케이션을 개발할 때마다 일일이 처음부터 다시 개발해야 하는 단점이 있다. 모든 애플리케이션에서 공통적인 기능등을 처음부터 다시 개발해야 한다는 것은 상당히 비효율적이다.
 - 이보다 더 좋은 방법이 바로 스프링이다. 애플리케이션 개발 시에 일반적인 웹 애플리케이션에서 많이 사용하는 기능들은 미리 만들어서 제공하고, 그 외에 필요한 부분만 추가 및 수정하는 방식을 이용하면 된다. 이렇게 하면 훨씬 효율적일 뿐만 아니라 일정한 형식에 따라서 개발을 진행하므로 표준화가 이루어져 생산성도 높일 수 있다.
 - 애플리케이션은 규모가 커질수록 각각의 기능들을 개발자가 따로 개발하는 것보다는 표준화된 방법으로 개발하는 것이 상당히 유리하다. 
+
+
 - 그렇다면 **프레임워크(framework)** 란?
 	* 프레임워크(framework)의 사전적 의미는 `어떤 것을 구성하는 구조 또는 뼈대`이다.
 	* 소프트웨적 의미로는 "기능을 미리 클래스나 인터페이스 등으로 만들어 제공하는 반제품" 정도로 해석할 수 있다. 
@@ -27,7 +29,7 @@
 - DI는 스프링 핵심 개념 중 하나.
 - 기존에는 어떤 한 클래스가 다른 클래스의 기능(메서드)을 사용하려면 당연히 개발자가 코드에서 직접적으로 사용할 클래스의 생성자를 호출하여 사용하였다(`new` 키워드 이용). 따라서 사용할 클래스와 사용될 클래스의 관계는 개발자에 의해 직접 코드에서 부여가 되었다.(높은 의존도 - 강한 결합)
 - 스프링에서는 객체 사이의 의존 관계를 객체 자신이 아닌 외부(스프링 컨테이너)에서 수행하는 개념이다.
-	* 즉, 이런 연관 관계를 개발자가 직접 코딩을 통해서 부여하는 것이 아니라 스프링 컨테이너가 연관 관계를 직접 규정하는 것을 말한다. 그러면 코드에서 직접적인 연관 관계가 발생하지 않으므로 각각의 클래스들의 변경이 자유로워진다.(약한 결합) 따라서 스프링 프레임워크에서는 각 클래스들의 연관 관계를 클래스들 간의 사이에서 맺어지는 것이 아니라, 스프링 프레임워크에서 설정을 통해 맺어줌으로써 클래스들끼리 연관 관계를 맺지 않도록 구현을 해 놓았다.
+	* 즉, 이런 연관 관계를 개발자가 직접 코딩을 통해서 부여하는 것이 아니라 스프링 컨테이너가 연관 관계를 직접 규정하는 것을 말한다. 그러면 코드에서 직접적인 연관 관계가 발생하지 않으므로 각각의 클래스들의 변경이 자유로워진다.(낮은 의존도-약한 결합) 따라서 스프링 프레임워크에서는 각 클래스들의 연관 관계를 클래스들 간의 사이에서 맺어지는 것이 아니라, 스프링 프레임워크에서 설정을 통해 맺어줌으로써 클래스들끼리 연관 관계를 맺지 않도록 구현을 해 놓았다.
 - 스프링 프레임워크에서의 의존 관계는 설정 파일(`bean.xml`)이나 애노테이션을 이용하여 설정한다.
 - 스프링에서 클래스(빈 : `bean`)를 담는 그릇을 스프링 컨테이너라고 한다.
 	* 스프링 기반 애플리케이션에서는 스프링 컨테이너에서 객체가 태어나고, 자라고 소멸한다.
@@ -46,7 +48,7 @@
 - 스프링 컨테이너가 보관하고 있는 객체를 사용하고 싶은 경우 빈 객체와 연결되어 있는 이름을 이용해서 객체를 참조하게 된다.
 
 		
-### 1.4.1. 스프링 컨테이너의 종류
+#### 1.4.1. 스프링 컨테이너의 종류
 - `BeanFactory` : 단순히 스프링 컨테이너에서 객체를 생성하고 DI만 처리해 주는 기능만을 제공하는 객체.
 	* 하지만 스프링을 사용하는 이유는 단순히 DI만 사용하기 위해서가 아니다. 
 	* 스프링을 사용하는 이유는 다양한 부가 기능(트랜잭션 처리, 자바 코드 기반의 스프링 설정, 애노테이션을 이용한 빈 설정,  스프링을 이용한 웹 개발 등) 때문인데 이러한 부가적인 기능을 사용하기 위해서는 `ApplicationContext` 객체를 주로 이용한다.
@@ -62,136 +64,138 @@
 1. setter(설정 메서드)를 이용한 주입
 2. constructor(인자생성자)를 이용한 주입
 
-#### [예] 1.5.1. setter(설정 메서드)를 이용한 주입
-xml 파일에 setter를 이용하여 주입하는 방법.
+	#### [예] 1.5.1. setter(설정 메서드)를 이용한 주입
+	xml 파일에 setter를 이용하여 주입하는 방법.
 
-```xml
-<bean id="mySum" class="com.sist.di01.MyGetSum">
-	<!--
-		MyGetSum mySum = new MyGetSum();
-		mySum.setSu1(200);
-		mySum.setSu2(100); 와 동일한 의미-->
-	<!-- 속성(setter)을 활용하는 경우 -->
-	<property name="su1" value="200"/>
-	<property name="su2" value="100"/>
-	<property name="getSum">
-	
-		<!-- bean id="getsum"을 참조(reference)한다. -->
-		<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
-		<ref bean="getsum"/>	
-		
-	</property>
-</bean>
-```
+	```xml
+	<bean id="mySum" class="com.sist.di01.MyGetSum">
 
-#### [예] 1.5.2. constructor(인자생성자)를 이용한 주입
-xml 파일에 인자생성자를 이용하여 주입하는 방법.
+		<!--
+			MyGetSum mySum = new MyGetSum();
+			mySum.setSu1(200);
+			mySum.setSu2(100); 와 동일한 의미-->
 
-Exam 클래스에 멤버변수를 선언하고, 인자 생성자를 작성하였다. 
+		<!-- 속성(setter)을 활용하는 경우 -->
+		<property name="su1" value="200"/>
+		<property name="su2" value="100"/>
+		<property name="getSum">
 
-```java
-private String msg;
-private int number;
-private ArrayList<String> position;
+			<!-- bean id="getsum"을 참조(reference)한다. -->
+			<!-- 참조클래스가 달라지면 참조태그의 빈만 변경하면 되므로 유지보수가 용이하다. -->
+			<ref bean="getsum"/>	
 
-public Exam(String msg, int number, ArrayList<String> position) {
-	this.msg = msg;
-}
-```
-속성(setter) 이 아닌 인자생성자를 활용하는 경우 `<constructor-arg>` 태그를 이용한다.    
-멤버변수가 선언된 순서대로 value 값을 지정한다.    
-별도의 타입을 설정하지 않아도 적절한 타입으로 저장된다.    
+		</property>
+	</bean>
+	```
 
-**1. 방식1**
+	#### [예] 1.5.2. constructor(인자생성자)를 이용한 주입
+	xml 파일에 인자생성자를 이용하여 주입하는 방법.    
+	Exam 클래스에 멤버변수를 선언하고, 인자 생성자를 작성하였다. 
 
-```xml
-<constructor-arg value="안녕하세요. 스프링에 오신 걸 환영합니다."/>
-```
+	* **class Exam**
+	```java
+	private String msg;
+	private int number;
+	private ArrayList<String> position;
 
-**2. 방식2**
+	public Exam(String msg, int number, ArrayList<String> position) {
+		this.msg = msg;
+	}
+	```
+	속성(setter) 이 아닌 인자생성자를 활용하는 경우 `<constructor-arg>` 태그를 이용한다.    
+	멤버변수가 선언된 순서대로 value 값을 지정한다.    
+	별도의 타입을 설정하지 않아도 적절한 타입으로 저장된다.    
 
-```xml	
-<constructor-arg>
-	<value>100</value>
-</constructor-arg>
-```
+	**1. 방식1**
 
-* ArrayList 와 같은 List 계열 : 태그 안에 `<list>` 태그로 원하는 만큼 value 값을 지정한다.
+	```xml
+	<constructor-arg value="안녕하세요. 스프링에 오신 걸 환영합니다."/>
+	```
 
-```xml
-<!-- ArrayList의 경우 -->
-<list>
-	<value>3번 타자</value>
-	<value>좌익수</value>
-</list>
-```
+	**2. 방식2**
 
-* map : 태그 안에 `<map>` 태그를 이용. 원하는 만큼 `<entry>` 태그를 반복한다.
+	```xml	
+	<constructor-arg>
+		<value>100</value>
+	</constructor-arg>
+	```
 
-```xml
-<map>
-	<entry>
-		<key> <value>1</value> </key>
-		<value>짜장면</value>
-	</entry>
-</map>
-```
+	* ArrayList 와 같은 List 계열 : 태그 안에 `<list>` 태그로 원하는 만큼 value 값을 지정한다.
 
-#### [예] 1.5.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
-* 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
-* 인자생성자에 인자로 없는 멤버변수 : `<property>` 태그로 선언
-	
-1. 인자생성자 - `<constructor-arg>`
-
-```xml
-<constructor-arg value="김현수"/>
-<constructor-arg value="33"/>
-<constructor-arg>
+	```xml
+	<!-- ArrayList의 경우 -->
 	<list>
 		<value>3번 타자</value>
 		<value>좌익수</value>
 	</list>
-</constructor-arg>
-```
+	```
 
-2. 속성(setter) - `<property>`
+	* map : 태그 안에 `<map>` 태그를 이용. 원하는 만큼 `<entry>` 태그를 반복한다.
 
-```xml
-<property name="weight" value="95"/>
-<property name="height" value="185"/>
-```
+	```xml
+	<map>
+		<entry>
+			<key> <value>1</value> </key>
+			<value>짜장면</value>
+		</entry>
+	</map>
+	```
 
-#### [+] Namespaces 를 활용하는 방법
-* 네임스페이스(Namespaces) : `<property>` 태그나 `<constructor-arg>` 태그를 사용하다 보면 작성해야 할 xml 문서의 내용이 전반적으로 증가하게 된다. 이를 좀 더 짧게 작성하게 하는 것이 네임스페이스이다.
-	- 생성자 주입시에는 c 라는 네임스페이스를 사용한다. 
-		* 형식) `c:매개변수이름="값"` 또는 `c:매개변수이름-ref="참조할 객체의 id"`
-	- 속성(setter) 주입시에는 p 라는 네임스페이스를 하용한다. 
-		* 형식) `p:매개변수이름="값"` 또는 `p:매개변수이름-ref="참조할 객체의 id"`
+	#### [예] 1.5.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
+	* 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
+	* 인자생성자에 인자로 없는 멤버변수 : `<property>` 태그로 선언
+
+	1. 인자생성자 - `<constructor-arg>`
+
+	```xml
+	<constructor-arg value="김현수"/>
+	<constructor-arg value="33"/>
+	<constructor-arg>
+		<list>
+			<value>3번 타자</value>
+			<value>좌익수</value>
+		</list>
+	</constructor-arg>
+	```
+
+	2. 속성(setter) - `<property>`
+
+	```xml
+	<property name="weight" value="95"/>
+	<property name="height" value="185"/>
+	```
+
+	#### [+] Namespaces 를 활용하는 방법
+	* 네임스페이스(Namespaces) : `<property>` 태그나 `<constructor-arg>` 태그를 사용하다 보면 작성해야 할 xml 문서의 내용이 전반적으로 증가하게 된다. 이를 좀 더 짧게 작성하게 하는 것이 네임스페이스이다.
+		- 생성자 주입시에는 c 라는 네임스페이스를 사용한다. 
+			* 형식) `c:매개변수이름="값"` 또는 `c:매개변수이름-ref="참조할 객체의 id"`
+		- 속성(setter) 주입시에는 p 라는 네임스페이스를 하용한다. 
+			* 형식) `p:매개변수이름="값"` 또는 `p:매개변수이름-ref="참조할 객체의 id"`
 
 
-xml 파일의 하단 탭 중 Namespaces를 선택 - c, p에 체크한다.
+	xml 파일의 하단 탭 중 Namespaces를 선택 - c, p에 체크한다.
 
 
-<p align="center><img src="./images/210623/02.png"></p>
+	<p align="center><img src="./images/210623/02.png"></p>
 
 
-체크하면 Source 탭 `<bean>` 태그에 아래와 같은 코드가 추가된다.
+	체크하면 Source 탭 `<bean>` 태그에 아래와 같은 코드가 추가된다.
 
-```xml
-xmlns:c="http://www.springframework.org/schema/c"
-xmlns:p="http://www.springframework.org/schema/p"
-```
+	```xml
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	```
 
-c태그와 p태그를 이용하여 더 간략하게 bean 설정을 할 수 있다.
-의미는 다음과 같다.
+	c태그와 p태그를 이용하여 더 간략하게 bean 설정을 할 수 있다.
+	의미는 다음과 같다.
 
-* c : `<constructor-arg>`
-* p : `<property>`
+	* c : `<constructor-arg>`
+	* p : `<property>`
 
-```xml
-<bean id="player" class="com.sist.di07.player"
-	c:name="김현수" c:age="33" c:position="좌익수" p:weight="95" p:height="15" />
-```
+	```xml
+	<bean id="player" class="com.sist.di07.player"
+		c:name="김현수" c:age="33" c:position="좌익수" p:weight="95" p:height="15" />
+	```
 		
 ### 1.6. 의존 관계를 설정하는 방법
 1. XML 파일을 이용하여 의존 관계 설정
