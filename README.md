@@ -47,4 +47,4 @@
   - <a href="https://github.com/csooy38/github/blob/main/SPRING.md">SPRING</a>
 --------------------
 ## 11. Annotation
-  - <a href="https://github.com/csooy38/github/blob/main/LOMBOK.md">LOMBOK</a>
+  - <a href="https://github.com/csooy38/github/blob/main/Annotation.md">Annotation</a>
