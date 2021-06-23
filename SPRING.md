@@ -108,7 +108,7 @@
 	멤버변수가 선언된 순서대로 value 값을 지정한다.    
 	별도의 타입을 설정하지 않아도 적절한 타입으로 저장된다.    
 
-	**xml파일**
+	* **xml파일**
 
 	```xml
 	<!-- 방식1 -->
@@ -160,6 +160,7 @@
 	```
 
 	* map : 태그 안에 `<map>` 태그를 이용. 원하는 만큼 `<entry>` 태그를 반복한다.
+	
 
 	```xml
 	<map>
@@ -183,10 +184,10 @@
 	xml 파일의 하단 탭 중 Namespaces를 선택 - c, p에 체크한다.
 
 
-	<p align="center><img src="./images/210623/02.png"></p>
+	<p align="center"><img src="./images/210623/02.png"></p>
 
 
-	체크하면 Source 탭 `<bean>` 태그에 아래와 같은 코드가 추가된다.
+	체크하면 Source 탭 `<beans>` 태그에 아래와 같은 코드가 추가된다.
 
 	```xml
 	xmlns:c="http://www.springframework.org/schema/c"
@@ -254,7 +255,7 @@
 	}
 	```
 
-* **class MyGetSum**
+	* **class MyGetSum**
 
 	```java
 	public class MyGetSum {
@@ -291,12 +292,12 @@
 	}
 	```
 
-* **getsum.xml**
-		- src/main/resources/getsum.xml
-		- Spring Bean Configuration File
-		- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.
-		- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.
-		- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.
+	* **getsum.xml**
+		- src/main/resources/getsum.xml  
+		- Spring Bean Configuration File  
+		- DI 즉, 주입을 어떻게 할 것인지는 **xml 문서** 에 기입이 되어 있다.  
+		- 스프링 컨테이너인 `ctx`가 `classpath:getsum.xml` 파일을 보고 DI를 진행한다.  
+		- getsum.xml 파일은 `resource` 폴더에 들어가 있어야 한다.  
 
 
 	```xml
@@ -432,7 +433,7 @@
 	---
 
 	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - XML 중심
-	- xml 파일에 애노테이션도 읽을 수 있도록 태그를 추가한 후, xml 파일을 이용하여 의존 설정한다.
+	xml 파일에 애노테이션도 읽을 수 있도록 태그를 추가한 후, xml 파일을 이용하여 의존 설정한다.
 
 	* **class Config**
 		- #### [예] 1.6.2. 와 동일한 **class Config**
@@ -477,7 +478,7 @@
 	
 	---
 	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - 애노테이션(annotation) 중심
-	- `@ImportResource("classpath:xml 파일명")` 애노테이션을 추가하여 xml 파일도 함께 읽을 수 있게 한다.
+	`@ImportResource("classpath:xml 파일명")` 애노테이션을 추가하여 xml 파일도 함께 읽을 수 있게 한다.
 	- `@ImportResource("classpath:xml 파일명")` : xml 파일도 함께 읽도록 하는 애노테이션.
 	
 		* **class Config**
@@ -542,11 +543,11 @@
 ---
 ## 2. MVC 흐름
 
-1. web.xml
+#### 1. web.xml
 	- 클라이언트로부터 요청이 들어오면 해당 요청을 가장 먼저 처리하는 곳.
 	- 필터가 있다면 가장 먼저 반응을 하여 필터 작업을 진행. => 한글 인코딩 처리.
   
-2. /WEB-INF/spring/root-context.xml
+#### 2. /WEB-INF/spring/root-context.xml
 
 <p align="center"><img src="./images/210623/05.png"></p>
 
@@ -554,30 +555,30 @@
 	- 모든 서블릿에서 사용할 자원을 설정하는 공간.
 	- DB 연동을 이곳에서 진행.
   
-3. DispatcherServlet
+#### 3. DispatcherServlet
 	- 해당 요청에 대해서 DispatcherServlet이 우선적으로 요청을 가로챈다.
 	- `<init-param>` 부분에 있는 servlet-context.xml로 넘어간다.
   
-4. /WEB-INF/spring/appServlet/servlet-context.xml
+#### 4. /WEB-INF/spring/appServlet/servlet-context.xml
 	- servlet-context.xml 파일은 브라우저의 요청으로 그 요청을 처리할 Controller(`@Controller`)로 이어주는 역할.
 	- 즉, servlet-context.xml에서 HanderMapping(`URL-Mapping`)의 작업이 진행.
 	- `<annotation-driven />` 이라는 이 설정을 통하여 URL 매핑이 일어난다.
 	- `<annotation-driven />` 에 의해 `@RequestMapping`을 사용할 수 있게 되고 `@RequestMapping`에 지정된 URL로 웹 브라우저의 요청 URL이 매핑 된다.
   
-5. HomeController
+#### 5. HomeController
 	- servlet-context.xml에 의해 브라우저의 요청은 HomeController로 넘어간다.    
 	- `@RequestMapping`에 연결되어 있는 URL-Pattern에 의하여 맞는 mapping을 찾아서 비지니스 로직을 진행.
 	- 비지니스 로직을 수행 후, 해당 결과 값을 Model이라는 객체에 특정 이름(키)을 부여하여 작업을 처리.
   
-6. /WEB-INF/spring/appServlet/servlet-context.xml
+#### 6. /WEB-INF/spring/appServlet/servlet-context.xml
 	- 넘겨 받은 문자열을 InternalResourceViewResolver라는 객체를 통해서 뷰(view)를 찾게 된다.
 	- 이 때 전달 받은 문자열 앞에는 /WEB-INF/views/를 붙이고 뒤에는 .jsp를 붙여주게 된다.
 	- 결국 /WEB-INF/views/home.jsp라고 붙게 되어 해당 경로의 해당 페이지로 뷰 이름이 만들어지게 된다.
        
-7. DispatcherServlet
+#### 7. DispatcherServlet
 	- 새롭게 만들어진 뷰 이름은 DispatcherServlet으로 전달.
   
-8. web.xml
+#### 8. web.xml
 	- DispatcherServlet으로 전달된 뷰 이름으로 인해서 home.jsp 페이지를 볼 수 있게 된다.
 	- 클라이언트의 요청에 대해서 응답이 이루어지게 된다.
      
@@ -587,7 +588,7 @@
      
 ### 2.1. Model
 
-*스프링 MVC에서 **Model** (모델)이란?
+* 스프링 MVC에서 **Model** (모델)이란?
 	- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
 이러한 정보들을 스프링에서는 Model(모델)이라고 한다. 이 Model(정보)를 view page로 보내게 된다.
 
@@ -618,8 +619,7 @@ return된 view page에서 EL언어 등으로 호출이 가능하다.
 
 
 ### 2.2. ModelAndView 객체 
-* ModelAndView 객체 
-	- `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다. 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
+* `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다. 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
 
 	```java
 	@Controller	// 자동으로 bean 등록
@@ -643,7 +643,9 @@ return된 view page에서 EL언어 등으로 호출이 가능하다.
 	
 	
 * <context:component-scan> 태그 
-	> <context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
+	```xml
+	<context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
+	```
 	- base-package 속성에 있는 패키지(com.sist.mvc01) 안에 `@Controller`, `@Repository`, `@Service`, `@Component` 애노테이션이 있는 클래스가 존재하면 해당 클래스를 자동으로 bean으로 등록하라는 의미.
      
      
