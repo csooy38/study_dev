@@ -562,34 +562,34 @@ public class MyGetSum {
 	- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
 이러한 정보들을 스프링에서는 Model(모델)이라고 한다. 이 Model(정보)를 view page로 보내게 된다.
 
-	```java
-	@RequestMapping("/memberInfo")
-	// view page 이름을 String 타입으로 적는다.
-	public String member(Model model) {
 
-		model.addAttribute("name", "홍길동");
-		model.addAttribute("age", 27);
+```java
+@RequestMapping("/memberInfo")
+// view page 이름을 String 타입으로 적는다.
+public String member(Model model) {
 
-		return "member";	// WEB_INF/views/member.jsp 로 이동
-	}
-	```
+	model.addAttribute("name", "홍길동");
+	model.addAttribute("age", 27);
+
+	return "member";	// WEB_INF/views/member.jsp 로 이동
+}
+```
 	
 HomeController에서 addAttribute()로 키-값을 저장해서 return 하면,  
 
 
-	```html
-	<body>
-		<h2>회원 정보 페이지입니다.</h2>
-
-		<p>회원 이름 : ${name }</p>
-		<p>회원 나이 : ${age }</p>
-	</body>
-	```
+```html
+<body>
+	<p>회원 이름 : ${name }</p>
+	<p>회원 나이 : ${age }</p>
+</body>
+```
 return된 view page에서 EL언어 등으로 호출이 가능하다.  
 
 
 ### 2.2. ModelAndView 객체 
-* `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다. 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
+* `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다.    
+* 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
 
 	```java
 	@Controller	// 자동으로 bean 등록
