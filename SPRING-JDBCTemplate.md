@@ -96,8 +96,8 @@ Oracle SQL Developer에서 제공하는 기본 테이블 EMP을 이용하여 DB 
 
 * **EmpDAOImpl** 클래스
 RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온다.  
-기존의 JSP의 방식에 있던 ResultSet Loop 와 try-catch문은 대체되어 생략된다.  
-
+기존의 JSP의 방식에 있던 ResultSet Loop 와 try-catch문은 대체되어 생략된다. 
+	* `@Autowired` : 자동으로 의존관계가 설정되는 애노테이션. 무조건 객체에 대한 의존을 주입하는 애노테이션.  
 	- `template` : root-context.xml 의 name="template"인 bean.
 		- `template.query()` : select 결과값이 여러 개일 때 
 		- `template.queryForObject()` : select 결과값이 하나일 때
@@ -153,7 +153,7 @@ EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 lis
 	}
 	```
 
-* **emp_list.jsp""
+* **emp_list.jsp**
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
 주소창에서 "/emp_list.do" 매핑주소로 들어온 것을 확인할 수 있다. 
 
