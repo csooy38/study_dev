@@ -27,13 +27,13 @@
 	
 * Spring JDBCTemplate 클래스를 사용하기 위해서는 pom.xml 파일에 아래와 같은 라이브러리를 등록해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[spring-jdbc 라이브러리 설정]</a>
 
-```xml
-<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-jdbc</artifactId>
-	<version>${org.springframework-version}</version>
-</dependency>
-```
+	```xml
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
+	```
 	
 
 ### 3.3. DataSource
@@ -53,47 +53,45 @@ JDBC 명세서의 일부분이면서 일반적으로 DB 연결 공장.
 1. DataSource 정보 설정    
 : DB와 관계된 connection(연결방식) 정보를 담고 있는 객체  
 
-```xml
-<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-	<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="web" />
-	<property name="password" value="1234" />
-</bean>
-```
+	```xml
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="username" value="web" />
+		<property name="password" value="1234" />
+	</bean>
+	```
 
 2. Spring JDBCTemplate 클래스 설정    
 
-```xml
-<bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
-	<property name="dataSource" ref="dataSource" />
-</bean>
-```
+	```xml
+	<bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	```
 
 #### [예] Spring JDBCTemplate를 통한 DB 연결 
 Oracle SQL Developer에서 제공하는 기본 테이블 EMP을 이용하여 DB 연동을 시도하였다.  
 주소창에 "/emp_list.do"를 입력하면 EMP 테이블의 정보를 가져와 화면에 출력되게 한다.   
 
-- controller 패키지
+* controller 패키지
 	- EmpController.java 
-
-- model 패키지
+* model 패키지
 	- EmpDAO 인터페이스 : 호출하는 클래스와 실제 DB에 접근하는 구현 클래스와의  직접적인 의존관계를 느슨하게 하기 위해 인터페이스 사용.    
-	일반적으로 DAO에서 선언되는 메서드를 추상메서드로 선언. 
 	- EmpDAOImpl 클래스 : EmpDAO 인터페이스를 상속바다 추상메서드를 구현.
-
-- views
+* views
 	- emp_list.jsp
 
 
 * **EmpDAO** 인터페이스
+일반적으로 DAO에서 선언되는 메서드를 추상메서드로 선언. 
 
-```java
-public interface EmpDAO {
-	
-	List<EmpDTO> getEmpList();	 	// 전체 목록 관련 추상메서드
-}
-```
+	```java
+	public interface EmpDAO {
+
+		List<EmpDTO> getEmpList();	 	// 전체 목록 관련 추상메서드
+	}
+	```
 
 
 * **EmpDAOImpl** 클래스
@@ -105,34 +103,34 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 	- `template.queryForObject()` : select 결과값이 하나일 때
 	- `template.update()` : insert, update, delete 쿼리문일 때 사용
 
-```java
-@Autowired	// 자동으로 의존관계가 설정되는 애노테이션.
-				// 무조건 객체에 대한 의존을 주입하는 애노테이션.
-private JdbcTemplate template;
-String sql = null;
+	```java
+	@Autowired	// 자동으로 의존관계가 설정되는 애노테이션.
+					// 무조건 객체에 대한 의존을 주입하는 애노테이션.
+	private JdbcTemplate template;
+	String sql = null;
 
-@Override
-public List<EmpDTO> getEmpList() {
-		
-	List<EmpDTO> list = null;
-		
-	sql = "select * from emp order by empno";
-		
-	// query : select 결과값이 여러개일 때 
-	return list = template.query(sql, new RowMapper<EmpDTO>() {
+	@Override
+	public List<EmpDTO> getEmpList() {
 
-		@Override
-		public EmpDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-			EmpDTO dto = new EmpDTO();
-			dto.setEmpno(rs.getInt("empno"));
-			dto.setEname(rs.getString("ename"));
-			
-			return dto;
-		}
-		
-	});
-}
-```
+		List<EmpDTO> list = null;
+
+		sql = "select * from emp order by empno";
+
+		// query : select 결과값이 여러개일 때 
+		return list = template.query(sql, new RowMapper<EmpDTO>() {
+
+			@Override
+			public EmpDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				EmpDTO dto = new EmpDTO();
+				dto.setEmpno(rs.getInt("empno"));
+				dto.setEname(rs.getString("ename"));
+
+				return dto;
+			}
+
+		});
+	}
+	```
 
 
 * **EmpController**
@@ -141,19 +139,19 @@ public List<EmpDTO> getEmpList() {
 EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 list에 저장한다.  
 저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다.  
 
-```java
-@Autowired
-private EmpDAO dao;
+	```java
+	@Autowired
+	private EmpDAO dao;
 
-@RequestMapping("/emp_list.do")
-public String list(Model model) {
-		
-	List<EmpDTO> list = this.dao.getEmpList();
-	model.addAttribute("List", list);
-		
-	return "emp_list";
-}
-```
+	@RequestMapping("/emp_list.do")
+	public String list(Model model) {
+
+		List<EmpDTO> list = this.dao.getEmpList();
+		model.addAttribute("List", list);
+
+		return "emp_list";
+	}
+	```
 
 * **emp_list.jsp""
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
