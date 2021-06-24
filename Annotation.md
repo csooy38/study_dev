@@ -66,4 +66,29 @@
 	@bean 		// 메소드 앞에 사용되는 애노테이션. "해당 메서드는 객체를 생성하는데 사용됩니다." 의미.
 	```
 
+---
+### * spring-jdbc
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>${org.springframeword-version}</version>
+</dependency>
+```
+
+---
+### * `@Repository`
+Spring에서 일반적으로 DAO 클래스에 적용되는 애노테이션.
+
+
+---
+### * `@Autowired`
+자동으로 의존관계가 설정되는 애노테이션.    
+무조건 객체에 대한 의존을 주입하는 애노테이션.  
+
+
+
+
 
