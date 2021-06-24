@@ -25,7 +25,40 @@
 	* 객체의 생성, 관리, 소멸과 같은 생명주기를 관리한다.
 	
 	
-### 1.3. DI(Dependecy Injection : 의존성 주입)
+	
+### 1.3. 한글 인코딩
+
+프로젝트의 web.xml 파일에서 한글 인코딩 설정 작업을 하면 프로젝트 전체에 적용된다. 
+
+<p align="center"><img src="./images/210623/04.png"></p>
+
+```xml
+<!-- 한글 인코딩 설정 작업 -->
+<filter>
+	<filter-name>encodingFilter</filter-name>
+	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+	
+	<init-param>
+		<param-name>forceEncoding</param-name>
+		<param-value>true</param-value>
+	</init-param>
+</filter>
+	
+<filter-mapping>
+	<filter-name>encodingFilter</filter-name>
+	<url-pattern>*.do</url-pattern>
+</filter-mapping>
+```
+
+
+---
+## 2. DI(Dependecy Injection : 의존성 주입)
+
+### 2.1. DI(Dependecy Injection : 의존성 주입)
 - DI는 스프링 핵심 개념 중 하나.
 - 기존에는 어떤 한 클래스가 다른 클래스의 기능(메서드)을 사용하려면 당연히 개발자가 코드에서 직접적으로 사용할 클래스의 생성자를 호출하여 사용하였다(`new` 키워드 이용). 따라서 사용할 클래스와 사용될 클래스의 관계는 개발자에 의해 직접 코드에서 부여가 되었다.(높은 의존도 - 강한 결합)
 - 스프링에서는 객체 사이의 의존 관계를 객체 자신이 아닌 외부(스프링 컨테이너)에서 수행하는 개념이다.
@@ -37,7 +70,7 @@
 	* 스프링 컨테이너는 스프링 프레임워크 핵심부에 위치한다. 스프링 컨테이너는 종속 객체 주입을 이용해서 애플리케이션을 구성하는 컴포넌트를 관리하며, 협력 컴포넌트 간 연관 관계의 형상도 스프링 컨테이너에서 이루어진다.
 		
 		
-### 1.4. 스프링 컨테이너
+### 2.2. 스프링 컨테이너
 - 스프링은 객체를 생성하고 각각의 객체를 연결해 주는 조립기 역할을 한다.
 - 대표적으로 `GenericXmlApplicationContext` 객체가 조립기 기능을 구현한 클래스이다.
 - 조립기에서 생성할 객체가 무엇이고, 각 객체를 어떻게 연결하는지에 대한 정보는 xml 파일에 설정이 되어 있다.
@@ -48,7 +81,7 @@
 - 스프링 컨테이너가 보관하고 있는 객체를 사용하고 싶은 경우 빈 객체와 연결되어 있는 이름을 이용해서 객체를 참조하게 된다.
 
 		
-#### 1.4.1. 스프링 컨테이너의 종류
+#### 2.2.1. 스프링 컨테이너의 종류
 - `BeanFactory` : 단순히 스프링 컨테이너에서 객체를 생성하고 DI만 처리해 주는 기능만을 제공하는 객체.
 	* 하지만 스프링을 사용하는 이유는 단순히 DI만 사용하기 위해서가 아니다. 
 	* 스프링을 사용하는 이유는 다양한 부가 기능(트랜잭션 처리, 자바 코드 기반의 스프링 설정, 애노테이션을 이용한 빈 설정,  스프링을 이용한 웹 개발 등) 때문인데 이러한 부가적인 기능을 사용하기 위해서는 `ApplicationContext` 객체를 주로 이용한다.
@@ -60,11 +93,11 @@
 	* `getBean()` 메서드의 첫번째 파라미터는 구현하고자 하는 스프링 빈 객체의 고유한 id 이름이며, 두번째 파라미터는 그 객체의 클래스 타입을 의미한다.
 	
 
-### 1.5. DI(의존성 주입) 하는 방법 2가지
+### 2.3. DI(의존성 주입) 하는 방법 2가지
 1. setter(설정 메서드)를 이용한 주입
 2. constructor(인자생성자)를 이용한 주입
 
-	#### [예] 1.5.1. setter(설정 메서드)를 이용한 주입
+	#### [예] 2.3.1. setter(설정 메서드)를 이용한 주입
 	xml 파일에 setter를 이용하여 주입하는 방법.
 
 	```xml
@@ -90,7 +123,7 @@
 
 	---
 
-	#### [예] 1.5.2. constructor(인자생성자)를 이용한 주입
+	#### [예] 2.3.2. constructor(인자생성자)를 이용한 주입
 	xml 파일에 인자생성자를 이용하여 주입하는 방법.    
 	Exam 클래스에 멤버변수를 선언하고, 인자 생성자를 작성하였다. 
 
@@ -122,7 +155,7 @@
 	
 	---
 	
-	#### [예] 1.5.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
+	#### [예] 2.3.3. 속성(setter)과 인자생성자를 모두 활용하는 방법
 
 	1. 인자생성자에 인자로 있는 멤버변수 : `<constructor-arg>` 태그로 선언
 
@@ -209,7 +242,7 @@
 	
 	
 		
-### 1.6. 의존 관계를 설정하는 방법
+### 2.4. 의존 관계를 설정하는 방법
 1. XML 파일을 이용하여 의존 관계 설정
 2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션 이용.
 3. XML과 Java를 혼용해서 의존 관계 설정 
@@ -225,7 +258,7 @@
 </bean> 
 ```
 
-#### [예] 1.6.1. XML 파일을 이용하여 의존 관계 설정
+#### [예] 2.4.1. XML 파일을 이용하여 의존 관계 설정
 
 * **class GetSum**
 
@@ -351,7 +384,7 @@ public class MyGetSum {
 
 	---
 
-	#### [예] 1.6.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션(annotation) 이용.
+	#### [예] 2.4.2. Java 코드를 이용하여 의존 관계 설정 - 애노테이션(annotation) 이용.
 
 	설정 시 `cglib` 라이브러리가 반드시 필요하므로, pom.xml에 라이브러리를 추가해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[cglib 설정]</a>   
 	`new` 키워드를 사용하는 등 결합이 강하므로 자주 사용되는 방법은 아니다.    
@@ -402,11 +435,11 @@ public class MyGetSum {
 	
 	---
 
-	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - XML 중심
+	#### [예] 2.4.3. XML과 Java를 혼용해서 의존 관계 설정 - XML 중심
 	xml 파일에 애노테이션도 읽을 수 있도록 태그를 추가한 후, xml 파일을 이용하여 의존 설정한다.
 
 	* **class Config**
-		- #### [예] 1.6.2. 와 동일한 **class Config**
+		- #### [예] 2.4.2. 와 동일한 **class Config**
 		- 클래스 앞에 `@Configuration`, 메서드 앞에 `@Bean` 애노테이션(annotation)을 선언한다.
 
 	* **baseball.xml**
@@ -452,7 +485,7 @@ public class MyGetSum {
 		```
 	
 	---
-	#### [예] 1.6.3. XML과 Java를 혼용해서 의존 관계 설정 - 애노테이션(annotation) 중심
+	#### [예] 2.4.3. XML과 Java를 혼용해서 의존 관계 설정 - 애노테이션(annotation) 중심
 	`@ImportResource("classpath:xml 파일명")` 애노테이션을 추가하여 xml 파일도 함께 읽을 수 있게 한다.
 	- `@ImportResource("classpath:xml 파일명")` : xml 파일도 함께 읽도록 하는 애노테이션.
 	
@@ -483,39 +516,9 @@ public class MyGetSum {
 		// XML 파일 설정으로 받는 변수
 		Player player3 = (Player) ctx.getBean("player3");
 		```
-	---
-	
-### 1.7. 한글 인코딩
-
-프로젝트의 web.xml 파일에서 한글 인코딩 설정 작업을 하면 프로젝트 전체에 적용된다. 
-
-<p align="center"><img src="./images/210623/04.png"></p>
-
-```xml
-<!-- 한글 인코딩 설정 작업 -->
-<filter>
-	<filter-name>encodingFilter</filter-name>
-	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-	<init-param>
-		<param-name>encoding</param-name>
-		<param-value>UTF-8</param-value>
-	</init-param>
-	
-	<init-param>
-		<param-name>forceEncoding</param-name>
-		<param-value>true</param-value>
-	</init-param>
-</filter>
-	
-<filter-mapping>
-	<filter-name>encodingFilter</filter-name>
-	<url-pattern>/*</url-pattern>
-</filter-mapping>
-```
-
 
 ---
-## 2. MVC 흐름
+## 3. MVC 흐름
 
 #### 1. web.xml
 
@@ -563,10 +566,9 @@ public class MyGetSum {
 	전체 프로젝트에서만 run 이 가능하다.  
      
      
-### 2.1. Model
-
-* 스프링 MVC에서 **Model** (모델)이란?
-	- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
+### 3.1. Model
+스프링 MVC에서 **Model** (모델)이란?
+- 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 view page에 보여질 정보들이 만들어진다.   
 이러한 정보들을 스프링에서는 Model(모델)이라고 한다. 이 Model(정보)를 view page로 보내게 된다.
 
 
@@ -578,7 +580,8 @@ public String member(Model model) {
 	model.addAttribute("name", "홍길동");
 	model.addAttribute("age", 27);
 
-	return "member";	// WEB_INF/views/member.jsp 로 이동
+	// "/memberInfo"로 들어오면 모델(정보)과 함께 "WEB_INF/views/member.jsp"로 이동
+	return "member";	
 }
 ```
 	
@@ -594,9 +597,9 @@ HomeController에서 addAttribute()로 키-값을 저장해서 return 하면,
 return된 view page에서 EL언어 등으로 호출이 가능하다.  
 
 
-### 2.2. ModelAndView 객체 
-* `ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다.    
-* 이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
+### 3.2. ModelAndView 객체 
+`ModelAndView` 객체는 컨트롤러에 의해서 비지니스 로직이 수행이 되고 나면 대체적으로 사용자에게 반환되어 브라우저에 보여질 정보들이 만들어진다.    
+이 정보(Model과 view page 정보)를 담아 view page로 전달하는 객체.  
 
 	```java
 	@Controller	// 자동으로 bean 등록
@@ -618,13 +621,69 @@ return된 view page에서 EL언어 등으로 호출이 가능하다.
 이렇게 저장된 값 "email"은 view page(views/member/email.jsp)에서 EL언어(`${email }`) 등으로 호출할 수 있다.   
 
 	
-	
-* <context:component-scan> 태그 
+ 
+	#### [+] <context:component-scan> 태그 
 	```xml
 	<context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
 	```
 	- base-package 속성에 있는 패키지(com.sist.mvc01) 안에 `@Controller`, `@Repository`, `@Service`, `@Component` 애노테이션이 있는 클래스가 존재하면 해당 클래스를 자동으로 bean으로 등록하라는 의미.
+	
+	
+	아래와 같이 "com.sist.*"와 같은 형태로 설정하면 sist 아래 모든 패키지에 적용된다.  
+	```xml
+	<context:component-scan base-package="com.sist.*" /> (servlet-context.xml)
+	```
      
      
-     
-     
+#### [예] Model 
+인자로 `HttpServletRequest` 객체를 받아 `getParameter()`로 값을 받아온다.   
+그러나 데이터가 많아지면 비효율적이므로 스프링에서 권장하는 방법은 아니다.    
+
+```java
+@RequestMapping("/inputOk")
+public String bbb(HttpServletRequest request, Model model) {
+		
+	String id = request.getParameter("id").trim();
+	model.addAttribute("userId", id);		
+		
+	return "login";
+}
+```
+
+DTO 클래스에 멤버 변수를 선언하면 인자로만 두어도   
+데이터가 넘어올 때 멤버변수와 동일한 이름을 가지는 값들은 자동으로 DTO 객체에 저장된다.  
+
+
+아래는 Person 객체를 DTO로 두었을 경우.    
+
+```java
+@RequestMapping("/insert_ok")
+public String inputOk(Person person, Model model) {
+
+	model.addAttribute("dto", person);
+	
+	return "login";
+}
+```
+
+#### [예] ModelAndView
+인자로 애노테이션을 이용하여 "id"로 넘어온 값을 바로 String userId 에 저장.  
+ModelAndView 객체를 생성하여 정보와 이동할 주소를 함께 저장하여 넘긴다.  
+   
+```java
+@RequestMapping("/inputOk")
+public ModelAndView bbb(@RequestParam("id") String userId) {
+		
+	ModelAndView mav = new ModelAndView();
+		
+	mav.addObject("userId", userId);
+	mav.addObject("insertOk");
+
+	return mav;
+}
+```
+
+
+
+
+
