@@ -139,7 +139,6 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 
 EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 list에 저장한다.  
 저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다.  
-	
 	```java
 	@Autowired
 	private EmpDAO dao;
