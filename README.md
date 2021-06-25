@@ -9,9 +9,9 @@
   - <a href="https://docs.google.com/document/d/1c2Mz3Ez54elPkd8t77Y3zA23lHqG-WoxXuxQF0vLeJM/edit?usp=sharing">JDBC</a>
 --------------------
 ## 3. HTML
-  - <a href="https://github.com/csooy38/github/blob/main/HTML%20install.md">HTML install</a>
+  - <a href="HTML/HTML install.md">HTML install</a>
   - <a href="https://github.com/csooy38/github/blob/main/HTML.md">HTML</a>
-  - <a href="https://github.com/csooy38/github/blob/main/HTML%20TAG.md">HTML TAG</a>
+  - <a href="https://github.com/csooy38/github/blob/main/HTML/HTML%20TAG.md">HTML TAG</a>
   - <a href="https://github.com/csooy38/github/blob/main/HTML5.md">HTML5</a>
 --------------------
 ## 4. CSS
