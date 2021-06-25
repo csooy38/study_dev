@@ -143,25 +143,25 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 list에 저장한다.  
 저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다. 
 			
-	```java
-	@Autowired
-	private EmpDAO dao;
+```java
+@Autowired
+private EmpDAO dao;
 
-	@RequestMapping("/emp_list.do")
-	public String list(Model model) {
+@RequestMapping("/emp_list.do")
+public String list(Model model) {
 
-		List<EmpDTO> list = this.dao.getEmpList();
-		model.addAttribute("List", list);
+	List<EmpDTO> list = this.dao.getEmpList();
+	model.addAttribute("List", list);
 
-		return "emp_list";
-	}
-	```
+	return "emp_list";
+}
+```
 		
 * **emp_list.jsp**
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
 주소창에서 "/emp_list.do" 매핑주소로 들어온 것을 확인할 수 있다. 
 
-<p align="center"><img src=".../images/210624/01.png"></p>
+<p align="center"><img src="../images/210624/01.png"></p>
 
 
 
