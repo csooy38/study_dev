@@ -622,17 +622,20 @@ return된 view page에서 EL언어 등으로 호출이 가능하다.
 
 	
  
-	#### [+] <context:component-scan> 태그 
-	```xml
-	<context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
-	```
-	- base-package 속성에 있는 패키지(com.sist.mvc01) 안에 `@Controller`, `@Repository`, `@Service`, `@Component` 애노테이션이 있는 클래스가 존재하면 해당 클래스를 자동으로 bean으로 등록하라는 의미.
+#### [+] <context:component-scan> 태그 
+
+```xml
+<context:component-scan base-package="com.sist.mvc01" /> (servlet-context.xml)
+```
+- base-package 속성에 있는 패키지(com.sist.mvc01) 안에 `@Controller`, `@Repository`, `@Service`, `@Component` 애노테이션이 있는 클래스가 존재하면 해당 클래스를 자동으로 bean으로 등록하라는 의미.
 	
 	
-	아래와 같이 "com.sist.*"와 같은 형태로 설정하면 sist 아래 모든 패키지에 적용된다.  
-	```xml
-	<context:component-scan base-package="com.sist.*" /> (servlet-context.xml)
-	```
+아래와 같이 "com.sist.*" 또는 "com.sist" 와 같은 형태로 설정하면 sist 아래 모든 패키지에 적용된다.  
+
+```xml
+<context:component-scan base-package="com.sist.*" /> (servlet-context.xml)
+<context:component-scan base-package="com.sist" />
+```
      
      
 #### [예] Model 

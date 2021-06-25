@@ -29,6 +29,7 @@
 <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[spring-jdbc 라이브러리 설정]</a>
 
 	```xml
+	<!-- spring-jdbc 라이브러리 -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jdbc</artifactId>
@@ -88,6 +89,7 @@ Oracle SQL Developer에서 제공하는 기본 테이블 EMP을 이용하여 DB 
 일반적으로 DAO에서 선언되는 메서드를 추상메서드로 선언. 
 
 	```java
+	@Repository
 	public interface EmpDAO {
 
 		List<EmpDTO> getEmpList();	 	// 전체 목록 관련 추상메서드
@@ -100,17 +102,18 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 기존의 JSP의 방식에 있던 ResultSet Loop 와 try-catch문은 대체되어 생략된다. 
 	* `@Autowired` : 자동으로 의존관계가 설정되는 애노테이션. 무조건 객체에 대한 의존을 주입하는 애노테이션.  
 	- `template` : root-context.xml 의 name="template"인 bean.
-		- `template.query()` : select 결과값이 여러 개일 때 
-		- `template.queryForObject()` : select 결과값이 하나일 때
-		- `template.update()` : insert, update, delete 쿼리문일 때 사용
+		- `template.query(sql, rowMapper)` : select 결과값이 여러 개일 때 
+		- `template.queryForObject(sql, requiredType, args)` : select 결과값이 하나일 때.   
+		args에는 sql문에서 ?에 해당하는 값을 넣는다.
+		- `template.update(sql, pss)` : insert, update, delete 쿼리문일 때 사용
+		- `template.queryForInt(sql)` : sql문의 결과가  int 타입으로 반환.
 
 	```java
-	@Autowired	// 자동으로 의존관계가 설정되는 애노테이션.
-					// 무조건 객체에 대한 의존을 주입하는 애노테이션.
+	@Autowired	// 자동으로 의존관계가 설정되는 애노테이션. 무조건 객체에 대한 의존을 주입.
 	private JdbcTemplate template;
 	String sql = null;
 
-	@Override
+	@Override 	// EmpDAO 인터페이스를 상속받았으므로, 추상메서드 구현
 	public List<EmpDTO> getEmpList() {
 
 		List<EmpDTO> list = null;
@@ -138,7 +141,8 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 "/emp_list.do" 매핑주소로 들어오면 list 메서드가 실행된다.  
 
 EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 list에 저장한다.  
-저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다.  
+저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다. 
+			
 	```java
 	@Autowired
 	private EmpDAO dao;
@@ -152,7 +156,7 @@ EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 lis
 		return "emp_list";
 	}
 	```
-	
+		
 * **emp_list.jsp**
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
 주소창에서 "/emp_list.do" 매핑주소로 들어온 것을 확인할 수 있다. 

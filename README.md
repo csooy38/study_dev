@@ -24,7 +24,7 @@
 ## 6. JQuery
   - <a href="https://github.com/csooy38/github/blob/main/JQuery.md">JQuery</a>
 --------------------
-## 7. BootStrap
+## 7. Responsible Web
   - <a href="https://github.com/csooy38/github/blob/main/Responsible%20Web.md">Responsible Web</a>
   - <a href="https://github.com/csooy38/github/blob/main/BootStrap.md">BootStrap</a>
 --------------------
