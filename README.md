@@ -10,42 +10,42 @@
 --------------------
 ## 3. HTML
   - <a href="HTML/HTML install.md">HTML install</a>
-  - <a href="https://github.com/csooy38/github/blob/main/HTML.md">HTML</a>
-  - <a href="https://github.com/csooy38/github/blob/main/HTML/HTML%20TAG.md">HTML TAG</a>
-  - <a href="https://github.com/csooy38/github/blob/main/HTML5.md">HTML5</a>
+  - <a href="HTML/HTML.md">HTML</a>
+  - <a href="HTML/HTML TAG.md">HTML TAG</a>
+  - <a href="HTML/HTML5.md">HTML5</a>
 --------------------
 ## 4. CSS
-  - <a href="https://github.com/csooy38/github/blob/main/CSS.md">CSS</a>
+  - <a href="CSS/CSS.md">CSS</a>
 --------------------
 ## 5. JavaScript
-  - <a href="https://github.com/csooy38/github/blob/main/Java%20Script.md">JavaScript</a>
-  - <a href="https://github.com/csooy38/github/blob/main/Java%20Script2.md">JavaScript2</a>
+  - <a href="JavaScript/Java Script.md">JavaScript</a>
+  - <a href="JavaScript/Java Script2.md">BOM & DOM</a>
 --------------------
 ## 6. JQuery
   - <a href="https://github.com/csooy38/github/blob/main/JQuery.md">JQuery</a>
 --------------------
 ## 7. Responsible Web
-  - <a href="https://github.com/csooy38/github/blob/main/Responsible%20Web.md">Responsible Web</a>
-  - <a href="https://github.com/csooy38/github/blob/main/BootStrap.md">BootStrap</a>
+  - <a href="ResponsibleWeb/Responsible Web.md">Responsible Web</a>
+  - <a href="ResponsibleWeb/BootStrap.md">BootStrap</a>
 --------------------
 ## 8. JSP
-  - <a href="https://github.com/csooy38/github/blob/main/JSP.md">JSP</a>
-  - <a href="https://github.com/csooy38/github/blob/main/JSP%EC%99%80%20DB%20%EC%97%B0%EB%8F%99.md">JSP-DB 연동</a>
-  - <a href="https://github.com/csooy38/github/blob/main/EL_JSTL.md">EL/JSTL</a>
-  - <a href="https://github.com/csooy38/github/blob/main/MVC2.md">MVC2</a>
-  - <a href="https://github.com/csooy38/github/blob/main/ConnectionPool.md">Connection Pool</a>
-  - <a href="https://github.com/csooy38/github/blob/main/File%20Upload.md">File Upload</a>
-  - <a href="https://github.com/csooy38/github/blob/main/Paging.md">Paging</a>
-  - <a href="https://github.com/csooy38/github/blob/main/Paging2.md">Paging2</a>
-  - <a href="https://github.com/csooy38/github/blob/main/Comment.md">Comment</a>
-  - <a href="https://github.com/csooy38/github/blob/main/mapping.properties.md">Mapping Properties</a>
+  - <a href="JSP/JSP.md">JSP</a>
+  - <a href="JSP/JSP와 DB 연동.md">JSP-DB 연동</a>
+  - <a href="JSP/EL_JSTL.md">EL/JSTL</a>
+  - <a href="JSP/MVC2.md">MVC2</a>
+  - <a href="JSP/ConnectionPool.md">Connection Pool</a>
+  - <a href="JSP/File Upload.md">File Upload</a>
+  - <a href="JSP/Paging.md">Paging</a>
+  - <a href="JSP/Paging2.md">Paging2</a>
+  - <a href="JSP/Comment.md">Comment</a>
+  - <a href="JSP/mapping.properties.md">Mapping Properties</a>
 --------------------
 ## 9. AJAX
-  - <a href="https://github.com/csooy38/github/blob/main/AJAX.md">AJAX</a>
+  - <a href="AJAX/AJAX.md">AJAX</a>
 --------------------
 ## 10. SPRING
-  - <a href="https://github.com/csooy38/github/blob/main/SPRING.md">SPRING</a>
-  - <a href="https://github.com/csooy38/github/blob/main/SPRING-JDBCTemplate.md">JDBCTemplate</a>
+  - <a href="Spring/SPRING.md">SPRING</a>
+  - <a href="Spring/SPRING-JDBCTemplate.md">JDBCTemplate</a>
 --------------------
 ## 11. Annotation
-  - <a href="https://github.com/csooy38/github/blob/main/Annotation.md">Annotation</a>
+  - <a href="Annotation/Annotation.md">Annotation</a>
