@@ -18,14 +18,15 @@
 
 
 ※ Spring JDBC가 하는 일
-	- `Connection` 열기와 닫기
-	- `PrepareStatement` 준비와 닫기
-	- `PrepareStatement` 실행
-	- `ResultSet` Loop 처리
-	- `Exception` 처리
-	- `Transaction` 처리
+- `Connection` 열기와 닫기
+- `PrepareStatement` 준비와 닫기
+- `PrepareStatement` 실행
+- `ResultSet` Loop 처리
+- `Exception` 처리
+- `Transaction` 처리
 	
-* Spring JDBCTemplate 클래스를 사용하기 위해서는 pom.xml 파일에 아래와 같은 라이브러리를 등록해야 한다. <a href="https://github.com/csooy38/github/blob/main/Annotation.md">[spring-jdbc 라이브러리 설정]</a>
+* Spring JDBCTemplate 클래스를 사용하기 위해서는 pom.xml 파일에 아래와 같은 라이브러리를 등록해야 한다.     
+<a href="https://github.com/csooy38/github/blob/main/Annotation.md">[spring-jdbc 라이브러리 설정]</a>
 
 	```xml
 	<dependency>
@@ -138,7 +139,7 @@ RowMapper<EmpDTO>를 오버라이딩하여 DB의 값을 DTO객체로 받아온�
 
 EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 list에 저장한다.  
 저장한 값은 model 객체에 저장하여 "views/emp_list.jsp"로 넘긴다.  
-
+	
 	```java
 	@Autowired
 	private EmpDAO dao;
@@ -152,7 +153,7 @@ EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 lis
 		return "emp_list";
 	}
 	```
-
+	
 * **emp_list.jsp**
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
 주소창에서 "/emp_list.do" 매핑주소로 들어온 것을 확인할 수 있다. 
