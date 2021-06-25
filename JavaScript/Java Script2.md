@@ -33,11 +33,11 @@ document.write("표현가능한 컬러 bit >>> " + screen.colorDepth + "<br>");
 ```
 
 실제 컴퓨터 해상도와 일치하는 가로너비와 세로높이가 출력된다.  
-<p align="center"><img src="./images/210426/17.png"></p>
+<p align="center"><img src="../images/210426/17.png"></p>
 
 
 화면 높이와 작업표시줄을 제외한 화면 높이를 비교해보면 작업표시줄의 높이는 40px임을 짐작해볼 수 있다.      
-<p align="center"><img src="./images/210426/18.png"></p>
+<p align="center"><img src="../images/210426/18.png"></p>
 
 
 
@@ -52,7 +52,7 @@ document.write("url 정보 >>> " + location.href);
 ```
 
 현재 브라우저의 url 값이 그대로 출력되었다.
-<p align="center"><img src="./images/210426/19.png"></p>
+<p align="center"><img src="../images/210426/19.png"></p>
 
 
 ## 8.4. history 객체
@@ -81,7 +81,7 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/20.png"></p>
+<p align="center"><img src="../images/210426/20.png"></p>
 
 
 두번째 페이지)
@@ -98,7 +98,7 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/21.png"></p>
+<p align="center"><img src="../images/210426/21.png"></p>
 
 
 세번째 페이지)
@@ -118,11 +118,11 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/22.png"></p>
+<p align="center"><img src="../images/210426/22.png"></p>
 
 
 다음과 같이 실행된다. 
-<p align="center"><img src="./images/210426/00.gif"></p>
+<p align="center"><img src="../images/210426/00.gif"></p>
 
 
 
@@ -246,11 +246,11 @@ window.onload = function() {
 
 `<script>` 영역에 트리 구조로 요소를 쌓았다.  
 `<body>` 태그에는 아무것도 작성하지 않았음에도 텍스트 노드에 작성한 내용이 `<h1>`태그로 작성되어 출력된다.  
-<p align="center"><img src="./images/210426/23.png"></p>
+<p align="center"><img src="../images/210426/23.png"></p>
 
 
 개발자 모드로 확인하면 `<body>` 태그에 작성한 것과 동일하게 나온다.  
-<p align="center"><img src="./images/210426/24.png"></p>
+<p align="center"><img src="../images/210426/24.png"></p>
 
 
 
@@ -265,7 +265,7 @@ onload = function() {
 	let imgNode = document.createElement("img");
 	
 	// 이미지 태그에 이미지를 넣으려면 src 속성이 지정되어야 한다.
-	imgNode.src = "../images/mango.jpg";
+	imgNode.src = ".../images/mango.jpg";
 	imgNode.width = "200";
 	imgNode.height = "200";
 	
@@ -277,14 +277,14 @@ onload = function() {
 src 속성 지정을 아래와 같이 작성해도 동일한 결과가 나온다.  
 
 ```javascript
-imgNode.setAttribute("src", "../images/mango.jpg");
+imgNode.setAttribute("src", ".../images/mango.jpg");
 imgNode.setAttribute("width", 200);
 imgNode.setAttribute("height", 200);
 ```
 
 
 지정한 사이즈인 200*200 크기의 망고 이미지가 출력되었다.  
-<p align="center"><img src="./images/210426/25.png"></p>
+<p align="center"><img src="../images/210426/25.png"></p>
 
 
 ## 9.1. 문서의 요소를 가져오는 방법 
@@ -316,7 +316,7 @@ imgNode.setAttribute("height", 200);
 
 `<body>` 태그에서 'Header 1', 'Header 2'라고 설정하였으나,  
 각각 'header_1 id를 가진 요소', 'header_2 id를 가진 요소'로 내용이 변경되었다.
-<p align="center"><img src="./images/210426/26.png"></p>
+<p align="center"><img src="../images/210426/26.png"></p>
 
 
 
@@ -355,10 +355,10 @@ for(let i=0; i<headers.length; i++){
 ```
 
 기존 출력문)  
-<p align="center"><img src="./images/210426/31.png"></p>
+<p align="center"><img src="../images/210426/31.png"></p>
 
 DOM 적용 후)
-<p align="center"><img src="./images/210426/28.png"></p>
+<p align="center"><img src="../images/210426/28.png"></p>
 
 
 
@@ -376,7 +376,7 @@ onload = function() {
 	}
 ```
 
-<p align="center"><img src="./images/210426/27.png"></p>
+<p align="center"><img src="../images/210426/27.png"></p>
 
 
 
@@ -394,7 +394,7 @@ onload = function() {
 }
 ```
 
-<p align="center"><img src="./images/210426/29.png"></p>
+<p align="center"><img src="../images/210426/29.png"></p>
 
 
 
@@ -421,7 +421,7 @@ onload = function() {
 }
 ```
 
-<p align="center"><img src="./images/210426/01.gif"></p>
+<p align="center"><img src="../images/210426/01.gif"></p>
 
 
 
@@ -458,7 +458,7 @@ onload = function() {
 ```
 
 
-<p align="center"><img src="./images/210426/02.gif"></p>
+<p align="center"><img src="../images/210426/02.gif"></p>
 
 
 
@@ -494,7 +494,7 @@ onload = function() {
 </body>
 ```
 
-<p align="center"><img src="./images/210426/03.gif"></p>
+<p align="center"><img src="../images/210426/03.gif"></p>
 
 
 ## 9.5. 자바스크립트 내장 함수
@@ -539,7 +539,7 @@ onload = function() {
 ```
 
 
-<p align="center"><img src="./images/210426/04.gif"></p>
+<p align="center"><img src="../images/210426/04.gif"></p>
 
 
 
@@ -625,7 +625,7 @@ onload = function() {
 </body>
 ```
 
-<p align="center"><img src="./images/210426/05.gif"></p>
+<p align="center"><img src="../images/210426/05.gif"></p>
 
 
 

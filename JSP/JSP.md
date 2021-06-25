@@ -173,8 +173,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 ```
 
 
-<p align="center"><img src="./images/210503/01.png"></p>
-<p align="center"><img src="./images/210503/02.png"></p>
+<p align="center"><img src="../images/210503/01.png"></p>
+<p align="center"><img src="../images/210503/02.png"></p>
     
 
 
@@ -245,8 +245,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ```
 
 주소창에 데이터가 표시되지 않아 보안에 유리하다.  
-<p align="center><img src="./images/210503/03.png></p>
-<p align="center"><img src="./images/210503/04.png"></p>
+<p align="center><img src="../images/210503/03.png></p>
+<p align="center"><img src="../images/210503/04.png"></p>
 
      
 -------------------------------------
@@ -259,7 +259,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 <%-- JSP 주석 : 소스코드보기에 노출되지 않는다. --%>
 ```
 
-<p align="center"><img src="./images/210503/00.png"></p>
+<p align="center"><img src="../images/210503/00.png"></p>
 
 
 

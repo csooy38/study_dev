@@ -77,13 +77,3 @@ $.ajax({
 - `jQuery.ajaxTransport()` : 데이터의 실제 전송을 처리하는 객체를 만든다.
 
 
-```javascript
-$(function() {
-	// 버튼을 누르면 Ex01_01.html 파일 결과를 
-	// id=display인 태그에 삽입하여 출력.
-	$("#btn").click(function() {
-		$("#display").load("Ex01_01.html");
-	});
-});
-```
-

@@ -14,7 +14,7 @@
 
 ## 1. upload_write.jsp : 파일 업로드 폼
 
-<p align="center"><img src="./images/210521/06.png"></p>
+<p align="center"><img src="../images/210521/06.png"></p>
 
 게시글 작성 jsp 파일에서 파일 업로드할 때에는 input type을 "file"로 설정한다. 
 
@@ -79,7 +79,7 @@ File upload_file = multi.getFile("upload_file");
 ```
 
 4) 첨부파일이 존재하는 경우 서버 저장을 위한 폴더를 생성한다.  
-".../upload/2021-05-21/홍길동_파일명" 형식으로 폴더를 생성하기 위하여 날짜 객체를 생성하였다.   
+"..../upload/2021-05-21/홍길동_파일명" 형식으로 폴더를 생성하기 위하여 날짜 객체를 생성하였다.   
 		
 ```java
 if(upload_file != null) { 	// 첨부파일이 존재하는 경우
@@ -94,7 +94,7 @@ if(upload_file != null) { 	// 첨부파일이 존재하는 경우
 	int month = cal.get(Calendar.MONTH) + 1;
 	int day = cal.get(Calendar.DAY_OF_MONTH);
 			
-	// ".../upload/2021-05-21" 형태로 폴더를 만든다.
+	// "..../upload/2021-05-21" 형태로 폴더를 만든다.
 	String homedir = saveFolder+"/"+year+"-"+month+"-"+day;
 			
 	// 날짜 폴더를 만들어 보자.
@@ -104,7 +104,7 @@ if(upload_file != null) { 	// 첨부파일이 존재하는 경우
 	}
 			
 	// 파일 폴더를 만들어 보자. ==> 예) 작성자_파일명
-	// ".../upload/2021-05-21/홍길동_파일명"
+	// "..../upload/2021-05-21/홍길동_파일명"
 	String reFileName = upload_writer+"_"+fileName;
 			
 	upload_file.renameTo(new File(homedir+"/"+reFileName));
@@ -118,7 +118,7 @@ if(upload_file != null) { 	// 첨부파일이 존재하는 경우
 첨부파일을 넣어 게시물을 저장하면  
 지정한 경로를 따라 폴더가 생성되고 그 아래 지정한 파일명으로 저장된다.  
 
-<p align="center"><img src="./images/210521/05.png"></p>
+<p align="center"><img src="../images/210521/05.png"></p>
 
 
 ### 2-2. 첨부파일이 존재하지 않는 경우 

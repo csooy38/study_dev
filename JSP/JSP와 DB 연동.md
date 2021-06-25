@@ -1,6 +1,6 @@
 # JSP와 DB 연동
 
-<p align="center"><img src="./images/210506/00.gif"></p>
+<p align="center"><img src="../images/210506/00.gif"></p>
 
 # 1. DB의 emp테이블을 웹 페이지에 출력하기
 1. EmpDTO : DB emp테이블과 동일한 변수를 생성.
@@ -112,7 +112,7 @@ public class EmpDTO {
 * `request.getContextPath()` : 현재 프로젝트명을 반환하는 메서드.
 
 
-<p align="center"><img src="./images/210506/00.png"></p>
+<p align="center"><img src="../images/210506/00.png"></p>
 
 
 ## select 서블릿 
@@ -255,7 +255,7 @@ public class EmpDAO {
 
 각각의 주소값을 출력했을 때 아래와 같이 출력된다.  
 길어서 생략했지만 동일한 주소값이 반복되어 출력됨을 알 수 있다.  
-<p align="center"><img src="./images/210506/06.png"></p>
+<p align="center"><img src="../images/210506/06.png"></p>
 
 
 ```jsp
@@ -328,9 +328,9 @@ public class EmpDAO {
 
 
 DB의 emp 테이블  
-<p align="center"><img src="./images/210506/07.png"></p>
+<p align="center"><img src="../images/210506/07.png"></p>
 JSP로 연동하여 웹 페이지로 출력한 emp 테이블  
-<p align="center"><img src="./images/210506/01.png"></p>
+<p align="center"><img src="../images/210506/01.png"></p>
 	
 	
 
@@ -635,8 +635,8 @@ public int insertEmp(EmpDTO dto) {
 ```
 
 
-<p align="center"><img src="./images/210506/02.png"></p>
-<p align="center"><img src="./images/210506/03.png"></p>	
+<p align="center"><img src="../images/210506/02.png"></p>
+<p align="center"><img src="../images/210506/03.png"></p>	
 
 
 
@@ -796,5 +796,5 @@ public int deleteEmp(int empno) {
 ```
 
 
-<p align="center"><img src="./images/210506/04.png"></p>
-<p align="center"><img src="./images/210506/05.png"></p>
+<p align="center"><img src="../images/210506/04.png"></p>
+<p align="center"><img src="../images/210506/05.png"></p>

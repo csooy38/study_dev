@@ -9,7 +9,7 @@
 
 ## 1. 고정 그리드 레이아웃
 
-<p align="center"><img src="./images/210429/16.gif"></p>
+<p align="center"><img src="../images/210429/16.gif"></p>
 
 고정 그리드 레이아웃은 단위가 픽셀(px)이기 때문에 브라우저 크기가 확대/축소될 때 글자 및 웹 요소가 안 보이는 경우가 있다. 고정 그리드 레이아웃은 특정한 기기만 사용하고자 할 때 사용하면 유리하다. 레이아웃을 잡기가 상당히 수월하다.
 
@@ -24,7 +24,7 @@ header {
 
 ## 2. 가변 그리드 레이아웃
 
-<p align="center"><img src="./images/210429/17.gif"></p>
+<p align="center"><img src="../images/210429/17.gif"></p>
 
 ```css
 header {
@@ -107,7 +107,7 @@ body {
 ```
 
 
-<p align="center"><img src="./images/210430/00.gif"></p>
+<p align="center"><img src="../images/210430/00.gif"></p>
 
 
 
@@ -120,7 +120,7 @@ video {
 ```
 
 
-<p align="center"><img src="./images/210430/02.gif"></p>
+<p align="center"><img src="../images/210430/02.gif"></p>
 
 
 
@@ -142,7 +142,7 @@ video {
 ```
 
 캡쳐를 위해 해상도를 50%로 잡아 px은 작성코드와 다를 수 있다.  
-<p align="center"><img src="./images/210430/01.gif"></p>
+<p align="center"><img src="../images/210430/01.gif"></p>
 
 
 
@@ -188,7 +188,7 @@ media screen and (max-width: 768px) {
 
 
 캡쳐를 위해 해상도를 50%로 잡아 px은 작성코드와 다를 수 있다.  
-<p align="center"><img src="./images/210430/03.gif"></p>
+<p align="center"><img src="../images/210430/03.gif"></p>
 
 
 
@@ -223,7 +223,7 @@ media screen and (max-width: 768px) {
 
 
 캡쳐를 위해 해상도를 50%로 잡아 px은 작성코드와 다를 수 있다.  
-<p align="center"><img src="./images/210430/04.gif"></p>
+<p align="center"><img src="../images/210430/04.gif"></p>
 
 
 

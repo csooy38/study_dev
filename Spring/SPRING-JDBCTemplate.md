@@ -50,7 +50,7 @@ JDBC 명세서의 일부분이면서 일반적으로 DB 연결 공장.
 ### 3.4. /WEB-INF/spring/root-context.xml
 스프링과 관련된 설정 파일을 설정하는 공간.   
 
-<p align="center"><img src="./images/210623/05.png"></p>
+<p align="center"><img src="../images/210623/05.png"></p>
 
 1. DataSource 정보 설정    
 : DB와 관계된 connection(연결방식) 정보를 담고 있는 객체  
@@ -161,7 +161,7 @@ EmpDAOImpl 클래스의 getEmpList() 메서드를 호출하여 연결 값을 lis
 view 페이지에서는 EL언어로 넘어온 값을 받아 출력한다.  
 주소창에서 "/emp_list.do" 매핑주소로 들어온 것을 확인할 수 있다. 
 
-<p align="center"><img src="../images/210624/01.png"></p>
+<p align="center"><img src=".../images/210624/01.png"></p>
 
 
 

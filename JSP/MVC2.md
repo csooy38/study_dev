@@ -1,6 +1,6 @@
 # MVC2 패턴
 
-<p align="center"><img src="./images/210513/05.jpg"></p>
+<p align="center"><img src="../images/210513/05.jpg"></p>
 
 ## 서블릿 매핑(n:1)
 모든 서블릿을 FrontController 하나로 통합한 것과 동일한 형태를 띤다.
@@ -117,7 +117,7 @@ if(command.equals("select.do")) {
 --------------------------------------------------------
 # 전체 코드
 
-<p align="center"><img src="./images/210513/05.png"></p>
+<p align="center"><img src="../images/210513/05.png"></p>
 
 ## 0. index.jsp
 ```jsp

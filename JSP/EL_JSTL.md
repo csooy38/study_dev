@@ -111,7 +111,7 @@ JSTL 값 출력 : <c:out value="test" /><br>
 JSTL 값 출력 : <c:out value="${test }"/>
 ```
 
-<p align="center"><img src="./images/210513/00.png"></p>
+<p align="center"><img src="../images/210513/00.png"></p>
 			
 			
 3. 삭제 태그 `remove`
@@ -180,7 +180,7 @@ grade의 값이 88이므로 결과 : B학점 이 출력된다.
 	   </c:forEach>
 ```
 
-<p align="center"><img src="./images/210513/01.png"></p>
+<p align="center"><img src="../images/210513/01.png"></p>
 	
 
 ### 포맷팅 라이브러리 종류
@@ -233,7 +233,7 @@ grade의 값이 88이므로 결과 : B학점 이 출력된다.
 </fmt:timeZone>
 ```
 
-<p align="center"><img src="./images/210513/04.png"></p>
+<p align="center"><img src="../images/210513/04.png"></p>
 
 	
 
@@ -339,7 +339,7 @@ value로 값을 받아서 넘기면 JSTL로 받아서 포맷팅 라이브러리�
 ```
 
 
-<p align="center"><img src="./images/210513/02.png"></p>
-<p align="center"><img src="./images/210513/03.png"></p>
+<p align="center"><img src="../images/210513/02.png"></p>
+<p align="center"><img src="../images/210513/03.png"></p>
 
 

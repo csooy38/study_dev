@@ -30,7 +30,7 @@
 
 프로젝트의 web.xml 파일에서 한글 인코딩 설정 작업을 하면 프로젝트 전체에 적용된다. 
 
-<p align="center"><img src="./images/210623/04.png"></p>
+<p align="center"><img src="../images/210623/04.png"></p>
 
 ```xml
 <!-- 한글 인코딩 설정 작업 -->
@@ -217,7 +217,7 @@
 	xml 파일의 하단 탭 중 Namespaces를 선택 - c, p에 체크한다.
 
 
-	<p align="center"><img src="./images/210623/02.png"></p>
+	<p align="center"><img src="../images/210623/02.png"></p>
 
 
 	체크하면 Source 탭 `<beans>` 태그에 아래와 같은 코드가 추가된다.
@@ -249,7 +249,7 @@
 
 - 설정 파일(`bean.xml`)에 들어가는 형식
 	* 주로 아래 두 xml 파일에서 설정.
-<p align="center"><img src="./images/210623/01.PNG"></p>
+<p align="center"><img src="../images/210623/01.PNG"></p>
 
 ```xml
 <bean>
@@ -449,7 +449,7 @@ public class MyGetSum {
 		* 체크하면 `<beans>` 태그에 다음과 같은 코드가 추가된다. 
 		* `xmlns:context="http://www.springframework.org/schema/context`
 		
-		<p align="center"><img src="./images/210623/03.png"></p>
+		<p align="center"><img src="../images/210623/03.png"></p>
 		
 		```xml
 		<context:annotation-config/>
@@ -522,14 +522,14 @@ public class MyGetSum {
 
 #### 1. web.xml
 
-<p align="center"><img src="./images/210623/04.png"></p>
+<p align="center"><img src="../images/210623/04.png"></p>
 
 	- 클라이언트로부터 요청이 들어오면 해당 요청을 가장 먼저 처리하는 곳.
 	- 필터가 있다면 가장 먼저 반응을 하여 필터 작업을 진행. => 한글 인코딩 처리.
   
 #### 2. /WEB-INF/spring/root-context.xml
 
-<p align="center"><img src="./images/210623/05.png"></p>
+<p align="center"><img src="../images/210623/05.png"></p>
 
 	- /WEB-INF/spring/root-context.xml로 이동.
 	- 모든 서블릿에서 사용할 자원을 설정하는 공간.

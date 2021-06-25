@@ -9,7 +9,7 @@
 - 기본 글자크기는 제목태그"h4"와 동일하다.
 - 제목태그는 숫자를 건너 뛰는 방법을 피하는 걸 권장한다. 
 
-<p align="center"><img src="./images/210419/00.png" width="30%"></p>
+<p align="center"><img src="../images/210419/00.png" width="30%"></p>
 
 ### p(parapraph) 태그
 하나의 문단(문장, 단락)을 사용하는 태그.
@@ -41,11 +41,11 @@
 
 * 개발자모드로 보면 p태그는 전체 블록이 잡힌다.
 
-<p align="center"><img src="./images/210419/09.png" width="80%"></p>
+<p align="center"><img src="../images/210419/09.png" width="80%"></p>
 
 * 개발자모드로 보면 span 태그는 개별 문장이 잡힌다.
 
-<p align="center"><img src="./images/210419/10.png" width="50%"></p>
+<p align="center"><img src="../images/210419/10.png" width="50%"></p>
   
 
 ### pre(preformatted text) 태그
@@ -63,7 +63,7 @@
 
 - pre 코드 실행시 띄어쓰기가 하나로 줄지 않고 전체 반영된다. pre 코드 미작성시 띄어쓰기 한 번으로 자동 수정되어 출력된다.
 
-<p align="center"><img src="./images/210419/11.PNG" width="50%"></p>
+<p align="center"><img src="../images/210419/11.PNG" width="50%"></p>
 
 
 ### 태그의 속성
@@ -82,7 +82,7 @@
 <h6>제목 태그 6</h6>
 ```
 
-<p align="center"><img src="./images/12.png" width="80%"></p>
+<p align="center"><img src="../images/12.png" width="80%"></p>
 
 
 ### blockquote 태그 
@@ -97,7 +97,7 @@
 </body>
 ```
 
-<p align="center"><img src="./images/210419/13.png" width="80%"></p>
+<p align="center"><img src="../images/210419/13.png" width="80%"></p>
 
 
 ### font 태그
@@ -118,7 +118,7 @@
 <font size="8">Font 태그7</font><br>
 ```
 
-<p align="center"><img src="./images/210419/14.png" width="50%"></p>
+<p align="center"><img src="../images/210419/14.png" width="50%"></p>
 
  
 ### hr태그 
@@ -144,7 +144,7 @@
 대한사람 대한으로 길이 보전하세 </p>
 ```
 
-<p align="center"><img src="./images/210419/15.png" width="50%"></p>
+<p align="center"><img src="../images/210419/15.png" width="50%"></p>
 
 
 ### a 태그 
@@ -173,28 +173,28 @@
 ```
 
 - 태그 작성 후 코드 실행시 다음과 같이 클릭할 수 있는 문자열이 출력된다.
-<p align="center"><img src="./images/210419/16.png" width="50%"></p>
+<p align="center"><img src="../images/210419/16.png" width="50%"></p>
 
 - '네이버' 클릭 시 현재 창에서 naver.com 으로 이동한다.
-<p align="center"><img src="./images/210419/17.png" width="50%"></p>
+<p align="center"><img src="../images/210419/17.png" width="50%"></p>
 
 - '구글' 클릭 시 현재 창에서 google.com 으로 이동한다.
-<p align="center"><img src="./images/210419/18.png" width="50%"></p>
+<p align="center"><img src="../images/210419/18.png" width="50%"></p>
 
 - '다음' 클릭 시 현재 창에서 daum.net 으로 이동한다.
-<p align="center"><img src="./images/210419/19.png" width="50%"></p>
+<p align="center"><img src="../images/210419/19.png" width="50%"></p>
 
 - 두 번째 '구글' 클릭 시 새 창에서 google.com 으로 이동한다.
-<p align="center"><img src="./images/210419/20.png" width="50%"></p>
+<p align="center"><img src="../images/210419/20.png" width="50%"></p>
 
 - '남대문의 어원' 클릭 시 위에서 작성한 내용이 적힌 페이지로 이동한다.
-<p align="center"><img src="./images/210419/21.png" width="50%"></p>
+<p align="center"><img src="../images/210419/21.png" width="50%"></p>
 
 - '내 메일' 클릭 시 outlook 가입자가 아니므로 메일 앱과 연동가능한 설정창이 열린다. 
-<p align="center"><img src="./images/210419/22.png" width="50%"></p>
+<p align="center"><img src="../images/210419/22.png" width="50%"></p>
 
 - '사과' 클릭시 경로에 위치한 이미지가 열린다. 기존에 존재하는 경로가 아닐 경우 오류가 발생한다. 
-<p align="center"><img src="./images/210419/23.png" width="50%"></p>
+<p align="center"><img src="../images/210419/23.png" width="50%"></p>
 
 
 
@@ -217,7 +217,7 @@
 <p><del>이것은 취소선 글자입니다.</del></p>
 ```
 
-<p align="center"><img src="./images/210419/24.png" width="50%"></p>
+<p align="center"><img src="../images/210419/24.png" width="50%"></p>
 
 
 ### 목록 태그 
@@ -306,7 +306,7 @@
 	</ul>
 ```
 
-<p align="center"><img src="./images/210419/25.png" width="50%"></p>
+<p align="center"><img src="../images/210419/25.png" width="50%"></p>
 
 
 ### img(이미지) 태그 
@@ -321,7 +321,7 @@
 	<img src="images/mago.jpg" alt="그림 또는 파일명이 잘못되었습니다."/>
 ```
     
-<p align="center"><img src="./images/210419/26.png" width="60%"></p>
+<p align="center"><img src="../images/210419/26.png" width="60%"></p>
 
 
 ### table(테이블) 태그 
@@ -373,7 +373,7 @@
 	</table>
 ```
 
-<p align="center"><img src="./images/210419/28.png" width="30%"></p>
+<p align="center"><img src="../images/210419/28.png" width="30%"></p>
 
 
 ### table 태그에서 행 또는 열 병합
@@ -410,7 +410,7 @@
 	</table>
 ```
 
-<p align="center"><img src="./images/210419/29.png" width="50%"></p>
+<p align="center"><img src="../images/210419/29.png" width="50%"></p>
 
 ### iframe 태그
 내부 프레임(inline frame) 이라는 의미로 하나의 HTML 문서 내부에 다른 HTML 문서를 보여주고자 할 때 사용하는 태그.
@@ -431,7 +431,7 @@
 			scrolling="auto" frameborder="1"></iframe>
 ```
 
-<p align="center"><img src="./images/210419/30.png" width="50%"></p>
+<p align="center"><img src="../images/210419/30.png" width="50%"></p>
 
 
 ### frameset 태그
@@ -465,7 +465,7 @@
 </body>
 ```
 
-<p align="center"><img src="./images/210419/31.png" width="80%"></p>	
+<p align="center"><img src="../images/210419/31.png" width="80%"></p>	
 		
 * 아래 두 코드는 각각 다른 html 파일에 작성하였으며, Ex21.html로 실행시 다음과 같이 출력된다.
 

@@ -278,7 +278,7 @@ if(bbs_pwd.equals(db_pwd)) {	// 비밀번호가 같은 경우
 
 ## 6. 답변 기능
 
-<p align="center"><img src="./images/210521/01.png"></p>
+<p align="center"><img src="../images/210521/01.png"></p>
 
 이번 게시판의 테이블은 다음과 같다.  
 
@@ -307,7 +307,7 @@ create table jsp_bbs(
 그림으로 나타내면 다음과 같다. 작성순서는 test 옆의 수로 나타내었다.  
 
 
-<p align="center"><img src="./images/210521/00.png"></p>
+<p align="center"><img src="../images/210521/00.png"></p>
 
 1. 10번 게시글에 달린 답글은 모두 10번 group 으로 묶였다. (board_group)  
 2. 답글이 step에 따라 오름차순으로 정렬되었다. (board_step)
@@ -366,21 +366,21 @@ result = pstmt.executeUpdate();
 
 예를 들어 아래의 그림에서 15번 게시글인 "re) re) test6"에 답글을 작성한다고 가정해 보자.  
 
-<p align="center"><img src="./images/210521/02.png"></p>
+<p align="center"><img src="../images/210521/02.png"></p>
 
 15번 게시글은 10번 게시글의 답글에 답글이 달린, 즉 10번 그룹에 속하는 글이다.   
 현재 step이 2 이므로, 아래에 달릴 답글의 step은 3이 되어야 한다.  
 이 때 3과 동일한 step이 존재하면 순서가 꼬일 수도 있으므로 3 이상의 step들을 모두 +1씩 해주어야 한다.  
 
 
-<p align="center"><img src="./images/210521/03.png"></p>
+<p align="center"><img src="../images/210521/03.png"></p>
 
 즉, 답글을 달 15번 게시글의 step인 2보다 큰 수들을 모두 +1씩 해주고 그 사이에 step이 3인 게시글을 넣는 식이다.  
 기존글과 답글을 구분하기 위한 들여쓰기를 위해 indent 수도 +1 한다.  
 
 
 
-<p align="center"><img src="./images/210521/04.png"></p>
+<p align="center"><img src="../images/210521/04.png"></p>
 
 
 indent는 게시글 출력시에 반복문의 end 변수로 사용한다.  

@@ -42,7 +42,7 @@ body {
 	background-color: pink;	/* 문서 전체 배경 색상 변경 */
 	
 	/* 배경 이미지를 지정하는 속성 */
-	background-image: url("../images/beauty.jpg");
+	background-image: url(".../images/beauty.jpg");
 	
 	/* 배경 이미지를 한 번만 표시하는 속성 */
 	background-repeat: no-repeat;
@@ -67,7 +67,7 @@ body {
 
 엄청난 게 만들어졌다. 정말 beauty한 화면이다.    
 링크한 css파일의 코드에 따라 p태그와 body태그의 디자인이 결정되었다.    
-<p align="center"><img src="./images/210420/34.png"></p>  
+<p align="center"><img src="../images/210420/34.png"></p>  
 
 
 
@@ -118,7 +118,7 @@ body {
 ```
   
 `<head>`에서 정의한 스타일이 li, h1, h2 태그에 각각 적용되어 출력된다.     
-<p align="center"><img src="./images/210420/35.png"></p>  
+<p align="center"><img src="../images/210420/35.png"></p>  
 
 
 
@@ -179,7 +179,7 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 '제목2'는 id 선택자 title의 스타일이 적용되었으며,
 '본문1', '본문3', '본문4'는 class 선택자 main_text의 스타일이 적용되었다.    
 
-<p align="center"><img src="./images/210420/36.png"></p>  
+<p align="center"><img src="../images/210420/36.png"></p>  
 
 
 
@@ -221,15 +221,15 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 
 
 겉보기엔 별다를 게 없어보이는 p태그와 span 태그로 작성한 문장이지만    
-<p align="center"><img src="./images/210420/37.png"></p>     
+<p align="center"><img src="../images/210420/37.png"></p>     
 
 
 개발자모드(F12)로 보면 p태그는 작성하지 않은 가로 넓이 끝까지 블록이 지정되어 있으며,    
-<p align="center"><img src="./images/210420/38.png"></p>    
+<p align="center"><img src="../images/210420/38.png"></p>    
 
 
 반면에 span 태그는 작성한 영역만 소숫점 단위로 너비가 지정되어 있음을 알 수 있다.
-<p align="center"><img src="./images/210420/39.png"></p>   
+<p align="center"><img src="../images/210420/39.png"></p>   
 
 
 
@@ -260,11 +260,11 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 
 
 아래와 같이 가로로 3개의 이미지가 연달아 출력된다.     
-<p align="center"><img src="./images/210421/05.png"></p>   
+<p align="center"><img src="../images/210421/05.png"></p>   
 
 
 기본적으로 `<img>`는 인라인 레벨 요소로 각각 필요한 만큼만 너비로 사용하기 때문이다.    
-<p align="center"><img src="./images/210421/06.png"></p>   
+<p align="center"><img src="../images/210421/06.png"></p>   
 
 
 
@@ -282,12 +282,12 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 
 
 아래와 같이 세로로 출력이 된다.    
-<p align="center"><img src="./images/210421/08.png"></p>  
+<p align="center"><img src="../images/210421/08.png"></p>  
 
 
 `display` 속성이 `block`이 되면서 각각의 이미지 전후에 줄바꿈이 들어가 다른 요소들을 다른 줄로 밀어내고 혼자 한 줄을 차지할 수 있게 되었기 때문이다.    
 인라인 레벨에서 블록 레벨로 변환된 효과가 나타난다.    
-<p align="center"><img src="./images/210421/11.png"></p>    
+<p align="center"><img src="../images/210421/11.png"></p>    
 
 
 
@@ -307,11 +307,11 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 ```
 
 위와 같이 코드를 작성하고 실행하면 아래와 같은 창이 열린다.    
-<p align="center"><img src="./images/210421/09.png"></p>
+<p align="center"><img src="../images/210421/09.png"></p>
 
 
 `<li>` 태그는 기본적으로 블록 레벨 요소이기 때문에, 각각 한줄씩 차지하여 세로로 출력이 된다.    
-<p align="center"><img src="./images/210421/12.png"></p>  
+<p align="center"><img src="../images/210421/12.png"></p>  
 
 
 
@@ -331,11 +331,11 @@ id 선택자는 헤더영역에서 '#'을 선택자 이름 앞에, class 선택�
 ```
 
 코드 입력 후 재실행 하면 아래와 같이 가로로 리스트가 출력되는 것을 볼 수 있다.   
-<p align="center"><img src="./images/210421/10.png"></p>
+<p align="center"><img src="../images/210421/10.png"></p>
 
 
 display 속성이 inline이 되어 전후 줄바꿈 없이 한 줄에 다른 요소들과 나란히 배치가 된다.   
-<p align="center"><img src="./images/210421/13.png"></p> 
+<p align="center"><img src="../images/210421/13.png"></p> 
 
 
 ### * em 단위
@@ -353,15 +353,15 @@ display 속성이 inline이 되어 전후 줄바꿈 없이 한 줄에 다른 요
 ```
 
 아래와 같이 출력된다.    
-<p align="center"><img src="./images/210421/00.png"></p>     
+<p align="center"><img src="../images/210421/00.png"></p>     
 
 
 개발자모드로 보면 `<h1>` 의 기본 폰트 사이즈는 32px,    
-<p align="center"><img src="./images/210421/02.png"></p>    
+<p align="center"><img src="../images/210421/02.png"></p>    
 
 
 `<p>`태그의 기본 폰트사이즈는 16px이다.    
-<p align="center"><img src="./images/210421/03.png"></p>      
+<p align="center"><img src="../images/210421/03.png"></p>      
 
 
 이 때, `<head>` 영역에서 `<h1>`의 폰트 사이즈를 3em으로 지정하면    
@@ -372,23 +372,23 @@ h1 {
 }
 ```
 아래와 같이 `<h1>`의 크기가 변경된 것을 볼 수 있다.    
-<p align="center"><img src="./images/210421/01.png"></p>    
+<p align="center"><img src="../images/210421/01.png"></p>    
 
 
 개발자모드로 보면 폰트사이즈가 48px로 변경되었음을 알 수 있다.   
 즉, `<body>` 태그의 기본 글자 크기인 16px을 기준으로 3em(=3배)인 48px로 폰트사이즈가 변경되었다.    
-<p align="center"><img src="./images/210421/04.png"></p>
+<p align="center"><img src="../images/210421/04.png"></p>
 
 
 
 
 ## CSS의 여백
 
-<p align="center"><img src="./images/210421/15.png"></p>  
+<p align="center"><img src="../images/210421/15.png"></p>  
 
 ### 1. margin 
 
-<p align="center"><img src="./images/210421/18.png"></p>  
+<p align="center"><img src="../images/210421/18.png"></p>  
 
 * 요소의 바깥쪽 여백을  지정한다.
 * 바깥쪽 여백은 요소와 요소 사이의 여백(거리, 공간)을 생성할 때 사용한다.
@@ -406,7 +406,7 @@ h1 {
 
 ### 2. padding 
 
-<p align="center"><img src="./images/210421/16.png"></p>  
+<p align="center"><img src="../images/210421/16.png"></p>  
 
 * 요소의 안쪽 여백을 지정한다.
 * 단위 : px, em, cm, % 등의 단위로 지정.
@@ -438,7 +438,7 @@ h1 {
 </body>
 ```
 
-<p align="center"><img src="./images/210421/14.png"></p>
+<p align="center"><img src="../images/210421/14.png"></p>
 
 
 
@@ -450,8 +450,8 @@ class 선택자에 `margin` 속성을 추가하여 `box1`의 바깥 여백 값�
 }
 ```
 큰 차이가 없어보이나 개발자모드로 보면 기존보다 요소의 상하좌우로 여백이 생겼음을 알 수 있다.     
-<p align="center"><img src="./images/210421/21.png"></p>  
-<p align="center"><img src="./images/210421/20.png"></p>  
+<p align="center"><img src="../images/210421/21.png"></p>  
+<p align="center"><img src="../images/210421/20.png"></p>  
 
 
 #### [예] padding
@@ -472,11 +472,11 @@ class 선택자에 `margin` 속성을 추가하여 `box1`의 바깥 여백 값�
 	<div class="box2">2</div>
 </body>
 ```
-<p align="center"><img src="./images/210421/22.png"></p>  
+<p align="center"><img src="../images/210421/22.png"></p>  
 
 
 현재 `box2`의 사이즈는 300*200 이다.  
-<p align="center"><img src="./images/210421/23.png"></p>  
+<p align="center"><img src="../images/210421/23.png"></p>  
 
 
 class 선택자에 `padding` 속성을 추가하여 `box2`의 안쪽 여백을 늘린다.
@@ -488,12 +488,12 @@ class 선택자에 `padding` 속성을 추가하여 `box2`의 안쪽 여백을 �
 ```
 
 `padding` 값 지정 후 `box2`의 사이즈가 커졌다.   
-<p align="center"><img src="./images/210421/24.png"></p>     
+<p align="center"><img src="../images/210421/24.png"></p>     
 
 
 개발자 모드로 보면 사이즈가 340*240으로 상하좌우로 20px씩 내부여백이 늘어났음을 알 수 있다.    
 즉, 내부 여백이 늘어났으므로 늘어난 크기만큼 요소의 크기가 커진다.   
-<p align="center"><img src="./images/210421/25.png"></p>  
+<p align="center"><img src="../images/210421/25.png"></p>  
 
 
 그렇다면 내부 여백이 커져도 최초의 크기를 유지하기 위해선 어떻게 해야 할까?    
@@ -506,13 +506,13 @@ class 선택자에 `padding` 속성을 추가하여 `box2`의 안쪽 여백을 �
 ```
 
 선택자에 `box-sizing` 속성을 추가하면 `padding`을 변경하여 내부 여백이 변하여도 요소의 전체 크기는 처음과 동일하게 유지된다.    
-<p align="center"><img src="./images/210421/27.png"></p>  
+<p align="center"><img src="../images/210421/27.png"></p>  
 	
 
 	
 ### * border 
 
-<p align="center"><img src="./images/210421/17.png"></p>
+<p align="center"><img src="../images/210421/17.png"></p>
 
 `border`는 요소의 테두리 선을 지정할 때 사용하는 속성이다.
 * 형식) `border: (두께) (종류) (색상);`
@@ -570,7 +570,7 @@ border-style: solid;
 border-color: red;		
 
 ```
-<p align="center"><img src="./images/210421/28.png"></p>  
+<p align="center"><img src="../images/210421/28.png"></p>  
 
 
 
@@ -609,7 +609,7 @@ border-color: red;
 </body>
 ```
 
-<p align="center"><img src="./images/210421/29.png"></p>  
+<p align="center"><img src="../images/210421/29.png"></p>  
 
 
 ### * box-shadow 
@@ -652,7 +652,7 @@ box-shadow는 요소에 그림자를 만드는 속성이다.
 </body>
 ```
 
-<p align="center"><img src="./images/210421/34.png"></p>  
+<p align="center"><img src="../images/210421/34.png"></p>  
 		
 
 
@@ -681,7 +681,7 @@ box-shadow는 요소에 그림자를 만드는 속성이다.
 </body>
 ```
 
-<p align="center"><img src="./images/210421/30.png"></p>  
+<p align="center"><img src="../images/210421/30.png"></p>  
 
 
 선택자에 속성을 넣어 행간과 자간을 조절한다.  
@@ -699,7 +699,7 @@ box-shadow는 요소에 그림자를 만드는 속성이다.
 </head>
 ```
 행간과 자간 모두 지정한 픽셀만큼 넓어졌다.    
-<p align="center"><img src="./images/210421/31.png"></p>
+<p align="center"><img src="../images/210421/31.png"></p>
 
 
 ### * float 속성 
@@ -753,7 +753,7 @@ box-shadow는 요소에 그림자를 만드는 속성이다.
 </body>
 ```
 
-<p align="center"><img src="./images/210421/32.png"></p>  
+<p align="center"><img src="../images/210421/32.png"></p>  
 
 
 ```html
@@ -795,7 +795,7 @@ box-shadow는 요소에 그림자를 만드는 속성이다.
 </head>
 ```
 
-<p align="center"><img src="./images/210421/33.png"></p> 
+<p align="center"><img src="../images/210421/33.png"></p> 
 
 
 
@@ -842,7 +842,7 @@ CSS는 모듈이 많고 표준 규약이 아직 완성되지 않은 부분도 �
 
 ```
 
-<p align="center"><img src="./images/210421/35.png"></p>  
+<p align="center"><img src="../images/210421/35.png"></p>  
 
 
 
@@ -873,7 +873,7 @@ CSS는 모듈이 많고 표준 규약이 아직 완성되지 않은 부분도 �
 ```
 
 위의 **[예] 접두사** 와 비교했을 때 확실히 투명해졌다.  
-<p align="center"><img src="./images/210421/36.png"></p>  
+<p align="center"><img src="../images/210421/36.png"></p>  
 
 
 ### * :hover
@@ -898,7 +898,7 @@ CSS는 모듈이 많고 표준 규약이 아직 완성되지 않은 부분도 �
 반투명했던 이미지가 마우스를 올릴 때마다 선명하게 전환된다.    
 
 
-<img src="./images/210421/36.png"><img src="./images/210421/37.png">
+<img src="../images/210421/36.png"><img src="../images/210421/37.png">
 
 
 

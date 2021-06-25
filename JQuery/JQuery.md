@@ -419,7 +419,7 @@ $(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/00.gif"></p>
+<p align="center"><img src="../images/210429/00.gif"></p>
 
 
 ## 4.2. 이벤트 목록
@@ -433,7 +433,7 @@ $(".menu li").on("click", function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/01.gif"></p>
+<p align="center"><img src="../images/210429/01.gif"></p>
 	
 	
 	
@@ -450,7 +450,7 @@ $(".btn2").dblclick(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/02.gif"></p>
+<p align="center"><img src="../images/210429/02.gif"></p>
 
 
 ## 4.3. 마우스 이벤트
@@ -490,7 +490,7 @@ $(".btn2").hover(
 });
 ```
 
-<p align="center"><img src="./images/210429/03.gif"></p>
+<p align="center"><img src="../images/210429/03.gif"></p>
 
 
 
@@ -512,7 +512,7 @@ $(".wrap").mouseleave(function() {
 })
 ```
 
-<p align="center"><img src="./images/210429/04.gif"></p>
+<p align="center"><img src="../images/210429/04.gif"></p>
 
 
 
@@ -529,7 +529,7 @@ $(document).on("mousemove", function(e) {
 });
 ```
 
-<p align="center"><img src="./images/210429/05.gif"></p>
+<p align="center"><img src="../images/210429/05.gif"></p>
 
 
 
@@ -561,7 +561,7 @@ $("#user_id").on("keyup", function(e) {
 });
 ```
 
-<p align="center"><img src="./images/210429/06.gif"></p>
+<p align="center"><img src="../images/210429/06.gif"></p>
 	
 	
 ## 4.5. 기타 자주 사용되는 이벤트 메서드
@@ -573,7 +573,7 @@ $(".site").on("change", function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/07.gif"></p>
+<p align="center"><img src="../images/210429/07.gif"></p>
 
 
 
@@ -604,7 +604,7 @@ $(".btn2").click(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/08.gif"></p>
+<p align="center"><img src="../images/210429/08.gif"></p>
 
 
 
@@ -618,7 +618,7 @@ $(".btn").click(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/09.gif"></p>
+<p align="center"><img src="../images/210429/09.gif"></p>
 
 
 
@@ -646,7 +646,7 @@ $(".btn3").click(function() {
 });
 ```
 	
-<p align="center"><img src="./images/210429/10.gif"></p>
+<p align="center"><img src="../images/210429/10.gif"></p>
 
 
 
@@ -671,7 +671,7 @@ $(".btn4").click(function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/11.gif"></p>
+<p align="center"><img src="../images/210429/11.gif"></p>
 
 
 
@@ -697,7 +697,7 @@ $(".btn3").click(function() {
 ```
 	
 
-<p align="center"><img src="./images/210429/12.gif"></p>
+<p align="center"><img src="../images/210429/12.gif"></p>
 
 
 
@@ -722,7 +722,7 @@ $("h3").animate({marginLeft: "250px"}, 2000, function() {
 });
 ```
 
-<p align="center"><img src="./images/210429/13.gif"></p>
+<p align="center"><img src="../images/210429/13.gif"></p>
 
 
 - `stop()` : 선택한 요소에 효과 또는 애니메이션이 적용된 효과를 정지시키는 메서드. 
@@ -742,7 +742,7 @@ $(".stop").click(function() {
 }); 
 ```
 
-<p align="center"><img src="./images/210429/14.gif"></p>
+<p align="center"><img src="../images/210429/14.gif"></p>
 
 
 #### [예] 글자크기와 글자체를 변경해보자.
@@ -774,5 +774,5 @@ $("#fs").change(function(){
 });
 ```
 
-<p align="center"><img src="./images/210429/15.gif"></p>
+<p align="center"><img src="../images/210429/15.gif"></p>
 

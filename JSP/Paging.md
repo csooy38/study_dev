@@ -1,6 +1,6 @@
 # 하단에 이동할 페이지 넣기
  
-<p align="center"><img src="./images/210517/00.png"></p>
+<p align="center"><img src="../images/210517/00.png"></p>
 
 하단에 [1][2][3] ... 과 같이 클릭하면 해당 페이지로 넘어가는 페이징을 해 보자.  
 
@@ -115,7 +115,7 @@ DB상의 게시글 전체 리스트를 조회한다.
 
 1) 필요한 변수를 선언한다.
 
-<p align="center"><img src="./images/210517/01.png"></p>
+<p align="center"><img src="../images/210517/01.png"></p>
 
 
 ```java
@@ -213,7 +213,7 @@ BoardDAO 클래스에서 getBoardList() 메서드를 호출한다.
 sql문 작성에 주의.  
 
 
-<p align="center"><img src="./images/210517/02.png"></p>
+<p align="center"><img src="../images/210517/02.png"></p>
 
 ```java
 sql = "select * from "

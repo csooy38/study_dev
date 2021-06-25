@@ -1,6 +1,6 @@
 # 검색 결과창 하단에 이동할 페이지 넣기
  
-<p align="center"><img src="./images/210518/00.png"></p>
+<p align="center"><img src="../images/210518/00.png"></p>
 
 
 어제는 게시글에 이동할 페이지를 넣어보았다.  
@@ -294,7 +294,7 @@ row_number()와 over()의 사용법을 어느 정도 파악했다.
 
 하나 더 신경썼던 부분은 상단 출력문.  
 
-<p align="center"><img src="./images/210518/01.png"></p>
+<p align="center"><img src="../images/210518/01.png"></p>
 
 선택한 검색 분류나 작성한 검색 내용에 따라 출력되는 문구가 달라진다.  
 기초적인 코드지만 아직 EL코드가 익숙하지 않아 정상출력되는 것을 보니 무척 뿌듯했다.  

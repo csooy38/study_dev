@@ -22,7 +22,7 @@ http://bootstrapk.com/
 3. `.col-md-*` : 768 ~ 991px 에서는 화면에 세로로 배치된다.
 4. `.col-lg-*` : 992px ~ 화면 가로 너비에서는 화면에 세로로 배치된다.
 
-<p align="center"><img src="./images/210430/06.gif"></p>
+<p align="center"><img src="../images/210430/06.gif"></p>
 
 
 ### 리스트와 관련된 예제
@@ -37,7 +37,7 @@ http://bootstrapk.com/
 </ol>
 ```
 
-<p align="center"><img src="./images/210430/03.png"></p>
+<p align="center"><img src="../images/210430/03.png"></p>
 
 
 ### 이미지와 관련된 예제
@@ -45,7 +45,7 @@ http://bootstrapk.com/
 * `class="img-circle"`  
 * `class="thumbnail"` 
  
-<p align="center"><img src="./images/210430/02.png"></p>
+<p align="center"><img src="../images/210430/02.png"></p>
 
 
 
@@ -61,7 +61,7 @@ http://bootstrapk.com/
 ```
 
 
-<p align="center"><img src="./images/210430/00.png"></p>
+<p align="center"><img src="../images/210430/00.png"></p>
 
 
 
@@ -75,5 +75,5 @@ http://bootstrapk.com/
 <p class="bg-danger"><b>bg-danger</b></p>
 ```
 
-<p align="center"><img src="./images/210430/01.png"></p>
+<p align="center"><img src="../images/210430/01.png"></p>
 

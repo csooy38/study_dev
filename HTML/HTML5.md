@@ -62,10 +62,10 @@ span 태그 안에 폰트의 스타일을 사전에 정의한 후 호출하여 �
 ```
 
 코드 실행시 다음과 같이 출력된다.    
-<img src="./images/210420/01.png">    
+<img src="../images/210420/01.png">    
 
 span 태그 내의 color: 를 color: blue; 로 변경시 다음과 같이 출력된다.    
-<img src="./images/210420/02.png">
+<img src="../images/210420/02.png">
 
 
 ## 용어를 정의하고 용어를 설명하는 태그
@@ -88,7 +88,7 @@ dl 태그 안에 dt 태그와 dd 태그가 존재한다.
 	 </dl>
 ```
 코드 실행시 다음과 같이 출력된다.
-<img src="./images/210420/03.png">
+<img src="../images/210420/03.png">
 
 
 ## form 태그 (☆)
@@ -199,13 +199,13 @@ dl 태그 안에 dt 태그와 dd 태그가 존재한다.
 	</form>
 ```
 코드 실행 시 다음과 같은 창이 열린다.    
-<img src="./images/210420/04.png">
+<img src="../images/210420/04.png">
 
 아이디칸에 입력하면 칸에 연하게 있던 '4자리 이상 16자리 미만' 문장은 사라지고 키보드로 입력한 값이 나타난다.     
-<img src="./images/210420/05.png">
+<img src="../images/210420/05.png">
 
 '전송'을 누르면 form action=에서 설정했던 구글창으로 넘어간다. 현재로선 실제적인 입력값이 전송되지는 않는다.    
-<img src="./images/210420/05.5.png">
+<img src="../images/210420/05.5.png">
 
 
 ### 예시 2
@@ -223,7 +223,7 @@ dl 태그 안에 dt 태그와 dd 태그가 존재한다.
 </body>
 ```
 버튼 클릭 시 위에서 스크립트로 정의한 going() 함수가 실행되어 경고창이 출력된다.    
-<img src="./images/210420/06.png">
+<img src="../images/210420/06.png">
 
 
 ### 예시 3 체크박스 checkbox
@@ -240,7 +240,7 @@ dl 태그 안에 dt 태그와 dd 태그가 존재한다.
 ```
 체크박스는 다중 선택이 가능하다.    
 checked 로 지정된 '여행'이 기본적으로 선택되어 있다.
-<img src="./images/210420/07.png">
+<img src="../images/210420/07.png">
 
 
 ### 예시 4 라디오 버튼 radio button
@@ -254,7 +254,7 @@ checked 로 지정된 '여행'이 기본적으로 선택되어 있다.
 ```
 라디오 버튼은 다중 선택이 불가능하다.    
 checked 로 지정된 '남자'항목이 기본적으로 선택되어 있다.    
-<img src="./images/210420/08.png">
+<img src="../images/210420/08.png">
 
 ### 예시 5 textarea 
 textarea 태그는 여러 줄을 입력할 수 있는 태그이다.
@@ -268,7 +268,7 @@ textarea 태그는 여러 줄을 입력할 수 있는 태그이다.
 ```
 '하고 싶은 말을 작성하세요.' 적혀 있는 부분을 지우고 텍스트를 작성할 수 있다.    
 텍스트가 길어질 경우 세로로 스크롤바가 자동 생성된다.    
-<img src="./images/210420/09.png">
+<img src="../images/210420/09.png">
 
 
 ### 예시 6 file 
@@ -282,9 +282,9 @@ textarea 태그는 여러 줄을 입력할 수 있는 태그이다.
 ```
 파일 선택 버튼 클릭시 파일을 삽입할 수 있는 창이 열린다.    
 multiple 속성이 있으므로 ctrl 키를 누른 채 선택하면 다중 선택이 가능하다.    
-<img src="./images/210420/10.png"> <img src="./images/210420/11.png">
+<img src="../images/210420/10.png"> <img src="../images/210420/11.png">
 선택을 완료하면 몇 개의 파일이 선택되었는지 확인할 수 있다. 2개를 선택하였으므로 '파일 2개'라고 출력된다.    
-<img src="./images/210420/12.png">
+<img src="../images/210420/12.png">
     
 ### 예시 7 select
 
@@ -302,10 +302,10 @@ multiple 속성이 있으므로 ctrl 키를 누른 채 선택하면 다중 선�
 	</select>
 ```
 자바의 콤보박스와 비슷한 역할을 한다.    
-<img src="./images/210420/13.png">
-<img src="./images/210420/14.png">
+<img src="../images/210420/13.png">
+<img src="../images/210420/14.png">
 multiple 속성이 지정되어 있으므로 ctrl 키와 함께 클릭하면 다중 선택이 가능하다.    
-<img src="./images/210420/15.png">
+<img src="../images/210420/15.png">
 
 ### 예시 8 color
 ```html
@@ -314,9 +314,9 @@ multiple 속성이 지정되어 있으므로 ctrl 키와 함께 클릭하면 다
 	<input type="color">
 ```
 사각박스를 클릭 시 색상을 선택할 수 있다.    
-<img src="./images/210420/16.png">
+<img src="../images/210420/16.png">
 색상은 스펙트럼에서 고르거나 RGB 컬러값을 입력 또는 스포이드를 활용하는 등 다양하게 추출할 수 있다.    
-<img src="./images/210420/17.png">
+<img src="../images/210420/17.png">
 
 ### 예시 9 date & time
 ```html
@@ -331,12 +331,12 @@ multiple 속성이 지정되어 있으므로 ctrl 키와 함께 클릭하면 다
 	<input type="time">
 ```
 
-<img src="./images/210420/18.png">
+<img src="../images/210420/18.png">
 날짜를 클릭하면 만년달력에서 자유롭게 날짜를 고를 수 있다.     
 오늘 날짜를 선택하였다.    
-<img src="./images/210420/19.png">
+<img src="../images/210420/19.png">
 시간을 클릭하면 오전/오후, 시, 분 단위로 시간을 선택할 수 있다.    
-<img src="./images/210420/20.png">
+<img src="../images/210420/20.png">
 
 
 ### 예시 10 number & range
@@ -354,15 +354,15 @@ multiple 속성이 지정되어 있으므로 ctrl 키와 함께 클릭하면 다
     
 * number    
 value="10"이므로 실행 시 기본적으로 '10'으로 지정되어 있다.    
-<img src="./images/210420/21.png">
+<img src="../images/210420/21.png">
 min="1" max="20" 이므로 아무리 내려도 1 밑으로는 내려가지 않고, 아무리 올려도 20을 넘길 수 없다.    
 step="2" 이므로 2단위로 수를 조정할 수 있다. 최저숫자인 1부터 2씩 조정하므로 최대 19까지 선택 가능하다.    
-<img src="./images/210420/22.png">    
-<img src="./images/210420/23.png">    
+<img src="../images/210420/22.png">    
+<img src="../images/210420/23.png">    
 * range    
 원형버튼을 움직여 수를 조절할 수 있으나 구체적인 숫자는 표시되지 않는다.    
-<img src="./images/210420/25.png">    
-<img src="./images/210420/26.png">    
+<img src="../images/210420/25.png">    
+<img src="../images/210420/26.png">    
 
 
 ### 예시 11 week
@@ -374,10 +374,10 @@ step="2" 이므로 2단위로 수를 조정할 수 있다. 최저숫자인 1부�
 	<input type="week">
 ```
 실행 시 다음과 같은 창이 출력된다.    
-<img src="./images/210420/27.png">    
+<img src="../images/210420/27.png">    
 클릭하면 달력이 출력되고, 날짜를 선택하면 일년 52 주 중 몇 번째 주인지 알 수 있다.    
 오늘은 2021년의 16번째 주이다.
-<img src="./images/210420/28.png">     
+<img src="../images/210420/28.png">     
 
 ### 예시 12 email
 * required : 필수 입력 내용. 입력되지 않을 경우 오류가 발생한다.
@@ -393,9 +393,9 @@ step="2" 이므로 2단위로 수를 조정할 수 있다. 최저숫자인 1부�
 ```
 이메일 주소를 입력하는 창이 열린다.    
 현재로선 전송 버튼을 눌러도 실제로 데이터가 전송되지 않고, action에 지정된 사이트로만 페이지가 이동된다.	    
-<img src="./images/210420/29.png">	   
+<img src="../images/210420/29.png">	   
 required 설정이 되어 있으므로, 입력하지 않고 바로 전송 버튼을 누르면 다음과 같이 작성하라는 안내창이 뜬다.    	
-<img src="./images/210420/30.png">	  
+<img src="../images/210420/30.png">	  
 
 ### 예시 13 fieldset & legend
 * fieldset 태그 : HTML 태그들을 하나로 그룹화하는 역할을 하는 태그.
@@ -435,7 +435,7 @@ required 설정이 되어 있으므로, 입력하지 않고 바로 전송 버튼
 	</fieldset>
 ```
 fieldset 태그 안에 넣은 태그들이 하나의 박스 안에 담겨 출력된다.    
-<img src="./images/210420/31.png">    
+<img src="../images/210420/31.png">    
 
 ### 예시 14 audio & video
 * audio 태그 : 음악 파일을 실행할 수 있는 태그.   
@@ -453,9 +453,9 @@ fieldset 태그 안에 넣은 태그들이 하나의 박스 안에 담겨 출력
 ```
 음악 파일과 동영상 파일을 재생하거나 다운로드 받을 수 있다.    
 autoplay loop 코드가 있으므로 처음 재생 버튼을 누른 이후로는 자동으로 반복 재생된다.    
-<img src="./images/210420/32.png">    
+<img src="../images/210420/32.png">    
 동영상의 경우 PIP모드도 제공한다. 놀랍다.    
-<img src="./images/210420/33.png">    
+<img src="../images/210420/33.png">    
 
 
 

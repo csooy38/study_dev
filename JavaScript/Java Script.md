@@ -64,11 +64,11 @@ console.log("Hello, JavaScript");
 ```
 
 `<body>`태그에 아무 내용을 작성하지 않았으므로 깨끗한 창이 열리지만  
-<p align="center"><img src="./images/210422/00.png"></p>  
+<p align="center"><img src="../images/210422/00.png"></p>  
 
 
 개발자모드(F12)로 보면 콘솔창에 입력된 데이터가 잘 출력되어 있다.
-<p align="center"><img src="./images/210422/01.png"></p>  
+<p align="center"><img src="../images/210422/01.png"></p>  
 
 
 `console.log()`는 `html`태그 밖, `head`태그 안, `body`태그 안에서 선언이 가능하다.  
@@ -108,7 +108,7 @@ console.log("Hello, JavaScript");
 
 마찬가지로 창에는 아무것도 출력되지 않지만,  
 개발자모드의 콘솔창에서 각각의 태그에서 입력한 데이터가 출력되었음을 알 수 있다.  
-<p align="center"><img src="./images/210422/02.png"></p>  
+<p align="center"><img src="../images/210422/02.png"></p>  
 
 
 
@@ -122,7 +122,7 @@ document.write("document.write()를 이용하는 방법<br>");
 document.write("자바 스크립트");
 ```
 `<br>`을 넣었더니 줄바꿈이 잘 적용되었다.  
-<p align="center"><img src="./images/210422/03.png"></p> 
+<p align="center"><img src="../images/210422/03.png"></p> 
 
 
 이외에도 html 문법을 괄호 안에 넣어 다양하게 활용 가능하다.
@@ -131,7 +131,7 @@ document.write("자바 스크립트");
 document.write("<h4 style='color: red;'>document.write()와 html문법</h4><br>");
 ```
 
-<p align="center"><img src="./images/210422/04.png"></p> 
+<p align="center"><img src="../images/210422/04.png"></p> 
 
 
 
@@ -147,7 +147,7 @@ tab += "</table>"
 document.write(tab);
 ```
 
-<p align="center"><img src="./images/210422/06.png"></p> 
+<p align="center"><img src="../images/210422/06.png"></p> 
 
 
 ### 1.1.3. alert()를 이용하는 방법.
@@ -157,7 +157,7 @@ document.write(tab);
 alert("alert()를 이용하는 방법");
 ```
 실행하면 아래와 같이 새 창에 바로 알림창이 열린다.  
-<p align="center"><img src="./images/210422/05.png"></p> 
+<p align="center"><img src="../images/210422/05.png"></p> 
 
 
 ### * 디버깅 
@@ -166,7 +166,7 @@ alert("alert()를 이용하는 방법");
 
 ### * 외부에 있는 자바스크립트 파일을 불러와서 실행하는 방법 
 ```javascript
-<script type="text/javascript" src="../js/console.js"></script>
+<script type="text/javascript" src=".../js/console.js"></script>
 ```
 
 
@@ -186,7 +186,7 @@ alert("alert()를 이용하는 방법");
 alert("alert()를 이용하는 방법");
 ```
 실행하면 아래와 같이 새 창에 바로 알림창이 열린다.  
-<p align="center"><img src="./images/210422/05.png"></p> 
+<p align="center"><img src="../images/210422/05.png"></p> 
 
 
 ### 1.2.2. 확인창 `confirm`
@@ -202,15 +202,15 @@ console.log(typeof type);
 ```
 
 실행시 다음과 같이 `확인` 또는 `취소`를 선택할 수 있는 확인창이 자동 실행된다.  
-<p align="center"><img src="./images/210422/11.png"></p> 
+<p align="center"><img src="../images/210422/11.png"></p> 
 
 
 이중 `확인`을 선택하면 `true`값이,
-<p align="center"><img src="./images/210422/12.png"></p> 
+<p align="center"><img src="../images/210422/12.png"></p> 
 
 
 `취소`를 선택하면 `false`값이 반환된다.
-<p align="center"><img src="./images/210422/14.png"></p> 
+<p align="center"><img src="../images/210422/14.png"></p> 
 
 
 ### 1.2.3. 입력창 `prompt`
@@ -238,15 +238,15 @@ document.write("당신의 적정 몸무게는 " + standWeight + "kg입니다.<br
 
 실행하면 입력이 가능한 입력창이 자동으로 실행된다.  
 요구하는 값을 입력하고 `확인`을 누르면
-<p align="center"><img src="./images/210422/15.png"></p> 
+<p align="center"><img src="../images/210422/15.png"></p> 
 
 
 기존에 작성한 연산에 따른 적정 표준 몸무게를 출력한다.
-<p align="center"><img src="./images/210422/16.png"></p> 
+<p align="center"><img src="../images/210422/16.png"></p> 
 
 
 개발자모드로 확인하면 입력값은 `170`으로 정수였음에도 `string`타입으로 저장된 걸 알 수 있다.
-<p align="center"><img src="./images/210422/17.png"></p> 
+<p align="center"><img src="../images/210422/17.png"></p> 
 
 
 
@@ -272,7 +272,7 @@ console.log(name);
 
 동일한 변수명 `name`에 각기 다른 두 값이 모두 입력되어 정상 출력된다.   
 지금은 괜찮지만 코드가 길어지고 함수가 복잡해지면 문제가 발생할 수 있으므로 사용을 자제하는 것이 좋다.   
-<p align="center"><img src="./images/210422/07.png"></p> 
+<p align="center"><img src="../images/210422/07.png"></p> 
 
 
 
@@ -284,7 +284,7 @@ let name = "라라라";
 console.log(name);
 ```
 반면에 `let` 변수는 동일한 변수명 사용시 error가 발생하여, 동일한 변수명을 사용할 수 없다.  
-<p align="center"><img src="./images/210422/08.png"></p> 
+<p align="center"><img src="../images/210422/08.png"></p> 
 
 		
 ## 2.2. 상수
@@ -296,7 +296,7 @@ const num = 47;
 document.write(num);
 ```
 상수가 선언되어 브라우저에도 잘 출력된다.
-<p align="center"><img src="./images/210422/09.png"></p> 
+<p align="center"><img src="../images/210422/09.png"></p> 
 	
 
 이때 상수의 값을 변경해보면 어떻게 될까?
@@ -306,12 +306,12 @@ document.write(num + "<br>");
 ```
 
 위에서 선언한 `47`만 그대로 출력되고, 변경한 `150`은 출력되지 않는다.  
-<p align="center"><img src="./images/210422/09.png"></p>  
+<p align="center"><img src="../images/210422/09.png"></p>  
 
 
 개발자모드로 확인해보면 error 발생했음을 알 수 있다.  
 당연하지만 상수의 값은 변경할 수 없으므로, 강제로 변경시 error가 발생한다.
-<p align="center"><img src="./images/210422/10.png"></p> 
+<p align="center"><img src="../images/210422/10.png"></p> 
 		
 				
 		
@@ -333,7 +333,7 @@ document.write(num + "<br>");
 let data;
 document.write("data >>> " + data + "<br>");
 ```
-<p align="center"><img src="./images/210423/11.png"></p> 
+<p align="center"><img src="../images/210423/11.png"></p> 
 
 - `null` : 아무것도 참조하고 있지 않다는 의미. 주로 객체를 담을 변수를 초기화할 때 많이 사용된다.
 - `NaN` : Not A Number. 즉, 숫자가 아닌 데이터를 숫자처럼 사용할 때 나타난다.
@@ -343,7 +343,7 @@ let a = Number("$1000");
 document.write("a >>> " + a + "<br>");
 document.write("0/0 >>> " + 0/0);
 ```
-<p align="center"><img src="./images/210423/12.png"></p> 
+<p align="center"><img src="../images/210423/12.png"></p> 
 	
 
 ## 2.4. 변수명 작성 규칙
@@ -399,7 +399,7 @@ document.write(su1 + " == " + su2 + " >>> " + (su1 == su2) + "<br>");
 
 각기다른 자료형에 동일한 데이터를 넣어 비교하여 `==` 연산자로 비교하니  
 아래와 같이 `true`값이 반환되었다.  
-<p align="center"><img src="./images/210422/18.png"></p> 
+<p align="center"><img src="../images/210422/18.png"></p> 
 참고로 java에서는 `false`값을 반환한다.  
 
 
@@ -414,7 +414,7 @@ document.write(su1 + " === " + su2 + " >>> " + (su1 === su2) + "<br>");
 ```
 
 위의 결과와 다르게 좌항과 우항의 자료형이 다르므로 `false`값을 반환한다.
-<p align="center"><img src="./images/210422/19.png"></p>
+<p align="center"><img src="../images/210422/19.png"></p>
 
    
 ## 3.4. 논리 연산자 `&&` `||` `!`
@@ -440,7 +440,7 @@ document.write(c+"<br>");
 
 `!2`는 2가 아닌 값으로, 무조건 0이 된다.  
 0은 `false`, 0을 제외한 나머지는 모두 `true`이므로, `!2`는 `false`가 된다.  
-<p align="center"><img src="./images/210423/04.png"></p>  
+<p align="center"><img src="../images/210423/04.png"></p>  
 
 
 
@@ -459,7 +459,7 @@ document.write("++num1 = " + ++num1 + "<br>");
 document.write("num1++ = " + num1++ + "<br>");
 ```
 
-<p align="center"><img src="./images/210423/02.png"></p>
+<p align="center"><img src="../images/210423/02.png"></p>
 
 
 ```javascript
@@ -474,7 +474,7 @@ document.write("++a + b++ = " + ++a + b++ + "<br>"); // 13 + 20 = 33
 document.write("++a + ++b = " + ++a + ++b + "<br>"); // 14 + 22 = 36
 ```
 
-<p align="center"><img src="./images/210423/03.png"></p>
+<p align="center"><img src="../images/210423/03.png"></p>
 
 
 
@@ -490,7 +490,7 @@ let result = (num > 20) ? "참" : false;
 document.write("(num > 20) ? "참" : false >>>" + result);
 ```
 
-<p align="center"><img src="./images/210423/01.png"></p> 
+<p align="center"><img src="../images/210423/01.png"></p> 
 
 
 ## 3.7. 복합대입연산자  `+=` `-=` `*=` `/=` `%=`
@@ -506,7 +506,7 @@ document.write("a = a / 10 >>> " + (a /= 10) + "<br>");
 document.write("a = a % 10 >>> " + (a %= 10) + "<br>");
 ```
 
-<p align="center"><img src="./images/210423/00.png"></p> 
+<p align="center"><img src="../images/210423/00.png"></p> 
 
 
 
@@ -549,14 +549,14 @@ if(name) {
 }
 ```
 
-<p align="center"><img src="./images/210423/05.png"></p>   
-<p align="center"><img src="./images/210423/06.png"></p>   
+<p align="center"><img src="../images/210423/05.png"></p>   
+<p align="center"><img src="../images/210423/06.png"></p>   
 
 단, 조건식에 `0`, `null`, `""`, `undefined` 등의 값이 들어가면 `false`를 반환하므로 주의하자.  
 입력창에 아무것도 입력하지 않았더니 '님 환영합니다.' 조차 출력되지 않는다.  
 if문 자체가 `false`처리 되어 작동하지 않았기 때문이다.  
-<p align="center"><img src="./images/210423/07.png"></p> 
-<p align="center"><img src="./images/210423/08.png"></p> 
+<p align="center"><img src="../images/210423/07.png"></p> 
+<p align="center"><img src="../images/210423/08.png"></p> 
 
 
 #### [예] if문 : 사용자의 아이디가 "test"일 경우에만 환영문구를 출력해 보자.
@@ -570,8 +570,8 @@ if(userId == "test"){
 ```
 
 입력값이 "test"가 아닌 경우 아무것도 출력되지 않는다.  
-<p align="center"><img src="./images/210423/09.png"></p> 
-<p align="center"><img src="./images/210423/10.png"></p> 
+<p align="center"><img src="../images/210423/09.png"></p> 
+<p align="center"><img src="../images/210423/10.png"></p> 
 
 
 ### 4.1.2. 조건문 - if~else문
@@ -600,9 +600,9 @@ if(result) {
 
 `confirm`에서 `확인`은 `true`를, `취소`는 `false`를 반환하는 것을 이용하여 작성하였다.  
 확인 버튼을 누르면 탈퇴처리 메시지가, 취소 버튼을 누르면 취소처리 메시지가 출력된다.  
-<p align="center"><img src="./images/210423/13.png"></p> 
-<p align="center"><img src="./images/210423/14.png"></p> 
-<p align="center"><img src="./images/210423/15.png"></p> 
+<p align="center"><img src="../images/210423/13.png"></p> 
+<p align="center"><img src="../images/210423/14.png"></p> 
+<p align="center"><img src="../images/210423/15.png"></p> 
 
 
 ### 4.1.3. 조건문 - 다중 if~else문
@@ -654,19 +654,19 @@ document.write("학  점 : " + grade + "<br>");
 
 
 입력창에 국어, 영어, 수학 점수를 각각 입력하면  
-<p align="center"><img src="./images/210423/16.png"></p> 
-<p align="center"><img src="./images/210423/18.png"></p> 
-<p align="center"><img src="./images/210423/17.png"></p>
+<p align="center"><img src="../images/210423/16.png"></p> 
+<p align="center"><img src="../images/210423/18.png"></p> 
+<p align="center"><img src="../images/210423/17.png"></p>
 
 
 스크립트에 작성한 if~else문에 따라 학점까지 계산되어 출력된다.  
 평균값인 avg를 출력할 때 `toFixed()`를 이용하여 소숫점 아래 두자리까지만 출력되었다.  
-<p align="center"><img src="./images/210423/19.png"></p>
+<p align="center"><img src="../images/210423/19.png"></p>
 
 
 만약 `toFixed()`를 쓰지 않고 avg를 그대로 출력할 경우  
 avg의 자료형은 실수형이므로 아래와 같이 소숫점 아래 숫자가 길게 출력된다.  
-<p align="center"><img src="./images/210423/20.png"></p>
+<p align="center"><img src="../images/210423/20.png"></p>
 
 
 
@@ -722,14 +722,14 @@ if(url) {
 
 
 예를 들어 구글을 입력하면 자동으로 구글 사이트로 페이지가 이동된다.  
-<p align="center"><img src="./images/210423/21.png"></p>
-<p align="center"><img src="./images/210423/22.png"></p>
+<p align="center"><img src="../images/210423/21.png"></p>
+<p align="center"><img src="../images/210423/22.png"></p>
 
 
 만약 네이버, 다음, 구글 외의 사이트를 입력하거나 빈 창으로 확인을 누르면  
 현재 페이지가 새로고침되어 다시 값을 입력하는 창을 열린다.  
-<p align="center"><img src="./images/210423/23.png"></p>
-<p align="center"><img src="./images/210423/24.png"></p>
+<p align="center"><img src="../images/210423/23.png"></p>
+<p align="center"><img src="../images/210423/24.png"></p>
 
 
 
@@ -765,8 +765,8 @@ parseInt(Math.random()*10)+1	// 1 <= Math.random() < 11 : 1 ~ 10
 `Math.randome()` 함수를 이용하여 1에서부터 10까지의 난수를 만들어 추첨하는 코드를 작성하였다.  
 switch~case문에 따라 발생한 난수가 3, 5, 8이면 경품에 당첨되고, 이외의 숫자는 꽝에 해당한다.  
 실행하면 난수값이 변하면서 당첨과 꽝을 오간다. 30% 확률이라 당첨률은 그다지 나쁘지 않다.  
-<p align="center"><img src="./images/210423/25.png"></p>
-<p align="center"><img src="./images/210423/26.png"></p>
+<p align="center"><img src="../images/210423/25.png"></p>
+<p align="center"><img src="../images/210423/26.png"></p>
 
 
 
@@ -810,7 +810,7 @@ while (num <= 100) {	// num이 100보다 작은 동안 반복된다.
 
 `num++`에 의해 1에서 100까지 숫자가 커지는 동안   
 while문 안에서 if문이 수행되어 홀수는 빨간색, 짝수는 파란색으로 출력된다.   
-<p align="center"><img src="./images/210423/27.png"></p>
+<p align="center"><img src="../images/210423/27.png"></p>
 
 
 ### 4.2.2. 반복문 - for문
@@ -847,7 +847,7 @@ for(let i=1; i<=30; i++) {
 ```
 
 출력문에 html언어를 사용하여 출력문의 글자 색상을 변경할 수 있다.  
-<p align="center"><img src="./images/210423/28.png"></p>
+<p align="center"><img src="../images/210423/28.png"></p>
 
 
 
@@ -868,7 +868,7 @@ for(let i=1; i<=5; i++) {
 document.write("</table>");
 ```
 
-<p align="center"><img src="./images/210423/29.png"></p>
+<p align="center"><img src="../images/210423/29.png"></p>
 
 
 
@@ -896,7 +896,7 @@ document.write(arr1 + "<br>"); 	// 전체요소 출력
 document.write(arr1[2]);		// 특정 요소 출력
 ```
 
-<p align="center"><img src="./images/210423/30.png"></p>
+<p align="center"><img src="../images/210423/30.png"></p>
 
 
 
@@ -907,7 +907,7 @@ let arr2 = ['가나다', 'ABC', 123, true];
 // "" 나 '' 모두 동일하다.
 ```
 
-<p align="center"><img src="./images/210423/32.png"></p>
+<p align="center"><img src="../images/210423/32.png"></p>
 
 
 ### 5.1.3. let 배열명 = new Array();
@@ -919,7 +919,7 @@ arr3[2] = 123;
 arr3[3] = true;
 ```
 
-<p align="center"><img src="./images/210423/32.png"></p>
+<p align="center"><img src="../images/210423/32.png"></p>
 
 
 
@@ -929,7 +929,7 @@ arr3[3] = true;
 document.write(arr3[5]);
 ```
 
-<p align="center"><img src="./images/210423/31.png"></p>
+<p align="center"><img src="../images/210423/31.png"></p>
 
 
 
@@ -942,7 +942,7 @@ for(let i=0; i<arr3.length; i++) {
 }
 ```
 
-<p align="center"><img src="./images/210423/33.png"></p>
+<p align="center"><img src="../images/210423/33.png"></p>
 
 
 ## 5.2. 배열에 요소를 다루는 방법
@@ -957,7 +957,7 @@ arr.push(40);
 document.write(arr);
 ```
 
-<p align="center"><img src="./images/210423/34.png"></p>
+<p align="center"><img src="../images/210423/34.png"></p>
 
 
 * `concat()` : 배열에 복수 개의 데이터를 추가하는 방법.
@@ -968,7 +968,7 @@ arr = arr.concat([50, 60, 70]);
 document.write(arr);
 ```
 
-<p align="center"><img src="./images/210423/35.png"></p>
+<p align="center"><img src="../images/210423/35.png"></p>
 
 
 * `unshift(추가할 요소)` : 배열의 맨 앞(0번째 index)에 추가한다.
@@ -979,7 +979,7 @@ arr.unshift('0');
 document.write(arr);
 ```
 
-<p align="center"><img src="./images/210423/36.png"></p>
+<p align="center"><img src="../images/210423/36.png"></p>
 
 
 
@@ -990,7 +990,7 @@ arr.shift();
 document.write(arr);
 ```
 
-<p align="center"><img src="./images/210423/37.png"></p>
+<p align="center"><img src="../images/210423/37.png"></p>
 
 
 
@@ -1001,7 +1001,7 @@ arr.pop();
 document.write(arr);
 ```
 
-<p align="center"><img src="./images/210423/38.png"></p>
+<p align="center"><img src="../images/210423/38.png"></p>
 
 
 * `sort()` : 배열의 요소를 정렬하는 방법.
@@ -1014,7 +1014,7 @@ arr.sort();
 document.write(arr + "<br>");
 ```
 
-<p align="center"><img src="./images/210423/39.png"></p>
+<p align="center"><img src="../images/210423/39.png"></p>
 
 
 * `reverse()` : 배열의 요소를 역순(내림차순)으로 정렬하는 방법.
@@ -1024,7 +1024,7 @@ arr.reverse();
 document.write(arr + "<br>");
 ```
 
-<p align="center"><img src="./images/210423/40.png"></p>
+<p align="center"><img src="../images/210423/40.png"></p>
 
 
 
@@ -1071,7 +1071,7 @@ function hello() {	// 함수 정의
 hello();	// 정의한 함수 호출
 ```
 
-<p align="center"><img src="./images/210426/00.png"></p>
+<p align="center"><img src="../images/210426/00.png"></p>
 
 
 #### [예] 함수 : 매개변수가 있는 함수를 호출하는 코드를 작성해 보자.
@@ -1090,12 +1090,12 @@ adder(su1, su2);
 ```
 
 두 수를 입력하면   
-<p align="center"><img src="./images/210426/01.png"></p>
-<p align="center"><img src="./images/210426/02.png"></p>
+<p align="center"><img src="../images/210426/01.png"></p>
+<p align="center"><img src="../images/210426/02.png"></p>
 
 
 사용자 정의 함수에 따라 두 수의 합이 자동으로 출력된다.   
-<p align="center"><img src="./images/210426/03.png"></p>
+<p align="center"><img src="../images/210426/03.png"></p>
 
 
 
@@ -1117,9 +1117,9 @@ document.write(su1 + " + " + su2 + " = " + result + "<br>");
 ```
 
 
-<p align="center"><img src="./images/210426/04.png"></p>
-<p align="center"><img src="./images/210426/05.png"></p>
-<p align="center"><img src="./images/210426/07.png"></p>
+<p align="center"><img src="../images/210426/04.png"></p>
+<p align="center"><img src="../images/210426/05.png"></p>
+<p align="center"><img src="../images/210426/07.png"></p>
 
 
 
@@ -1141,7 +1141,7 @@ let 변수에는 함수도 저장이 가능하다.
 따라서 let 변수를 함수와 같이 `numbering()`로 호출하면 자동으로 `function()`이 실행된다.   
 
 
-<p align="center"><img src="./images/210426/06.png"></p>
+<p align="center"><img src="../images/210426/06.png"></p>
 
 
 
@@ -1172,11 +1172,11 @@ function sample() {
 sample();
 ```
 
-<p align="center"><img src="./images/210426/04.png"></p>
-<p align="center"><img src="./images/210426/05.png"></p>
-<p align="center"><img src="./images/210426/08.png"></p>
-<p align="center"><img src="./images/210426/09.png"></p>
-<p align="center"><img src="./images/210426/10.png"></p>
+<p align="center"><img src="../images/210426/04.png"></p>
+<p align="center"><img src="../images/210426/05.png"></p>
+<p align="center"><img src="../images/210426/08.png"></p>
+<p align="center"><img src="../images/210426/09.png"></p>
+<p align="center"><img src="../images/210426/10.png"></p>
 
 
 
@@ -1203,7 +1203,7 @@ for(let k in member) {
 }
 ```
 
-<p align="center"><img src="./images/210426/11.png"></p>
+<p align="center"><img src="../images/210426/11.png"></p>
 
 
 
@@ -1221,7 +1221,7 @@ for(let k in member) {
 }
 ```
 
-<p align="center"><img src="./images/210426/12.png"></p>
+<p align="center"><img src="../images/210426/12.png"></p>
 
 
 
@@ -1247,7 +1247,7 @@ document.write("현재 일 : " + date.getDate() + "일<br>")
 
 `getYear()`를 사용할 경우 +1900을 해줘야 입력 년도가 정확하게 출력된다.  
 `getMonth()`를 사용할 경우 +1을 해줘야 입력 달(월)이 정확하게 출력된다.  
-<p align="center"><img src="./images/210426/13.png"></p>
+<p align="center"><img src="../images/210426/13.png"></p>
 
 
 
@@ -1282,7 +1282,7 @@ switch(day) {
 * `getDay()` : 현재 요일 ==> 정수값 반환(0:일요일 ~ 6:토요일)
 
 오늘 요일인 월요일이 제대로 출력된다.
-<p align="center"><img src="./images/210426/14.png"></p>
+<p align="center"><img src="../images/210426/14.png"></p>
 
 
 ```javascript
@@ -1295,7 +1295,7 @@ document.write(date.getSeconds() + " : ");
 * `getMinutes()` : 분을 출력.
 * `getSeconds()` : 초를 출력.
 
-<p align="center"><img src="./images/210426/15.png"></p>
+<p align="center"><img src="../images/210426/15.png"></p>
 
 
 
@@ -1326,7 +1326,7 @@ document.write("2.5234의 ceil() : " + Math.ceil(num) + "<br>");
 document.write("2.5234의 floor() : " + Math.floor(num) + "<br>");
 ```
 
-<p align="center"><img src="./images/210426/16.png"></p>
+<p align="center"><img src="../images/210426/16.png"></p>
 
 
 
@@ -1368,11 +1368,11 @@ document.write("표현가능한 컬러 bit >>> " + screen.colorDepth + "<br>");
 ```
 
 실제 컴퓨터 해상도와 일치하는 가로너비와 세로높이가 출력된다.  
-<p align="center"><img src="./images/210426/17.png"></p>
+<p align="center"><img src="../images/210426/17.png"></p>
 
 
 화면 높이와 작업표시줄을 제외한 화면 높이를 비교해보면 작업표시줄의 높이는 40px임을 짐작해볼 수 있다.      
-<p align="center"><img src="./images/210426/18.png"></p>
+<p align="center"><img src="../images/210426/18.png"></p>
 
 
 
@@ -1387,7 +1387,7 @@ document.write("url 정보 >>> " + location.href);
 ```
 
 현재 브라우저의 url 값이 그대로 출력되었다.
-<p align="center"><img src="./images/210426/19.png"></p>
+<p align="center"><img src="../images/210426/19.png"></p>
 
 
 ## 8.4. history 객체
@@ -1416,7 +1416,7 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/20.png"></p>
+<p align="center"><img src="../images/210426/20.png"></p>
 
 
 두번째 페이지)
@@ -1433,7 +1433,7 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/21.png"></p>
+<p align="center"><img src="../images/210426/21.png"></p>
 
 
 세번째 페이지)
@@ -1453,11 +1453,11 @@ document.write("url 정보 >>> " + location.href);
 </body>
 ```
 
-<p align="center"><img src="./images/210426/22.png"></p>
+<p align="center"><img src="../images/210426/22.png"></p>
 
 
 다음과 같이 실행된다. 
-<p align="center"><img src="./images/210426/00.gif"></p>
+<p align="center"><img src="../images/210426/00.gif"></p>
 
 
 
@@ -1581,11 +1581,11 @@ window.onload = function() {
 
 `<script>` 영역에 트리 구조로 요소를 쌓았다.  
 `<body>` 태그에는 아무것도 작성하지 않았음에도 텍스트 노드에 작성한 내용이 `<h1>`태그로 작성되어 출력된다.  
-<p align="center"><img src="./images/210426/23.png"></p>
+<p align="center"><img src="../images/210426/23.png"></p>
 
 
 개발자 모드로 확인하면 `<body>` 태그에 작성한 것과 동일하게 나온다.  
-<p align="center"><img src="./images/210426/24.png"></p>
+<p align="center"><img src="../images/210426/24.png"></p>
 
 
 
@@ -1600,7 +1600,7 @@ onload = function() {
 	let imgNode = document.createElement("img");
 	
 	// 이미지 태그에 이미지를 넣으려면 src 속성이 지정되어야 한다.
-	imgNode.src = "../images/mango.jpg";
+	imgNode.src = ".../images/mango.jpg";
 	imgNode.width = "200";
 	imgNode.height = "200";
 	
@@ -1612,14 +1612,14 @@ onload = function() {
 src 속성 지정을 아래와 같이 작성해도 동일한 결과가 나온다.  
 
 ```javascript
-imgNode.setAttribute("src", "../images/mango.jpg");
+imgNode.setAttribute("src", ".../images/mango.jpg");
 imgNode.setAttribute("width", 200);
 imgNode.setAttribute("height", 200);
 ```
 
 
 지정한 사이즈인 200*200 크기의 망고 이미지가 출력되었다.  
-<p align="center"><img src="./images/210426/25.png"></p>
+<p align="center"><img src="../images/210426/25.png"></p>
 
 
 ## 9.1. 문서의 요소를 가져오는 방법 
@@ -1651,7 +1651,7 @@ imgNode.setAttribute("height", 200);
 
 `<body>` 태그에서 'Header 1', 'Header 2'라고 설정하였으나,  
 각각 'header_1 id를 가진 요소', 'header_2 id를 가진 요소'로 내용이 변경되었다.
-<p align="center"><img src="./images/210426/26.png"></p>
+<p align="center"><img src="../images/210426/26.png"></p>
 
 
 
@@ -1690,10 +1690,10 @@ for(let i=0; i<headers.length; i++){
 ```
 
 기존 출력문)  
-<p align="center"><img src="./images/210426/31.png"></p>
+<p align="center"><img src="../images/210426/31.png"></p>
 
 DOM 적용 후)
-<p align="center"><img src="./images/210426/28.png"></p>
+<p align="center"><img src="../images/210426/28.png"></p>
 
 
 
@@ -1711,7 +1711,7 @@ onload = function() {
 	}
 ```
 
-<p align="center"><img src="./images/210426/27.png"></p>
+<p align="center"><img src="../images/210426/27.png"></p>
 
 
 
@@ -1729,7 +1729,7 @@ onload = function() {
 }
 ```
 
-<p align="center"><img src="./images/210426/29.png"></p>
+<p align="center"><img src="../images/210426/29.png"></p>
 
 
 
@@ -1756,7 +1756,7 @@ onload = function() {
 }
 ```
 
-<p align="center"><img src="./images/210426/01.gif"></p>
+<p align="center"><img src="../images/210426/01.gif"></p>
 
 
 
@@ -1793,7 +1793,7 @@ onload = function() {
 ```
 
 
-<p align="center"><img src="./images/210426/02.gif"></p>
+<p align="center"><img src="../images/210426/02.gif"></p>
 
 
 
@@ -1829,7 +1829,7 @@ onload = function() {
 </body>
 ```
 
-<p align="center"><img src="./images/210426/03.gif"></p>
+<p align="center"><img src="../images/210426/03.gif"></p>
 
 
 ## 9.5. 자바스크립트 내장 함수
@@ -1874,7 +1874,7 @@ onload = function() {
 ```
 
 
-<p align="center"><img src="./images/210426/04.gif"></p>
+<p align="center"><img src="../images/210426/04.gif"></p>
 
 
 
@@ -1960,7 +1960,7 @@ onload = function() {
 </body>
 ```
 
-<p align="center"><img src="./images/210426/05.gif"></p>
+<p align="center"><img src="../images/210426/05.gif"></p>
 
 
 
