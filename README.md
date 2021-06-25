@@ -22,7 +22,7 @@
   - <a href="JavaScript/Java Script2.md">BOM & DOM</a>
 --------------------
 ## 6. JQuery
-  - <a href="https://github.com/csooy38/github/blob/main/JQuery.md">JQuery</a>
+  - <a href="JQuery/JQuery.md">JQuery</a>
 --------------------
 ## 7. Responsible Web
   - <a href="ResponsibleWeb/Responsible Web.md">Responsible Web</a>
