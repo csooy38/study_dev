@@ -5,7 +5,7 @@
 대신 `c3p0`와 같은 커넥션풀 라이브러리를 이용해서 커넥션풀을 지원하는 DataSource를 설정할 수 있다.    
 	
 ### 4.1. 스프링 커넥션풀 설정 방법
-1. pom.xml 파일에 `c3p0` 라이브러리를 추가한다. <a href="Annotation/Annotation.md">[라이브러리 추가 방법]</a>
+1. pom.xml 파일에 `c3p0` 라이브러리를 추가한다. <a href="https://github.com/csooy38/github/blob/306369051009266cabac5ddeb038eeda9815ace3/Spring/Connection%20Pool.md">[라이브러리 추가 방법]</a>
 
 ```xml
 <!-- c3p0 라이브러리 -->
