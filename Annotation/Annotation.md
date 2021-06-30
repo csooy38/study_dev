@@ -51,7 +51,7 @@
 2. 추가방법 : pom.xml에 cglib 라이브러리 추가.
 
 	```xml
-	<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+	<!-- cglib 라이브러리 : 동적으로 자바 클래스의 프록시를 생성해주는 기능 제공 -->
 	<dependency>
 	    <groupId>cglib</groupId>
 	    <artifactId>cglib</artifactId>
@@ -69,15 +69,27 @@
 ---
 ### * spring-jdbc
 
-```xml
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-jdbc</artifactId>
-    <version>${org.springframeword-version}</version>
-</dependency>
-```
+	```xml
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>${org.springframeword-version}</version>
+	</dependency>
+	```
 
+---
+### * c3p0
+
+	```xml
+	<!-- c3p0 라이브러리 -->
+	<dependency>
+		<groupId>com.mchange</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.5.2</version>
+	</dependency>
+	```
+	
 ---
 ### * `@Repository`
 Spring에서 일반적으로 DAO 클래스에 적용되는 애노테이션.
@@ -88,7 +100,45 @@ Spring에서 일반적으로 DAO 클래스에 적용되는 애노테이션.
 자동으로 의존관계가 설정되는 애노테이션.    
 무조건 객체에 대한 의존을 주입하는 애노테이션.  
 
+---
+### * aspectjweaver
+	```xml
+	<!-- Spring AOP aspectjweaver 라이브러리 -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.9.6</version>
+	</dependency>
+	```
+---
+### * MyBatis
 
+	```xml
+	<!-- mybatis 프레임워크 라이브러리 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.4.6</version>
+	</dependency>
+	```
+	
+	```xml
+	<!-- mybatis-spring 라이브러리 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+	```
+	
+	```xml
+	<!-- spring-jdbc 라이브러리 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	```
 
 
 
