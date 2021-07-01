@@ -79,16 +79,24 @@ com.spring 패키지 아래에 있는 모든 파일들을 자동으로 읽도록
 ```
 
 * **EmpDAO 인터페이스**
+필요 메서드를 추상메서드로 선언한다.  
 
 ```java
 public interface EmpDAO {
-	public List<EmpDTO> getEmpList();
+	public EmpDTO getCont(int empno);
 }
 ```
 
 * **EmpDAOImpl 클래스**
 EmpDAO 인터페이스를 상속받아 추상메서드를 오버라이딩 한다.   
-`this.sqlSession.selectList(" id ")`로 emp.xml에서 동일한 `id`의 sql문을 실행 후 값을 받아온다.  
+emp.xml에서 동일한 `id`의 sql문을 실행 후 값을 받아온다.  
+파라미터가 존재하지 않으면 `id`만, 넘겨줄 파라미터가 존재하면 파라미터까지 작성한다.  
+
+* `this.sqlSession.selectList(" id " )` : 리스트를 반환받을 때 사용. 
+* `this.sqlSession.selectOne(" id ", 파라미터)` : 하나의 값을 반환받을 때 사용.
+* `this.sqlSession.insert(" id ", 파라미터)` : insert문을 작성할 때 사용.
+* `this.sqlSession.update(" id ", 파라미터)` : update문을 작성할 때 사용.
+* `this.sqlSession.delete(" id ", 파라미터)` : delete문을 작성할 때 사용.
 
 ```java
 @Repository
@@ -98,9 +106,9 @@ public class EmpDAOImpl implements EmpDAO {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<EmpDTO> getEmpList() {
+	public EmpDTO getCont(int empno) {
 		
-		return this.sqlSession.selectList("allList");
+		return this.sqlSession.selectOne("cont", empno);
 	}
 }
 ```
@@ -110,21 +118,36 @@ src/main/resources/mapper 폴더 아래 있는 파일.
 root-context.xml 에서 SqlSessionFactory 클래스 설정시 작성한 mapperlocations의 위치와 동일한 곳에 있어야 한다.  
 EmpDAOImpl 클래스의 메서드에서 호출한 `id`와 동일한 mapper가 실행되고 설정된 resultType으로 반환한다.  
 
+* `namespace` : 패키지 포함해서 인터페이스 이름으로 작성해야 한다. mapper 들을 구분하는 식별자로 매우 중요하다.  
+* `id` : 컨트롤러에서 지정한 `id`와 동일한 `id`를 찾아서 실행된다.  
+* `resultType` : 반환타입을 설정한다. 패키지명까지 작성해야 한다.   
+* `parameterType` : 넘어오는 파라미터 타입과 동일하게 설정한다.     
+`empno = ?`와 같이 `?`에 들어가는 값에 해당하며, sql문 작성시 `#{파라미터명}`과 같이 작성한다.   
+* `<select>` `<insert>` `<update>` `<delete>` : 작성하는 sql문에 맞는 태그를 사용하여 작성한다.    
+
+
+* `![CDATA[]]` : 쿼리문을 작성할 때 조건식 기호(`<`, `>`, `&`)를 사용해야 하는데 XML에서 이런 기호들을 쿼리문의 조건식 기호를 인식하는 것이 아니라 태그로 인식하는 경우가 발생한다. 이런 경우에는 에러가 발생한다. 따라서 이 조건식 기호를 단순한 문자열로 인식시켜주어야 한다.
+
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<!-- namespace 명은 패키지 포함해서 인터페이스 이름으로 작성해야 한다. 
-	namespace는 mapper 들을 구분하는 식별자로 매우 중요하다. -->
-
 <mapper namespace="com.spring.model.EmpDAO">
 
-	<select id="allList" resultType="com.spring.model.EmpDTO">
-		<!-- sql문 작성 -->
-		select * from emp order by empno	
+	<!-- 파라미터(인자) 타입과 반환타입을 지정해준다. -->
+	<!-- 파라미터는 `#{파라미터명}`으로 지정 -->
+	<select id="cont" parameterType="int" resultType="com.spring.model.EmpDTO">
+		select * from emp where empno = #{empno}
 	</select>
+	
+	<update id="seq" parameterType="int">
+		<![CDATA[
+			update products set pnum = pnum -1 where pnum > #{pnum}
+		]]>
+	</update>
 	
 </mapper>
 ```
